@@ -22,6 +22,7 @@
 		4B04027414F6BDBD00BD469D /* accTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B04027314F6BDBD00BD469D /* accTests.m */; };
 		4B04027E14F6CD7C00BD469D /* scotiabank_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B04027D14F6CD7C00BD469D /* scotiabank_logo.png */; };
 		4B04028B14F6E01900BD469D /* sbi_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B04028A14F6E01900BD469D /* sbi_icon.png */; };
+		4B0F4BCB14F7FC0A00A9E9ED /* test.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B0F4BCA14F7FC0A00A9E9ED /* test.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		4B04027314F6BDBD00BD469D /* accTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = accTests.m; sourceTree = "<group>"; };
 		4B04027D14F6CD7C00BD469D /* scotiabank_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scotiabank_logo.png; sourceTree = "<group>"; };
 		4B04028A14F6E01900BD469D /* sbi_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sbi_icon.png; sourceTree = "<group>"; };
+		4B0F4BC914F7FC0A00A9E9ED /* test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = test.h; sourceTree = "<group>"; };
+		4B0F4BCA14F7FC0A00A9E9ED /* test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = test.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +120,8 @@
 		4B04024E14F6BDBD00BD469D /* acc */ = {
 			isa = PBXGroup;
 			children = (
+				4B0F4BC914F7FC0A00A9E9ED /* test.h */,
+				4B0F4BCA14F7FC0A00A9E9ED /* test.m */,
 				4B04025714F6BDBD00BD469D /* SBIAppDelegate.h */,
 				4B04025814F6BDBD00BD469D /* SBIAppDelegate.m */,
 				4B04025A14F6BDBD00BD469D /* MainStoryboard.storyboard */,
@@ -269,6 +274,7 @@
 				4B04025514F6BDBD00BD469D /* main.m in Sources */,
 				4B04025914F6BDBD00BD469D /* SBIAppDelegate.m in Sources */,
 				4B04025F14F6BDBD00BD469D /* SBIViewController.m in Sources */,
+				4B0F4BCB14F7FC0A00A9E9ED /* test.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

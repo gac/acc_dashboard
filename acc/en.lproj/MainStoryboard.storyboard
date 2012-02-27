@@ -73,6 +73,7 @@
                     <connections>
                         <outlet property="activityIndicatorLabel" destination="8i1-fd-lL0" id="UtP-ZF-FWA"/>
                         <outlet property="activityIndicatorView" destination="8ch-IL-WQK" id="8HK-6x-vPG"/>
+                        <outlet property="copyrightLabel" destination="sjl-ya-ZDE" id="mrn-rw-Cfb"/>
                         <outlet property="logoImageView" destination="HwP-RV-QcS" id="MzB-qU-Ucd"/>
                         <outlet property="passwordField" destination="hVI-dx-wVX" id="s5m-6u-ICZ"/>
                         <outlet property="passwordLabel" destination="qaN-0e-ldP" id="x9Y-qh-987"/>
@@ -93,6 +94,7 @@
             <relationships>
                 <relationship kind="outlet" name="activityIndicatorLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="activityIndicatorView" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="copyrightLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="logoImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="passwordField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="passwordLabel" candidateClass="UILabel"/>

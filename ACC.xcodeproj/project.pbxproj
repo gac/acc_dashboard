@@ -1,0 +1,344 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4B53B26D151BBF15003620E0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B53B26C151BBF15003620E0 /* UIKit.framework */; };
+		4B53B26F151BBF15003620E0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B53B26E151BBF15003620E0 /* Foundation.framework */; };
+		4B53B271151BBF15003620E0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B53B270151BBF15003620E0 /* CoreGraphics.framework */; };
+		4B53B277151BBF15003620E0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4B53B275151BBF15003620E0 /* InfoPlist.strings */; };
+		4B53B279151BBF15003620E0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B53B278151BBF15003620E0 /* main.m */; };
+		4B53B27D151BBF15003620E0 /* SBIAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B53B27C151BBF15003620E0 /* SBIAppDelegate.m */; };
+		4B53B280151BBF15003620E0 /* SBIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B53B27F151BBF15003620E0 /* SBIViewController.m */; };
+		4B53B283151BBF15003620E0 /* SBIViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B53B281151BBF15003620E0 /* SBIViewController.xib */; };
+		4B53B28F151BCCDA003620E0 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B53B28E151BCCDA003620E0 /* RootViewController.m */; };
+		4B53B292151BCD75003620E0 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B53B291151BCD75003620E0 /* DetailViewController.m */; };
+		4B53B299151BCEDC003620E0 /* RootLevel1.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B53B297151BCEDB003620E0 /* RootLevel1.m */; };
+		4B53B29A151BCEDC003620E0 /* RootLevel1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B53B298151BCEDC003620E0 /* RootLevel1.xib */; };
+		4B53B29E151BCF27003620E0 /* DetailLevel1.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B53B29C151BCF26003620E0 /* DetailLevel1.m */; };
+		4B53B29F151BCF27003620E0 /* DetailLevel1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B53B29D151BCF27003620E0 /* DetailLevel1.xib */; };
+		4B53B2A7151BD11A003620E0 /* RootLevel2.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B53B2A5151BD119003620E0 /* RootLevel2.m */; };
+		4B53B2A8151BD11A003620E0 /* RootLevel2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B53B2A6151BD11A003620E0 /* RootLevel2.xib */; };
+		4B53B2AC151BD155003620E0 /* DetailLevel2.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B53B2AA151BD154003620E0 /* DetailLevel2.m */; };
+		4B53B2AD151BD155003620E0 /* DetailLevel2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B53B2AB151BD155003620E0 /* DetailLevel2.xib */; };
+		4B53B2BB151CDED4003620E0 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B53B2BA151CDED2003620E0 /* MainWindow.xib */; };
+		4B53B2BD151CEC9C003620E0 /* DetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B53B2BC151CEC9B003620E0 /* DetailView.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4B53B268151BBF15003620E0 /* ACC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ACC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B53B26C151BBF15003620E0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		4B53B26E151BBF15003620E0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4B53B270151BBF15003620E0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4B53B274151BBF15003620E0 /* ACC-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ACC-Info.plist"; sourceTree = "<group>"; };
+		4B53B276151BBF15003620E0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4B53B278151BBF15003620E0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4B53B27A151BBF15003620E0 /* ACC-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ACC-Prefix.pch"; sourceTree = "<group>"; };
+		4B53B27B151BBF15003620E0 /* SBIAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBIAppDelegate.h; sourceTree = "<group>"; };
+		4B53B27C151BBF15003620E0 /* SBIAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBIAppDelegate.m; sourceTree = "<group>"; };
+		4B53B27E151BBF15003620E0 /* SBIViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBIViewController.h; sourceTree = "<group>"; };
+		4B53B27F151BBF15003620E0 /* SBIViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBIViewController.m; sourceTree = "<group>"; };
+		4B53B282151BBF15003620E0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SBIViewController.xib; sourceTree = "<group>"; };
+		4B53B28D151BCCDA003620E0 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		4B53B28E151BCCDA003620E0 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		4B53B290151BCD75003620E0 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		4B53B291151BCD75003620E0 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		4B53B296151BCEDB003620E0 /* RootLevel1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootLevel1.h; sourceTree = "<group>"; };
+		4B53B297151BCEDB003620E0 /* RootLevel1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootLevel1.m; sourceTree = "<group>"; };
+		4B53B298151BCEDC003620E0 /* RootLevel1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootLevel1.xib; sourceTree = "<group>"; };
+		4B53B29B151BCF26003620E0 /* DetailLevel1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailLevel1.h; sourceTree = "<group>"; };
+		4B53B29C151BCF26003620E0 /* DetailLevel1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailLevel1.m; sourceTree = "<group>"; };
+		4B53B29D151BCF27003620E0 /* DetailLevel1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailLevel1.xib; sourceTree = "<group>"; };
+		4B53B2A4151BD119003620E0 /* RootLevel2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootLevel2.h; sourceTree = "<group>"; };
+		4B53B2A5151BD119003620E0 /* RootLevel2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootLevel2.m; sourceTree = "<group>"; };
+		4B53B2A6151BD11A003620E0 /* RootLevel2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootLevel2.xib; sourceTree = "<group>"; };
+		4B53B2A9151BD153003620E0 /* DetailLevel2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailLevel2.h; sourceTree = "<group>"; };
+		4B53B2AA151BD154003620E0 /* DetailLevel2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailLevel2.m; sourceTree = "<group>"; };
+		4B53B2AB151BD155003620E0 /* DetailLevel2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailLevel2.xib; sourceTree = "<group>"; };
+		4B53B2BA151CDED2003620E0 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		4B53B2BC151CEC9B003620E0 /* DetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailView.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4B53B265151BBF15003620E0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B53B26D151BBF15003620E0 /* UIKit.framework in Frameworks */,
+				4B53B26F151BBF15003620E0 /* Foundation.framework in Frameworks */,
+				4B53B271151BBF15003620E0 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4B53B25D151BBF15003620E0 = {
+			isa = PBXGroup;
+			children = (
+				4B53B272151BBF15003620E0 /* ACC */,
+				4B53B26B151BBF15003620E0 /* Frameworks */,
+				4B53B269151BBF15003620E0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4B53B269151BBF15003620E0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4B53B268151BBF15003620E0 /* ACC.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4B53B26B151BBF15003620E0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4B53B26C151BBF15003620E0 /* UIKit.framework */,
+				4B53B26E151BBF15003620E0 /* Foundation.framework */,
+				4B53B270151BBF15003620E0 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4B53B272151BBF15003620E0 /* ACC */ = {
+			isa = PBXGroup;
+			children = (
+				4B53B2BC151CEC9B003620E0 /* DetailView.xib */,
+				4B53B2BA151CDED2003620E0 /* MainWindow.xib */,
+				4B53B2A9151BD153003620E0 /* DetailLevel2.h */,
+				4B53B2AA151BD154003620E0 /* DetailLevel2.m */,
+				4B53B2AB151BD155003620E0 /* DetailLevel2.xib */,
+				4B53B2A4151BD119003620E0 /* RootLevel2.h */,
+				4B53B2A5151BD119003620E0 /* RootLevel2.m */,
+				4B53B2A6151BD11A003620E0 /* RootLevel2.xib */,
+				4B53B29B151BCF26003620E0 /* DetailLevel1.h */,
+				4B53B29C151BCF26003620E0 /* DetailLevel1.m */,
+				4B53B29D151BCF27003620E0 /* DetailLevel1.xib */,
+				4B53B296151BCEDB003620E0 /* RootLevel1.h */,
+				4B53B297151BCEDB003620E0 /* RootLevel1.m */,
+				4B53B298151BCEDC003620E0 /* RootLevel1.xib */,
+				4B53B290151BCD75003620E0 /* DetailViewController.h */,
+				4B53B291151BCD75003620E0 /* DetailViewController.m */,
+				4B53B28D151BCCDA003620E0 /* RootViewController.h */,
+				4B53B28E151BCCDA003620E0 /* RootViewController.m */,
+				4B53B27B151BBF15003620E0 /* SBIAppDelegate.h */,
+				4B53B27C151BBF15003620E0 /* SBIAppDelegate.m */,
+				4B53B27E151BBF15003620E0 /* SBIViewController.h */,
+				4B53B27F151BBF15003620E0 /* SBIViewController.m */,
+				4B53B281151BBF15003620E0 /* SBIViewController.xib */,
+				4B53B273151BBF15003620E0 /* Supporting Files */,
+			);
+			path = ACC;
+			sourceTree = "<group>";
+		};
+		4B53B273151BBF15003620E0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4B53B274151BBF15003620E0 /* ACC-Info.plist */,
+				4B53B275151BBF15003620E0 /* InfoPlist.strings */,
+				4B53B278151BBF15003620E0 /* main.m */,
+				4B53B27A151BBF15003620E0 /* ACC-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4B53B267151BBF15003620E0 /* ACC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B53B286151BBF15003620E0 /* Build configuration list for PBXNativeTarget "ACC" */;
+			buildPhases = (
+				4B53B264151BBF15003620E0 /* Sources */,
+				4B53B265151BBF15003620E0 /* Frameworks */,
+				4B53B266151BBF15003620E0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ACC;
+			productName = ACC;
+			productReference = 4B53B268151BBF15003620E0 /* ACC.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4B53B25F151BBF15003620E0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = Scotiabank;
+			};
+			buildConfigurationList = 4B53B262151BBF15003620E0 /* Build configuration list for PBXProject "ACC" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4B53B25D151BBF15003620E0;
+			productRefGroup = 4B53B269151BBF15003620E0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4B53B267151BBF15003620E0 /* ACC */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4B53B266151BBF15003620E0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B53B277151BBF15003620E0 /* InfoPlist.strings in Resources */,
+				4B53B283151BBF15003620E0 /* SBIViewController.xib in Resources */,
+				4B53B29A151BCEDC003620E0 /* RootLevel1.xib in Resources */,
+				4B53B29F151BCF27003620E0 /* DetailLevel1.xib in Resources */,
+				4B53B2A8151BD11A003620E0 /* RootLevel2.xib in Resources */,
+				4B53B2AD151BD155003620E0 /* DetailLevel2.xib in Resources */,
+				4B53B2BB151CDED4003620E0 /* MainWindow.xib in Resources */,
+				4B53B2BD151CEC9C003620E0 /* DetailView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4B53B264151BBF15003620E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B53B279151BBF15003620E0 /* main.m in Sources */,
+				4B53B27D151BBF15003620E0 /* SBIAppDelegate.m in Sources */,
+				4B53B280151BBF15003620E0 /* SBIViewController.m in Sources */,
+				4B53B28F151BCCDA003620E0 /* RootViewController.m in Sources */,
+				4B53B292151BCD75003620E0 /* DetailViewController.m in Sources */,
+				4B53B299151BCEDC003620E0 /* RootLevel1.m in Sources */,
+				4B53B29E151BCF27003620E0 /* DetailLevel1.m in Sources */,
+				4B53B2A7151BD11A003620E0 /* RootLevel2.m in Sources */,
+				4B53B2AC151BD155003620E0 /* DetailLevel2.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4B53B275151BBF15003620E0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4B53B276151BBF15003620E0 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		4B53B281151BBF15003620E0 /* SBIViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4B53B282151BBF15003620E0 /* en */,
+			);
+			name = SBIViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4B53B284151BBF15003620E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		4B53B285151BBF15003620E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4B53B287151BBF15003620E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ACC/ACC-Prefix.pch";
+				INFOPLIST_FILE = "ACC/ACC-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		4B53B288151BBF15003620E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ACC/ACC-Prefix.pch";
+				INFOPLIST_FILE = "ACC/ACC-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4B53B262151BBF15003620E0 /* Build configuration list for PBXProject "ACC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B53B284151BBF15003620E0 /* Debug */,
+				4B53B285151BBF15003620E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4B53B286151BBF15003620E0 /* Build configuration list for PBXNativeTarget "ACC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B53B287151BBF15003620E0 /* Debug */,
+				4B53B288151BBF15003620E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4B53B25F151BBF15003620E0 /* Project object */;
+}

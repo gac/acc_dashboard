@@ -31,35 +31,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 
-    // Override point for customization after app launch.
-    /*
-	self.splitViewController =[[UISplitViewController alloc]init];
-	self.rootViewController=[[RootViewController alloc]init];
-	self.detailViewController=[[DetailViewController alloc]init];
-	
-	UINavigationController *rootNav=[[UINavigationController alloc]initWithRootViewController:_rootViewController];
-    UINavigationController *detailNav=[[UINavigationController alloc]initWithRootViewController:_detailViewController];
-	
-    
-	self.splitViewController.viewControllers=[NSArray arrayWithObjects:rootNav,detailNav,nil];
-	self.splitViewController.delegate=_detailViewController;
-	*/
-    
-    // Add the split view controller's view to the window and display.
-    //[_window addSubview:self.splitViewController.view];
-    //[_window makeKeyAndVisible];
-    //[_window removeFromSuperview]; // self.view removeFromSuperview];
-
-    
-
     self.viewController = [[SBIViewController alloc] initWithNibName:@"SBIViewController" bundle:nil];
     self.window.rootViewController = self.viewController;
     
-    //[self.window addSubview:self.viewController.view];
     [self.window makeKeyAndVisible];
     return YES;
 
-    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

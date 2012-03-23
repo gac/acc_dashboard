@@ -62,11 +62,8 @@
 
 -(IBAction)onClick1:(id)sender {
     
-    NSLog(@"user clicked %@", sender);
-    
     SBIAppDelegate *appDelegate = (SBIAppDelegate *)[[UIApplication sharedApplication] delegate];
-    
-    
+        
     // Override point for customization after app launch.
     appDelegate.splitViewController =[[UISplitViewController alloc]init];
     appDelegate.rootViewController = [[RootViewController alloc]init];
@@ -74,14 +71,10 @@
 	
 	UINavigationController *rootNav=[[UINavigationController alloc]initWithRootViewController:appDelegate.rootViewController];
     UINavigationController *detailNav=[[UINavigationController alloc]initWithRootViewController:appDelegate.detailViewController];
-	
-    
+
 	appDelegate.splitViewController.viewControllers=[NSArray arrayWithObjects:rootNav,detailNav,nil];
 	appDelegate.splitViewController.delegate=appDelegate.detailViewController;
-    
-    // Add the split view controller's view to the window and display.
-    //[appDelegate.window addSubview: appDelegate.splitViewController.view];
-    //[appDelegate.window makeKeyAndVisible];
+
     appDelegate.window.rootViewController = appDelegate.splitViewController;
 
 }

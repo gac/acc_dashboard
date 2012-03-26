@@ -31,6 +31,86 @@
 		4B81EAFC151D203600DFFEB0 /* scotiabank_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B81EAFA151D203600DFFEB0 /* scotiabank_logo.png */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		4B768AD715211B5A00A53B98 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B768AC315211B5900A53B98 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 253A07FC1255161B00976E89;
+			remoteInfo = RestKitNetwork;
+		};
+		4B768AD915211B5A00A53B98 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B768AC315211B5900A53B98 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 253A08031255162C00976E89;
+			remoteInfo = RestKitObjectMapping;
+		};
+		4B768ADB15211B5A00A53B98 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B768AC315211B5900A53B98 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 253A080C12551D3000976E89;
+			remoteInfo = RestKitSupport;
+		};
+		4B768ADD15211B5A00A53B98 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B768AC315211B5900A53B98 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 20808DBD13DE8CDC000A156A;
+			remoteInfo = "RestKitJSONParser+NXJSON";
+		};
+		4B768ADF15211B5A00A53B98 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B768AC315211B5900A53B98 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2590E64F125231F600531FA8;
+			remoteInfo = "RestKitJSONParser+YAJL";
+		};
+		4B768AE115211B5A00A53B98 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B768AC315211B5900A53B98 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2590E66B1252353700531FA8;
+			remoteInfo = "RestKitJSONParser+SBJSON";
+		};
+		4B768AE315211B5A00A53B98 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B768AC315211B5900A53B98 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 73057FD11331AD2E001908EE;
+			remoteInfo = "RestKitJSONParser+JSONKit";
+		};
+		4B768AE515211B5A00A53B98 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B768AC315211B5900A53B98 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25BD43BD1340315800DBACDD;
+			remoteInfo = "RestKitXMLParser+Libxml";
+		};
+		4B768AE715211B5A00A53B98 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B768AC315211B5900A53B98 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 253A081412551D5300976E89;
+			remoteInfo = RestKitCoreData;
+		};
+		4B768AE915211B5A00A53B98 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B768AC315211B5900A53B98 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2523360511E79F090048F9B4;
+			remoteInfo = RestKitThree20;
+		};
+		4B768AEB15211B5A00A53B98 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B768AC315211B5900A53B98 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3F6C39A510FE5C95008F47C5;
+			remoteInfo = UISpec;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		4B53B268151BBF15003620E0 /* ACC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ACC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B53B26C151BBF15003620E0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -63,6 +143,7 @@
 		4B53B2AB151BD155003620E0 /* DetailLevel2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailLevel2.xib; sourceTree = "<group>"; };
 		4B53B2BA151CDED2003620E0 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		4B53B2BC151CEC9B003620E0 /* DetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailView.xib; sourceTree = "<group>"; };
+		4B768AC315211B5900A53B98 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = "../RestKit-RestKit-991bd5c/RestKit.xcodeproj"; sourceTree = "<group>"; };
 		4B81EAF9151D203600DFFEB0 /* sbi_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sbi_icon.png; sourceTree = "<group>"; };
 		4B81EAFA151D203600DFFEB0 /* scotiabank_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scotiabank_logo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,6 +182,7 @@
 		4B53B26B151BBF15003620E0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4B768AC315211B5900A53B98 /* RestKit.xcodeproj */,
 				4B53B26C151BBF15003620E0 /* UIKit.framework */,
 				4B53B26E151BBF15003620E0 /* Foundation.framework */,
 				4B53B270151BBF15003620E0 /* CoreGraphics.framework */,
@@ -127,6 +209,24 @@
 				4B53B27A151BBF15003620E0 /* ACC-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4B768AC415211B5900A53B98 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4B768AD815211B5A00A53B98 /* libRestKitNetwork.a */,
+				4B768ADA15211B5A00A53B98 /* libRestKitObjectMapping.a */,
+				4B768ADC15211B5A00A53B98 /* libRestKitSupport.a */,
+				4B768ADE15211B5A00A53B98 /* libRestKitJSONParser+NXJSON.a */,
+				4B768AE015211B5A00A53B98 /* libRestKitJSONParserYAJL.a */,
+				4B768AE215211B5A00A53B98 /* libRestKitJSONParserSBJSON.a */,
+				4B768AE415211B5A00A53B98 /* libRestKitJSONParserJSONKit.a */,
+				4B768AE615211B5A00A53B98 /* libRestKitXMLParserLibxml.a */,
+				4B768AE815211B5A00A53B98 /* libRestKitCoreData.a */,
+				4B768AEA15211B5A00A53B98 /* libRestKitThree20.a */,
+				4B768AEC15211B5A00A53B98 /* UISpec.app */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		4B81EAF2151D1C9200DFFEB0 /* Classes */ = {
@@ -207,12 +307,99 @@
 			mainGroup = 4B53B25D151BBF15003620E0;
 			productRefGroup = 4B53B269151BBF15003620E0 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 4B768AC415211B5900A53B98 /* Products */;
+					ProjectRef = 4B768AC315211B5900A53B98 /* RestKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				4B53B267151BBF15003620E0 /* ACC */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		4B768AD815211B5A00A53B98 /* libRestKitNetwork.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKitNetwork.a;
+			remoteRef = 4B768AD715211B5A00A53B98 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4B768ADA15211B5A00A53B98 /* libRestKitObjectMapping.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKitObjectMapping.a;
+			remoteRef = 4B768AD915211B5A00A53B98 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4B768ADC15211B5A00A53B98 /* libRestKitSupport.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKitSupport.a;
+			remoteRef = 4B768ADB15211B5A00A53B98 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4B768ADE15211B5A00A53B98 /* libRestKitJSONParser+NXJSON.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			name = "libRestKitJSONParser+NXJSON.a";
+			path = libRestKitJSONParserNXJSON.a;
+			remoteRef = 4B768ADD15211B5A00A53B98 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4B768AE015211B5A00A53B98 /* libRestKitJSONParserYAJL.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKitJSONParserYAJL.a;
+			remoteRef = 4B768ADF15211B5A00A53B98 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4B768AE215211B5A00A53B98 /* libRestKitJSONParserSBJSON.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKitJSONParserSBJSON.a;
+			remoteRef = 4B768AE115211B5A00A53B98 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4B768AE415211B5A00A53B98 /* libRestKitJSONParserJSONKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKitJSONParserJSONKit.a;
+			remoteRef = 4B768AE315211B5A00A53B98 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4B768AE615211B5A00A53B98 /* libRestKitXMLParserLibxml.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKitXMLParserLibxml.a;
+			remoteRef = 4B768AE515211B5A00A53B98 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4B768AE815211B5A00A53B98 /* libRestKitCoreData.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKitCoreData.a;
+			remoteRef = 4B768AE715211B5A00A53B98 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4B768AEA15211B5A00A53B98 /* libRestKitThree20.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKitThree20.a;
+			remoteRef = 4B768AE915211B5A00A53B98 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4B768AEC15211B5A00A53B98 /* UISpec.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = UISpec.app;
+			remoteRef = 4B768AEB15211B5A00A53B98 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		4B53B266151BBF15003620E0 /* Resources */ = {

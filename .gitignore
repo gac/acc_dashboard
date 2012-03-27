@@ -18,3 +18,5 @@ build/*
 *.xcworkspace
 xcuserdata
 
+# Exclude RestKit-RestKit-991bd5c directory
+RestKit-RestKit-991bd5c/*

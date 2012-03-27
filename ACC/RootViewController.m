@@ -6,8 +6,11 @@
 //  Copyright 2011 Kshitiz Ghimire. All rights reserved.
 //
 
+#import <RestKit/RestKit.h>
 #import "RootViewController.h"
 #import "DetailViewController.h"
+#import "ApplicationType.h"
+#import "Application.h"
 
 
 @implementation RootViewController
@@ -24,14 +27,50 @@
     self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
 	self.appDelegate = (SBIAppDelegate *)[[UIApplication sharedApplication] delegate];
     
-	
+    if (self) {
+        [RKObjectManager objectManagerWithBaseURL:gSBICatalogBaseURL];
+    }
+
 }
 
-/*
+
  - (void)viewWillAppear:(BOOL)animated {
- [super viewWillAppear:animated];
+     [super viewWillAppear:animated];
+
+     RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[ApplicationType class]];
+     [mapping mapKeyPathsToAttributes:
+      @"description", @"description",
+      nil];
+     
+     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/applications/resource/application/type/1/" objectMapping:mapping delegate:self];
  }
- */
+
+- (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
+    ApplicationType* applicationType = [objects objectAtIndex:0];
+    
+    NSLog(@"%@", applicationType);
+
+    /*
+    NSString* info = [NSString stringWithFormat:
+                      @"The count is %@\n"
+                      @"The average transaction amount is %@\n"
+                      @"The distinct list of payees is: %@",
+                      [account transactionsCount],
+                      [account averageTransactionAmount],
+                      [[account distinctPayees] componentsJoinedByString:@", "]];
+    _infoLabel.text = info;
+     */
+}
+
+- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error {
+    /*
+    _infoLabel.text = [NSString stringWithFormat:@"Error: %@", [error localizedDescription]];
+    _infoLabel.textColor = [UIColor redColor];
+     */
+        NSLog(@"msg");
+    
+}
+
 /*
  - (void)viewDidAppear:(BOOL)animated {
  [super viewDidAppear:animated];

@@ -10,7 +10,7 @@
 #import "SBIAppDelegate.h"
 @class DetailViewController;
 
-@interface RootViewController : UITableViewController <RKObjectLoaderDelegate, UITableViewDelegate>
+@interface RootViewController : UITableViewController <RKObjectLoaderDelegate>
 
 @property (nonatomic, retain)  DetailViewController *detailViewController;
 

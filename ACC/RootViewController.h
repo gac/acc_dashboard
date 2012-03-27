@@ -6,11 +6,11 @@
 //  Copyright 2011 Kshitiz Ghimire. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "SBICatalog.h"
 #import "SBIAppDelegate.h"
 @class DetailViewController;
 
-@interface RootViewController : UITableViewController 
+@interface RootViewController : UITableViewController <RKObjectLoaderDelegate, UITableViewDelegate>
 
 @property (nonatomic, retain)  DetailViewController *detailViewController;
 

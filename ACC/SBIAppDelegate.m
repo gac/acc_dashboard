@@ -13,6 +13,8 @@
 #import "RootViewController.h"
 #import "DetailViewController.h"
 
+NSString *gSBICatalogBaseURL = nil;
+
 
 @implementation SBIAppDelegate
 
@@ -35,6 +37,10 @@
     self.window.rootViewController = self.viewController;
     
     [self.window makeKeyAndVisible];
+    
+    
+    gSBICatalogBaseURL = @"http://127.0.0.1:8000";
+    
     return YES;
 
 }

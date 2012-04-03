@@ -20,8 +20,6 @@ NSString *gSBICatalogBaseURL = nil;
 
 @synthesize window = _window;
 
-@synthesize viewController = _viewController;
-
 @synthesize splitViewController = _splitViewController;
 @synthesize rootViewController = _rootViewController;
 @synthesize detailViewController = _detailViewController;
@@ -33,8 +31,8 @@ NSString *gSBICatalogBaseURL = nil;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 
-    self.viewController = [[SBILoginViewController alloc] initWithNibName:@"SBIViewController" bundle:nil];
-    self.window.rootViewController = self.viewController;
+    SBILoginViewController *viewController = [[SBILoginViewController alloc] initWithNibName:@"SBILoginViewController" bundle:nil];
+    self.window.rootViewController = viewController;
     [self.window makeKeyAndVisible];
 
     gSBICatalogBaseURL = @"http://127.0.0.1:8000";

@@ -1,5 +1,5 @@
 //
-//  SBIViewController.m
+//  SBILoginViewController.m
 //  acc
 //
 //  Created by Juan Galicia Castillo on 2/23/12.

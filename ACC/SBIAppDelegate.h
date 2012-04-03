@@ -16,7 +16,7 @@
 
 @property (strong, nonatomic) IBOutlet UIWindow *window;
 
-@property (strong, nonatomic) SBILoginViewController *viewController;
+
 
 @property (strong, nonatomic)  UISplitViewController *splitViewController;
 @property (strong, nonatomic)  RootViewController *rootViewController;

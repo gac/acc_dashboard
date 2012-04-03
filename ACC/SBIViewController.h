@@ -11,7 +11,7 @@
 @class SBIAppDelegate;
 
 @interface SBIViewController : UIViewController<UITextFieldDelegate> {
-    
+
     IBOutlet UIImageView *logoImageView;
     IBOutlet UILabel *usernameLabel;
     IBOutlet UITextField *usernameField;
@@ -20,7 +20,7 @@
     IBOutlet UILabel *activityIndicatorLabel;
     IBOutlet UIActivityIndicatorView *activityIndicatorView;
     IBOutlet UILabel *copyrightLabel;
-    
+
 }
 
 @property (nonatomic, retain) UIImageView *logoImageView;
@@ -33,5 +33,3 @@
 @property (nonatomic, retain) UILabel *copyrightLabel;
 
 @end
-
-

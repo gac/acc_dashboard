@@ -24,5 +24,4 @@
 
 @property (nonatomic, assign) UIBarButtonItem *rootPopoverButtonItem;
 
-
 @end

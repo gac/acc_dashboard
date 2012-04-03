@@ -22,8 +22,6 @@
 }
  */
 
-
-
 @property (nonatomic, retain) id detailItem;
 
 @property (nonatomic, retain) IBOutlet UILabel *detailDescriptionLabel;
@@ -32,6 +30,6 @@
 
 - (IBAction)pushViewController:(id)sender;
 
--(void)popViewController;
+- (void)popViewController;
 
 @end

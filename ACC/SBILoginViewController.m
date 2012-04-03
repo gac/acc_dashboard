@@ -142,14 +142,14 @@
         
         // Override point for customization after app launch.
         appDelegate.splitViewController =[[UISplitViewController alloc]init];
-        appDelegate.rootViewController = [[RootViewController alloc]init];
-        appDelegate.detailViewController = [[DetailViewController alloc]init];
+        RootViewController *rootViewController = [[RootViewController alloc]init];
+        DetailViewController *detailViewController = [[DetailViewController alloc]init];
         
-        UINavigationController *rootNav=[[UINavigationController alloc]initWithRootViewController:appDelegate.rootViewController];
-        UINavigationController *detailNav=[[UINavigationController alloc]initWithRootViewController:appDelegate.detailViewController];
+        UINavigationController *rootNav=[[UINavigationController alloc]initWithRootViewController:rootViewController];
+        UINavigationController *detailNav=[[UINavigationController alloc]initWithRootViewController:detailViewController];
         
         appDelegate.splitViewController.viewControllers=[NSArray arrayWithObjects:rootNav,detailNav,nil];
-        appDelegate.splitViewController.delegate=appDelegate.detailViewController;
+        appDelegate.splitViewController.delegate= detailViewController;
         
         appDelegate.window.rootViewController = appDelegate.splitViewController;
         

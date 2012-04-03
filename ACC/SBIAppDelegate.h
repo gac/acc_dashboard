@@ -16,11 +16,7 @@
 
 @property (strong, nonatomic) IBOutlet UIWindow *window;
 
-
-
 @property (strong, nonatomic)  UISplitViewController *splitViewController;
-@property (strong, nonatomic)  RootViewController *rootViewController;
-@property (strong, nonatomic)  DetailViewController *detailViewController;
 
 @property (strong, nonatomic) UIBarButtonItem *rootPopoverButtonItem;
 

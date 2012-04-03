@@ -44,7 +44,7 @@
      RKObjectAttributeMapping *description = [RKObjectAttributeMapping mappingFromKeyPath:@"description" toKeyPath:@"description"];
      [mapping addAttributeMapping:description];
      
-     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/applications/resource/application/type/1/" objectMapping:mapping delegate:self];
+     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/applications/resource/application/types/1/" objectMapping:mapping delegate:self];
  }
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {

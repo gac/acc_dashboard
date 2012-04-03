@@ -38,9 +38,11 @@
      [super viewWillAppear:animated];
 
      RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[ApplicationType class]];
-     [mapping mapKeyPathsToAttributes:
-      @"description", @"description",
-      nil];
+//     [mapping mapKeyPathsToAttributes:
+//      @"description", @"description",
+//      nil];
+     RKObjectAttributeMapping *description = [RKObjectAttributeMapping mappingFromKeyPath:@"description" toKeyPath:@"description"];
+     [mapping addAttributeMapping:description];
      
      [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/applications/resource/application/type/1/" objectMapping:mapping delegate:self];
  }
@@ -67,7 +69,7 @@
     _infoLabel.text = [NSString stringWithFormat:@"Error: %@", [error localizedDescription]];
     _infoLabel.textColor = [UIColor redColor];
      */
-        NSLog(@"msg");
+        NSLog(@"error");
     
 }
 

@@ -53,7 +53,8 @@
 
 - (void)configureView {
     // Update the user interface for the detail item.
-    detailDescriptionLabel.text = [detailItem description];   
+    detailDescriptionLabel.text = [detailItem description];
+    
 }
 
 

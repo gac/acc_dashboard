@@ -16,14 +16,14 @@
 
 @implementation SBILoginViewController
 
-@synthesize logoImageView;
-@synthesize usernameLabel;
-@synthesize usernameField;
-@synthesize passwordLabel;
-@synthesize passwordField;
-@synthesize activityIndicatorLabel;
-@synthesize activityIndicatorView;
-@synthesize copyrightLabel;
+@synthesize logoImageView = _logoImageView;
+@synthesize usernameLabel = _usernameLabel;
+@synthesize usernameField = _usernameField;
+@synthesize passwordLabel = _passwordLabel;
+@synthesize passwordField = _passwordField;
+@synthesize activityIndicatorLabel = _activityIndicatorLabel;
+@synthesize activityIndicatorView = _activityIndicatorView;
+@synthesize copyrightLabel = _copyrightLabel;
 
 - (void)didReceiveMemoryWarning
 {
@@ -82,25 +82,25 @@
         toInterfaceOrientation == UIInterfaceOrientationLandscapeRight)
     {
         
-        logoImageView.frame = CGRectMake(309, 116, 100, 120);
-        usernameLabel.frame = CGRectMake(417, 141, 115, 21);
-        usernameField.frame = CGRectMake(540, 136, 175, 31);
-        passwordLabel.frame = CGRectMake(417, 185, 115, 21);
-        passwordField.frame = CGRectMake(540, 180, 175, 31);
-        activityIndicatorView.frame = CGRectMake(437, 355, 37, 37);
-        activityIndicatorLabel.frame = CGRectMake(482, 363, 105, 21);
-        copyrightLabel.frame = CGRectMake(112, 707, 800, 21);
+        _logoImageView.frame = CGRectMake(309, 116, 100, 120);
+        _usernameLabel.frame = CGRectMake(417, 141, 115, 21);
+        _usernameField.frame = CGRectMake(540, 136, 175, 31);
+        _passwordLabel.frame = CGRectMake(417, 185, 115, 21);
+        _passwordField.frame = CGRectMake(540, 180, 175, 31);
+        _activityIndicatorView.frame = CGRectMake(437, 355, 37, 37);
+        _activityIndicatorLabel.frame = CGRectMake(482, 363, 105, 21);
+        _copyrightLabel.frame = CGRectMake(112, 707, 800, 21);
         
     } else {
         
-        logoImageView.frame = CGRectMake(181, 191, 100, 120);
-        usernameLabel.frame = CGRectMake(289, 216, 115, 21);
-        usernameField.frame = CGRectMake(412, 211, 175, 31);
-        passwordLabel.frame = CGRectMake(289, 260, 115, 21);
-        passwordField.frame = CGRectMake(412, 255, 175, 31);
-        activityIndicatorView.frame = CGRectMake(309, 483, 37, 37);
-        activityIndicatorLabel.frame = CGRectMake(354, 491, 105, 21);
-        copyrightLabel.frame = CGRectMake(-16, 963, 800, 21);
+        _logoImageView.frame = CGRectMake(181, 191, 100, 120);
+        _usernameLabel.frame = CGRectMake(289, 216, 115, 21);
+        _usernameField.frame = CGRectMake(412, 211, 175, 31);
+        _passwordLabel.frame = CGRectMake(289, 260, 115, 21);
+        _passwordField.frame = CGRectMake(412, 255, 175, 31);
+        _activityIndicatorView.frame = CGRectMake(309, 483, 37, 37);
+        _activityIndicatorLabel.frame = CGRectMake(354, 491, 105, 21);
+        _copyrightLabel.frame = CGRectMake(-16, 963, 800, 21);
         
     }
 }
@@ -109,33 +109,33 @@
 
 - (BOOL) textFieldShouldReturn:(UITextField *)textField {
     
-    if (textField == usernameField) {
+    if (textField == _usernameField) {
         
-        if (usernameField.text.length == 0) {
-            [usernameField becomeFirstResponder];
+        if (_usernameField.text.length == 0) {
+            [_usernameField becomeFirstResponder];
         } else {
-            [passwordField becomeFirstResponder];
+            [_passwordField becomeFirstResponder];
         }
         
-    } else if (textField == passwordField) {
+    } else if (textField == _passwordField) {
         
-        if (passwordField.text.length == 0) {
-            [passwordField becomeFirstResponder];
+        if (_passwordField.text.length == 0) {
+            [_passwordField becomeFirstResponder];
         } else {
-            [usernameField becomeFirstResponder];
+            [_usernameField becomeFirstResponder];
         }
         
     }
     
-    if (usernameField.text.length > 0 && passwordField.text.length > 0) {
+    if (_usernameField.text.length > 0 && _passwordField.text.length > 0) {
         
-        [usernameField setEnabled:NO];
-        [passwordField setEnabled:NO];
+        [_usernameField setEnabled:NO];
+        [_passwordField setEnabled:NO];
         
-        [activityIndicatorView setHidden:NO];
-        [activityIndicatorLabel setHidden:NO];
+        [_activityIndicatorView setHidden:NO];
+        [_activityIndicatorLabel setHidden:NO];
         
-        [activityIndicatorView startAnimating];        
+        [_activityIndicatorView startAnimating];        
         [textField resignFirstResponder];
         
         SBIAppDelegate *appDelegate = (SBIAppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -152,17 +152,6 @@
         appDelegate.splitViewController.delegate=appDelegate.detailViewController;
         
         appDelegate.window.rootViewController = appDelegate.splitViewController;
-
-        
-        
-        // Override point for customization after application launch.
-        //UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-        
-        
-        
-        //UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
-        
-        //splitViewController.delegate = (id)navigationController.topViewController;
         
     }
     

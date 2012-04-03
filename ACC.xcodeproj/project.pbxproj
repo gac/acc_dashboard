@@ -13,8 +13,8 @@
 		4B53B277151BBF15003620E0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4B53B275151BBF15003620E0 /* InfoPlist.strings */; };
 		4B53B279151BBF15003620E0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B53B278151BBF15003620E0 /* main.m */; };
 		4B53B27D151BBF15003620E0 /* SBIAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B53B27C151BBF15003620E0 /* SBIAppDelegate.m */; };
-		4B53B280151BBF15003620E0 /* SBIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B53B27F151BBF15003620E0 /* SBIViewController.m */; };
-		4B53B283151BBF15003620E0 /* SBIViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B53B281151BBF15003620E0 /* SBIViewController.xib */; };
+		4B53B280151BBF15003620E0 /* SBILoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B53B27F151BBF15003620E0 /* SBILoginViewController.m */; };
+		4B53B283151BBF15003620E0 /* SBILoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B53B281151BBF15003620E0 /* SBILoginViewController.xib */; };
 		4B53B28F151BCCDA003620E0 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B53B28E151BCCDA003620E0 /* RootViewController.m */; };
 		4B53B292151BCD75003620E0 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B53B291151BCD75003620E0 /* DetailViewController.m */; };
 		4B53B299151BCEDC003620E0 /* RootLevel1.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B53B297151BCEDB003620E0 /* RootLevel1.m */; };
@@ -144,9 +144,9 @@
 		4B53B27A151BBF15003620E0 /* ACC-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ACC-Prefix.pch"; sourceTree = "<group>"; };
 		4B53B27B151BBF15003620E0 /* SBIAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBIAppDelegate.h; sourceTree = "<group>"; };
 		4B53B27C151BBF15003620E0 /* SBIAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBIAppDelegate.m; sourceTree = "<group>"; };
-		4B53B27E151BBF15003620E0 /* SBIViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBIViewController.h; sourceTree = "<group>"; };
-		4B53B27F151BBF15003620E0 /* SBIViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBIViewController.m; sourceTree = "<group>"; };
-		4B53B282151BBF15003620E0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SBIViewController.xib; sourceTree = "<group>"; };
+		4B53B27E151BBF15003620E0 /* SBILoginViewController.h */ = {isa = PBXFileReference; path = SBILoginViewController.h; sourceTree = "<group>"; };
+		4B53B27F151BBF15003620E0 /* SBILoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBILoginViewController.m; sourceTree = "<group>"; };
+		4B53B282151BBF15003620E0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SBILoginViewController.xib; sourceTree = "<group>"; };
 		4B53B28D151BCCDA003620E0 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		4B53B28E151BCCDA003620E0 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		4B53B290151BCD75003620E0 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
@@ -296,8 +296,8 @@
 				4B53B28E151BCCDA003620E0 /* RootViewController.m */,
 				4B53B27B151BBF15003620E0 /* SBIAppDelegate.h */,
 				4B53B27C151BBF15003620E0 /* SBIAppDelegate.m */,
-				4B53B27E151BBF15003620E0 /* SBIViewController.h */,
-				4B53B27F151BBF15003620E0 /* SBIViewController.m */,
+				4B53B27E151BBF15003620E0 /* SBILoginViewController.h */,
+				4B53B27F151BBF15003620E0 /* SBILoginViewController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -313,7 +313,7 @@
 				4B53B29D151BCF27003620E0 /* DetailLevel1.xib */,
 				4B53B2A6151BD11A003620E0 /* RootLevel2.xib */,
 				4B53B2AB151BD155003620E0 /* DetailLevel2.xib */,
-				4B53B281151BBF15003620E0 /* SBIViewController.xib */,
+				4B53B281151BBF15003620E0 /* SBILoginViewController.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -476,7 +476,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B53B277151BBF15003620E0 /* InfoPlist.strings in Resources */,
-				4B53B283151BBF15003620E0 /* SBIViewController.xib in Resources */,
+				4B53B283151BBF15003620E0 /* SBILoginViewController.xib in Resources */,
 				4B53B29A151BCEDC003620E0 /* RootLevel1.xib in Resources */,
 				4B53B29F151BCF27003620E0 /* DetailLevel1.xib in Resources */,
 				4B53B2A8151BD11A003620E0 /* RootLevel2.xib in Resources */,
@@ -497,7 +497,7 @@
 			files = (
 				4B53B279151BBF15003620E0 /* main.m in Sources */,
 				4B53B27D151BBF15003620E0 /* SBIAppDelegate.m in Sources */,
-				4B53B280151BBF15003620E0 /* SBIViewController.m in Sources */,
+				4B53B280151BBF15003620E0 /* SBILoginViewController.m in Sources */,
 				4B53B28F151BCCDA003620E0 /* RootViewController.m in Sources */,
 				4B53B292151BCD75003620E0 /* DetailViewController.m in Sources */,
 				4B53B299151BCEDC003620E0 /* RootLevel1.m in Sources */,
@@ -528,12 +528,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		4B53B281151BBF15003620E0 /* SBIViewController.xib */ = {
+		4B53B281151BBF15003620E0 /* SBILoginViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4B53B282151BBF15003620E0 /* en */,
 			);
-			name = SBIViewController.xib;
+			name = SBILoginViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -8,7 +8,7 @@
 
 #import "SBIAppDelegate.h"
 
-#import "SBIViewController.h"
+#import "SBILoginViewController.h"
 
 #import "RootViewController.h"
 #import "DetailViewController.h"
@@ -33,7 +33,7 @@ NSString *gSBICatalogBaseURL = nil;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 
-    self.viewController = [[SBIViewController alloc] initWithNibName:@"SBIViewController" bundle:nil];
+    self.viewController = [[SBILoginViewController alloc] initWithNibName:@"SBIViewController" bundle:nil];
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
 

@@ -10,7 +10,7 @@
 
 @class SBIAppDelegate;
 
-@interface SBIViewController : UIViewController<UITextFieldDelegate> {
+@interface SBILoginViewController : UIViewController<UITextFieldDelegate> {
 
     IBOutlet UIImageView *logoImageView;
     IBOutlet UILabel *usernameLabel;

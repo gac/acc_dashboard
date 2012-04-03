@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class SBIViewController;
+@class SBILoginViewController;
 @class RootViewController;
 @class DetailViewController;
 
@@ -16,7 +16,7 @@
 
 @property (strong, nonatomic) IBOutlet UIWindow *window;
 
-@property (strong, nonatomic) SBIViewController *viewController;
+@property (strong, nonatomic) SBILoginViewController *viewController;
 
 @property (nonatomic, retain)  UISplitViewController *splitViewController;
 @property (nonatomic, retain)  RootViewController *rootViewController;

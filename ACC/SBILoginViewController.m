@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Scotiabank. All rights reserved.
 //
 
-#import "SBIViewController.h"
+#import "SBILoginViewController.h"
 
 #import "SBIAppDelegate.h"
 #import "RootViewController.h"
@@ -14,7 +14,7 @@
 
 #include <unistd.h>
 
-@implementation SBIViewController
+@implementation SBILoginViewController
 
 @synthesize logoImageView;
 @synthesize usernameLabel;

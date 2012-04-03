@@ -12,7 +12,7 @@
 #import "DetailLevel1.h"
 
 @interface DetailViewController ()
-@property (nonatomic, retain) UIPopoverController *popoverController;
+@property (strong, nonatomic) UIPopoverController *popoverController;
 - (void)configureView;
 @end
 

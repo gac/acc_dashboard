@@ -18,10 +18,10 @@
 
 @property (strong, nonatomic) SBILoginViewController *viewController;
 
-@property (nonatomic, retain)  UISplitViewController *splitViewController;
-@property (nonatomic, retain)  RootViewController *rootViewController;
-@property (nonatomic, retain)  DetailViewController *detailViewController;
+@property (strong, nonatomic)  UISplitViewController *splitViewController;
+@property (strong, nonatomic)  RootViewController *rootViewController;
+@property (strong, nonatomic)  DetailViewController *detailViewController;
 
-@property (nonatomic, assign) UIBarButtonItem *rootPopoverButtonItem;
+@property (strong, nonatomic) UIBarButtonItem *rootPopoverButtonItem;
 
 @end

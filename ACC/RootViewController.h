@@ -12,8 +12,8 @@
 
 @interface RootViewController : UITableViewController <RKObjectLoaderDelegate>
 
-@property (nonatomic, retain)  DetailViewController *detailViewController;
+@property (strong, nonatomic)  DetailViewController *detailViewController;
 
-@property (nonatomic, assign) SBIAppDelegate *appDelegate;
+@property (strong, nonatomic) SBIAppDelegate *appDelegate;
 
 @end

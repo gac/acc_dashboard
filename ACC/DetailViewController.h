@@ -10,23 +10,11 @@
 #import "SBIAppDelegate.h"
 @interface DetailViewController : UIViewController <UIPopoverControllerDelegate, UISplitViewControllerDelegate> 
 
-/*
-{
-    
-    UIPopoverController *popoverController;
-    
-    
-    id detailItem;
-    UILabel *detailDescriptionLabel;
-	SBIAppDelegate *appDelegate;
-}
- */
+@property (strong, nonatomic) id detailItem;
 
-@property (nonatomic, retain) id detailItem;
+@property (strong, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 
-@property (nonatomic, retain) IBOutlet UILabel *detailDescriptionLabel;
-
-@property (nonatomic, assign) SBIAppDelegate *appDelegate;
+@property (strong, nonatomic) SBIAppDelegate *appDelegate;
 
 - (IBAction)pushViewController:(id)sender;
 

@@ -9,8 +9,7 @@
 #import <RestKit/RestKit.h>
 #import "RootViewController.h"
 #import "DetailViewController.h"
-#import "ApplicationType.h"
-#import "Application.h"
+#import "Project.h"
 
 
 @implementation RootViewController
@@ -30,27 +29,49 @@
     if (self) {
         [RKObjectManager objectManagerWithBaseURL:gSBICatalogBaseURL];
     }
+    
+    RKObjectMapping* portfolioMapping = [RKObjectMapping mappingForClass:[Portfolio class]];
+    [portfolioMapping mapKeyPath:@"id" toAttribute:@"portfolioID"];
+    [portfolioMapping mapKeyPath:@"name" toAttribute:@"name"];
+    
+    RKObjectMapping* projectTypeMapping = [RKObjectMapping mappingForClass:[ProjectType class]];     
+    [projectTypeMapping mapKeyPath:@"id" toAttribute:@"projectTypeID"];
+    [projectTypeMapping mapKeyPath:@"description" toAttribute:@"description"];
+    
+    RKObjectMapping* projectSizeMapping = [RKObjectMapping mappingForClass:[ProjectSize class]];
+    [projectSizeMapping mapKeyPath:@"id" toAttribute:@"projectSizeID"];
+    [projectSizeMapping mapKeyPath:@"size" toAttribute:@"size"];
+    
+    RKObjectMapping* projectMapping = [RKObjectMapping mappingForClass:[Project class]];
+    [projectMapping mapRelationship:@"portfolio" withMapping:portfolioMapping];     
+    [projectMapping mapRelationship:@"project_type" withMapping:projectTypeMapping];
+    [projectMapping mapRelationship:@"project_size" withMapping:projectSizeMapping];
+    [projectMapping mapKeyPath:@"folio" toAttribute:@"folio"];
+    [projectMapping mapKeyPath:@"name" toAttribute:@"name"];
+    [projectMapping mapKeyPath:@"description" toAttribute:@"description"];
+    [projectMapping mapKeyPath:@"is_focus" toAttribute:@"is_focus"];
+    [projectMapping mapKeyPath:@"is_kpt" toAttribute:@"is_kpt"];  
+    
+    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"projects/resources/projects/" objectMapping:projectMapping delegate:self];
 
 }
 
 
  - (void)viewWillAppear:(BOOL)animated {
      [super viewWillAppear:animated];
-
-     RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[ApplicationType class]];
-//     [mapping mapKeyPathsToAttributes:
-//      @"description", @"description",
-//      nil];
-     RKObjectAttributeMapping *description = [RKObjectAttributeMapping mappingFromKeyPath:@"description" toKeyPath:@"description"];
-     [mapping addAttributeMapping:description];
-     
-     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/applications/resource/application/types/1/" objectMapping:mapping delegate:self];
  }
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
-    ApplicationType* applicationType = [objects objectAtIndex:0];
     
-    NSLog(@"%@", applicationType);
+    _objects = objects;
+    [self.tableView reloadData];
+
+//    Project* project = [objects objectAtIndex:0];    
+//    NSLog(@"Project: portfolioID->%@, portfolio->%@, projectTypeID->%@, projectType->%@, projectSizeID->%@, projectSize->%@ folio->%@, name->%@, description->%@, isFocus->%@, isKPT->%@", project.portfolio.portfolioID, project.portfolio.name, project.project_type.projectTypeID, project.project_type.description, project.project_size.projectSizeID, project.project_size.size, project.folio, project.name, project.description, project.is_focus, project.is_kpt);
+    
+//    ProjectType* obj = [objects objectAtIndex:0];    
+//    NSLog(@"Obj: %@", obj);
+
 
     /*
     NSString* info = [NSString stringWithFormat:
@@ -65,29 +86,31 @@
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error {
-    /*
-    _infoLabel.text = [NSString stringWithFormat:@"Error: %@", [error localizedDescription]];
-    _infoLabel.textColor = [UIColor redColor];
-     */
-        NSLog(@"error");
-    
+    NSLog(@"%@", error);
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error!" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"Rats!" otherButtonTitles:nil];
+    [alert show];
+ 
 }
 
-/*
+
  - (void)viewDidAppear:(BOOL)animated {
- [super viewDidAppear:animated];
+     [super viewDidAppear:animated];
+     
+     self.title = @"Projects";
+     
+     
  }
- */
-/*
+ 
+
  - (void)viewWillDisappear:(BOOL)animated {
  [super viewWillDisappear:animated];
  }
- */
-/*
+ 
+
  - (void)viewDidDisappear:(BOOL)animated {
  [super viewDidDisappear:animated];
  }
- */
+ 
 
 // Ensure that the view controller supports rotation and that the split view can therefore show in both portrait and landscape.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -106,25 +129,40 @@
 
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 10;
+    return [_objects count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *CellIdentifier = @"CellIdentifier";
+//    static NSString *CellIdentifier = @"CellIdentifier";
+//    
+//    // Dequeue or create a cell of the appropriate type.
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+//    if (cell == nil) {
+//        //cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+//        cell.accessoryType = UITableViewCellAccessoryNone;
+//    }
+//    
+//    // Configure the cell.
+//    cell.textLabel.text = [NSString stringWithFormat:@"Row %d", indexPath.row];
+//    return cell;
     
-    // Dequeue or create a cell of the appropriate type.
+    static NSString *CellIdentifier = @"Cell";
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        //cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
     
-    // Configure the cell.
-    cell.textLabel.text = [NSString stringWithFormat:@"Row %d", indexPath.row];
-    return cell;
+    Project* project = (Project*) [_objects objectAtIndex:indexPath.row];
+    cell.textLabel.text = project.folio;
+    cell.detailTextLabel.text = project.name;
+    
+    return cell;    
+    
 }
 
 

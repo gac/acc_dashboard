@@ -34,6 +34,10 @@
 		4B768B0A15220C9D00A53B98 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B768B0915220C9D00A53B98 /* SystemConfiguration.framework */; };
 		4B768B0C15220CB100A53B98 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B768B0B15220CB100A53B98 /* libxml2.dylib */; };
 		4B768B1015220CF600A53B98 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B768B0F15220CF600A53B98 /* CoreData.framework */; };
+		4B77F195152CA78900FAB9D6 /* ProjectType.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B77F194152CA78800FAB9D6 /* ProjectType.m */; };
+		4B77F198152CA7F800FAB9D6 /* ProjectSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B77F197152CA7F800FAB9D6 /* ProjectSize.m */; };
+		4B77F1C1152CF76800FAB9D6 /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B77F1BE152CF76700FAB9D6 /* Project.m */; };
+		4B77F1C2152CF76800FAB9D6 /* Portfolio.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B77F1C0152CF76800FAB9D6 /* Portfolio.m */; };
 		4B81EAFB151D203600DFFEB0 /* sbi_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B81EAF9151D203600DFFEB0 /* sbi_icon.png */; };
 		4B81EAFC151D203600DFFEB0 /* scotiabank_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B81EAFA151D203600DFFEB0 /* scotiabank_logo.png */; };
 		4BE8E43515221E5F0044D463 /* libRestKitCoreData.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE8E42915221D030044D463 /* libRestKitCoreData.a */; };
@@ -175,6 +179,14 @@
 		4B768B0915220C9D00A53B98 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4B768B0B15220CB100A53B98 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		4B768B0F15220CF600A53B98 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		4B77F193152CA78800FAB9D6 /* ProjectType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectType.h; path = ACC/ProjectType.h; sourceTree = "<group>"; };
+		4B77F194152CA78800FAB9D6 /* ProjectType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectType.m; path = ACC/ProjectType.m; sourceTree = "<group>"; };
+		4B77F196152CA7F700FAB9D6 /* ProjectSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectSize.h; path = ACC/ProjectSize.h; sourceTree = "<group>"; };
+		4B77F197152CA7F800FAB9D6 /* ProjectSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectSize.m; path = ACC/ProjectSize.m; sourceTree = "<group>"; };
+		4B77F1BD152CF76700FAB9D6 /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Project.h; path = ACC/Project.h; sourceTree = "<group>"; };
+		4B77F1BE152CF76700FAB9D6 /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Project.m; path = ACC/Project.m; sourceTree = "<group>"; };
+		4B77F1BF152CF76800FAB9D6 /* Portfolio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Portfolio.h; path = ACC/Portfolio.h; sourceTree = "<group>"; };
+		4B77F1C0152CF76800FAB9D6 /* Portfolio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Portfolio.m; path = ACC/Portfolio.m; sourceTree = "<group>"; };
 		4B81EAF9151D203600DFFEB0 /* sbi_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sbi_icon.png; sourceTree = "<group>"; };
 		4B81EAFA151D203600DFFEB0 /* scotiabank_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scotiabank_logo.png; sourceTree = "<group>"; };
 		4BE8E40415221D030044D463 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = "RestKit-RestKit-991bd5c/RestKit.xcodeproj"; sourceTree = "<group>"; };
@@ -268,10 +280,18 @@
 		4B768AF415212AC900A53B98 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				4B77F1BD152CF76700FAB9D6 /* Project.h */,
+				4B77F1BE152CF76700FAB9D6 /* Project.m */,
+				4B77F1BF152CF76800FAB9D6 /* Portfolio.h */,
+				4B77F1C0152CF76800FAB9D6 /* Portfolio.m */,
 				4B768AFB15212B8F00A53B98 /* Application.h */,
 				4B768AFC15212B8F00A53B98 /* Application.m */,
 				4B768AFE152130A200A53B98 /* ApplicationType.h */,
 				4B768AFF152130A200A53B98 /* ApplicationType.m */,
+				4B77F193152CA78800FAB9D6 /* ProjectType.h */,
+				4B77F194152CA78800FAB9D6 /* ProjectType.m */,
+				4B77F196152CA7F700FAB9D6 /* ProjectSize.h */,
+				4B77F197152CA7F800FAB9D6 /* ProjectSize.m */,
 			);
 			name = Domain;
 			path = ..;
@@ -506,6 +526,10 @@
 				4B53B2AC151BD155003620E0 /* DetailLevel2.m in Sources */,
 				4B768AFD15212B8F00A53B98 /* Application.m in Sources */,
 				4B768B00152130A200A53B98 /* ApplicationType.m in Sources */,
+				4B77F195152CA78900FAB9D6 /* ProjectType.m in Sources */,
+				4B77F198152CA7F800FAB9D6 /* ProjectSize.m in Sources */,
+				4B77F1C1152CF76800FAB9D6 /* Project.m in Sources */,
+				4B77F1C2152CF76800FAB9D6 /* Portfolio.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

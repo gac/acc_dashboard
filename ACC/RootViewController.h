@@ -8,9 +8,11 @@
 
 #import "SBICatalog.h"
 #import "SBIAppDelegate.h"
+#import "Project.h"
 @class DetailViewController;
 
 @interface RootViewController : UITableViewController <RKObjectLoaderDelegate, UITableViewDelegate> {
+    Project* _selectedProject;
     NSArray* _objects;
 }
 

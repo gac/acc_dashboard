@@ -20,7 +20,12 @@
 
 @implementation DetailViewController
 
-@synthesize  popoverController, detailItem, detailDescriptionLabel;
+@synthesize  popoverController;
+@synthesize folio;
+@synthesize name;
+@synthesize folioLabel;
+@synthesize nameLabel;
+
 @synthesize appDelegate;
 #pragma mark -
 #pragma mark Managing the detail item
@@ -35,11 +40,10 @@
 /*
  When setting the detail item, update the view and dismiss the popover controller if it's showing.
  */
-- (void)setDetailItem:(id)newDetailItem {
-    if (detailItem != newDetailItem) {
-        //[detailItem release];
-        //detailItem = [newDetailItem retain];
-        detailItem = newDetailItem;
+- (void)setFolio:(id)newFolio {
+    if (folio != newFolio) {
+
+        folio = newFolio;
         
         // Update the view.
         [self configureView];
@@ -52,8 +56,10 @@
 
 
 - (void)configureView {
+    
     // Update the user interface for the detail item.
-    detailDescriptionLabel.text = [detailItem description];
+    folioLabel.text = [folio description];
+    nameLabel.text = [name description];
     
 }
 
@@ -102,7 +108,7 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-	self.title=@"Detail VC";
+	//self.title=@"Detail VC";
 }
 
 
@@ -186,6 +192,5 @@
 	[self.splitViewController viewWillAppear:YES];
 	
 }
-
 
 @end

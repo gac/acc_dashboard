@@ -10,9 +10,12 @@
 #import "SBIAppDelegate.h"
 @interface DetailViewController : UIViewController <UIPopoverControllerDelegate, UISplitViewControllerDelegate> 
 
-@property (strong, nonatomic) id detailItem;
+@property (strong, nonatomic) id folio;
+@property (strong, nonatomic) id name;
 
-@property (strong, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+
+@property (strong, nonatomic) IBOutlet UILabel *folioLabel;
+@property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 
 @property (strong, nonatomic) SBIAppDelegate *appDelegate;
 

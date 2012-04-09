@@ -66,27 +66,11 @@
     _objects = objects;
     [self.tableView reloadData];
 
-//    Project* project = [objects objectAtIndex:0];    
-//    NSLog(@"Project: portfolioID->%@, portfolio->%@, projectTypeID->%@, projectType->%@, projectSizeID->%@, projectSize->%@ folio->%@, name->%@, description->%@, isFocus->%@, isKPT->%@", project.portfolio.portfolioID, project.portfolio.name, project.project_type.projectTypeID, project.project_type.description, project.project_size.projectSizeID, project.project_size.size, project.folio, project.name, project.description, project.is_focus, project.is_kpt);
-    
-//    ProjectType* obj = [objects objectAtIndex:0];    
-//    NSLog(@"Obj: %@", obj);
-
-
-    /*
-    NSString* info = [NSString stringWithFormat:
-                      @"The count is %@\n"
-                      @"The average transaction amount is %@\n"
-                      @"The distinct list of payees is: %@",
-                      [account transactionsCount],
-                      [account averageTransactionAmount],
-                      [[account distinctPayees] componentsJoinedByString:@", "]];
-    _infoLabel.text = info;
-     */
 }
 
+
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error {
-    NSLog(@"%@", error);
+
     UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error!" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"Rats!" otherButtonTitles:nil];
     [alert show];
  
@@ -96,7 +80,7 @@
  - (void)viewDidAppear:(BOOL)animated {
      [super viewDidAppear:animated];
      
-     self.title = @"Projects";
+     self.title = @"IT Projects";
      
      
  }
@@ -135,27 +119,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-//    static NSString *CellIdentifier = @"CellIdentifier";
-//    
-//    // Dequeue or create a cell of the appropriate type.
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-//    if (cell == nil) {
-//        //cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-//        cell.accessoryType = UITableViewCellAccessoryNone;
-//    }
-//    
-//    // Configure the cell.
-//    cell.textLabel.text = [NSString stringWithFormat:@"Row %d", indexPath.row];
-//    return cell;
+    static NSString *CellIdentifier = @"CellIdentifier";
     
-    static NSString *CellIdentifier = @"Cell";
-    
+    // Dequeue or create a cell of the appropriate type.
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-        cell.accessoryType = UITableViewCellAccessoryNone;
     }
+    cell.accessoryType = UITableViewCellAccessoryNone;
     
     Project* project = (Project*) [_objects objectAtIndex:indexPath.row];
     cell.textLabel.text = project.folio;
@@ -211,12 +182,22 @@
 
 - (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    _selectedProject = [_objects objectAtIndex:indexPath.row];
+    
+    [self.tableView reloadData];    
+    UITableViewCell* cell = [aTableView cellForRowAtIndexPath:indexPath];
+    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    
     /*
      When a row is selected, set the detail view controller's detail item to the item associated with the selected row.
      */
 	self.detailViewController=(DetailViewController *)[[self.appDelegate.splitViewController.viewControllers objectAtIndex:1] visibleViewController];
-    self.detailViewController.detailItem = [NSString stringWithFormat:@"Row %d", indexPath.row];
+
+    self.detailViewController.name = [NSString stringWithFormat:@"%@", _selectedProject.name];
+    self.detailViewController.folio = [NSString stringWithFormat:@"%@", _selectedProject.folio];
 }
+
+
 
 
 #pragma mark -

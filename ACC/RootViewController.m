@@ -20,11 +20,31 @@
 #pragma mark -
 #pragma mark View lifecycle
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    
+    if (self) {
+        
+        NSArray* items = [NSArray arrayWithObjects:@"By Portfolio", @"By Project Group", nil];
+        _segmentedControl = [[UISegmentedControl alloc] initWithItems:items];
+        _segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
+        _segmentedControl.momentary = NO;
+        [_segmentedControl addTarget:self action:@selector(updateTableView) forControlEvents:UIControlEventValueChanged];
+        _segmentedControl.selectedSegmentIndex = 0;
+
+    }
+    
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.clearsSelectionOnViewWillAppear = NO;
     self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
 	self.appDelegate = (SBIAppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    _listofPortfolios = [[NSMutableArray alloc] init];
     
     if (self) {
         [RKObjectManager objectManagerWithBaseURL:gSBICatalogBaseURL];
@@ -63,7 +83,7 @@
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
     
-    _objects = objects;
+    _projects = objects;
     [self.tableView reloadData];
 
 }
@@ -113,7 +133,7 @@
 
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [_objects count];
+    return [_projects count];
 }
 
 
@@ -127,15 +147,96 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     cell.accessoryType = UITableViewCellAccessoryNone;
+    cell.textLabel.textColor = [UIColor blackColor];
     
-    Project* project = (Project*) [_objects objectAtIndex:indexPath.row];
-    cell.textLabel.text = project.folio;
-    cell.detailTextLabel.text = project.name;
+    Portfolio* portfolio = nil;    
+    Project* project = nil;
+
+    
+    switch (_segmentedControl.selectedSegmentIndex) {
+        // All
+        case 0:
+            project = (Project*) [_projects objectAtIndex:indexPath.row];
+            cell.textLabel.text = project.name;
+            cell.textLabel.font = [UIFont systemFontOfSize:12];
+            cell.detailTextLabel.text = project.folio;
+            break;
+            
+        // By Portfolio
+        case 1:;
+            portfolio = (Portfolio*) [_projects objectAtIndex:indexPath.row];
+            cell.textLabel.text = portfolio.name;
+            break;
+            
+        // By Project Group
+        case 2:
+            break;
+            
+        default:            
+            break;
+    }
+
+    
+    
+    
     
     return cell;    
     
 }
 
+- (void)updateTableView {
+//    [_articles release];
+//    NSFetchRequest* fetchRequest = [self fetchRequestForSelectedSegment];
+//    _articles = [[Article objectsWithFetchRequest:fetchRequest] retain];
+    
+    switch (_segmentedControl.selectedSegmentIndex) {
+        // All
+        case 0:
+            break;
+            
+        // By Portfolio
+        case 1:;
+            break;
+            
+        // By Project Group
+        case 2:
+            break;
+            
+        default:            
+            break;
+    }
+    
+    
+    [self.tableView reloadData];
+}
+
+- (void)requestForSelectedSegment {
+    
+    RKObjectMapping* portfolioMapping = nil;
+
+    switch (_segmentedControl.selectedSegmentIndex) {
+        // All
+        case 0:
+            break;
+                        
+        // By Portfolio
+        case 1:;
+            NSLog(@"test");
+            portfolioMapping = [RKObjectMapping mappingForClass:[Portfolio class]];
+            [portfolioMapping mapKeyPath:@"name" toAttribute:@"name"];
+            [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"projects/resources/portfolios/" objectMapping:portfolioMapping delegate:self];
+            break;
+
+        // By Project Group
+        case 2:
+                        NSLog(@"test");
+            break;
+
+        default:            
+            break;
+    }
+
+}
 
 /*
  // Override to support conditional editing of the table view.
@@ -182,11 +283,14 @@
 
 - (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    _selectedProject = [_objects objectAtIndex:indexPath.row];
+    _selectedProject = [_projects objectAtIndex:indexPath.row];
     
     [self.tableView reloadData];    
     UITableViewCell* cell = [aTableView cellForRowAtIndexPath:indexPath];
-    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    //cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    //cell.textLabel.font = [UIFont boldSystemFontOfSize:12];
+    cell.textLabel.textColor = [UIColor blueColor];
+    cell.backgroundColor = [UIColor colorWithRed:0.95f green:0.95f blue:0.95f alpha:1.0f];
     
     /*
      When a row is selected, set the detail view controller's detail item to the item associated with the selected row.
@@ -197,7 +301,9 @@
     self.detailViewController.folio = [NSString stringWithFormat:@"%@", _selectedProject.folio];
 }
 
-
+- (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {    
+    return _segmentedControl;
+}
 
 
 #pragma mark -

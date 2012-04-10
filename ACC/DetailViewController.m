@@ -119,11 +119,13 @@
     
 }
 
-/*
+
  - (void)viewDidAppear:(BOOL)animated {
  [super viewDidAppear:animated];
+     self.title = @"Project";
  }
- */
+
+
 /*
  - (void)viewWillDisappear:(BOOL)animated {
  [super viewWillDisappear:animated];

@@ -13,7 +13,9 @@
 
 @interface RootViewController : UITableViewController <RKObjectLoaderDelegate, UITableViewDelegate> {
     Project* _selectedProject;
-    NSArray* _objects;
+    NSArray* _projects;
+    NSMutableArray* _listofPortfolios;
+    UISegmentedControl* _segmentedControl;
 }
 
 @property (strong, nonatomic)  DetailViewController *detailViewController;

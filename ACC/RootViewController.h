@@ -14,7 +14,6 @@
 @interface RootViewController : UIViewController <RKObjectLoaderDelegate, UITableViewDelegate, UITableViewDataSource> {
 
     Project* _selectedProject;
-    NSArray* _projects;
     NSMutableArray* _listofPortfolios;
 
 }

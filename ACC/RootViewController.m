@@ -18,7 +18,7 @@
 
 @synthesize appDelegate;
 @synthesize detailViewController;
-@synthesize tableView;
+@synthesize tableView = _tableView;
 @synthesize segmentedControl = _segmentedControl;
 
 #pragma mark -
@@ -69,13 +69,34 @@
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
     
-    [_listofPortfolios removeAllObjects];
+
+    
+    NSMutableDictionary* portfolios = [[NSMutableDictionary alloc] init];
     
     switch (_segmentedControl.selectedSegmentIndex) {
         // By Portfolio
         case 0:
             
+            for (id object in objects) {
+                
+                Project* project = (Project*) object;
+                NSLog(@"portfolio: %@", project.portfolio.name);
+                NSMutableArray* projects = nil;
             
+                if (![portfolios objectForKey:project.portfolio.name]) {
+                    
+                    projects = [[NSMutableArray alloc] init];
+
+                } else {
+                    
+                    projects = [portfolios objectForKey:project.portfolio.name];
+
+                }
+                
+                [projects addObject:project];
+                [portfolios setValue:projects forKey:project.portfolio.name];
+
+            }
             
 
             break;
@@ -89,12 +110,17 @@
         default:            
             break;
     }
-
-    NSDictionary* dictionary1 = [NSDictionary dictionaryWithObject:objects forKey:@"Projects"];
-    NSDictionary* dictionary2 = [NSDictionary dictionaryWithObject:objects forKey:@"Projects"];
     
-    [_listofPortfolios addObject:dictionary1];
-    [_listofPortfolios addObject:dictionary2];
+    [_listofPortfolios removeAllObjects];
+    
+    NSEnumerator* enumerator = [portfolios keyEnumerator];
+    id key;
+    while ((key = [enumerator nextObject])) {
+        NSMutableArray* projects = [portfolios objectForKey:key];
+        NSArray* array = (NSArray*) projects;
+        NSDictionary* dictionary = [NSDictionary dictionaryWithObject:array forKey:@"Projects"];
+        [_listofPortfolios addObject:dictionary];
+    }        
     
     [self.tableView reloadData];
 
@@ -149,10 +175,12 @@
 
 
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {
+
     // Return the number of rows in the section.
     NSDictionary* dictionary = [_listofPortfolios objectAtIndex:section];
     NSArray* array = [dictionary objectForKey:@"Projects"];
-    return [array count];                      
+    return [array count];
+
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -206,14 +234,6 @@
     
 }
 
-//- ()onValueChanged:(id)sender {
-//    
-//    if (self) {
-//        [_segmentedControl addTarget:self action:@selector(updateTableView) forControlEvents:UIControlEventValueChanged];
-//    }
-//    
-//    
-//}
 
 - (IBAction)updateTableView:(id)sender {
     

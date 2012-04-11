@@ -30,7 +30,7 @@
     self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
 	self.appDelegate = (SBIAppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    _listofPortfolios = [[NSMutableArray alloc] init];
+    _listofPortfolios = [[NSMutableDictionary alloc] init];
     
     if (self) {
         [RKObjectManager objectManagerWithBaseURL:gSBICatalogBaseURL];
@@ -68,9 +68,7 @@
  }
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
-    
 
-    
     NSMutableDictionary* portfolios = [[NSMutableDictionary alloc] init];
     
     switch (_segmentedControl.selectedSegmentIndex) {
@@ -97,8 +95,6 @@
                 [portfolios setValue:projects forKey:project.portfolio.name];
 
             }
-            
-
             break;
             
         // By Project Group
@@ -116,10 +112,12 @@
     NSEnumerator* enumerator = [portfolios keyEnumerator];
     id key;
     while ((key = [enumerator nextObject])) {
+        
         NSMutableArray* projects = [portfolios objectForKey:key];
         NSArray* array = (NSArray*) projects;
-        NSDictionary* dictionary = [NSDictionary dictionaryWithObject:array forKey:@"Projects"];
-        [_listofPortfolios addObject:dictionary];
+        NSString* str = (NSString*) key;
+        [_listofPortfolios setValue:array forKey:str];
+        
     }        
     
     [self.tableView reloadData];
@@ -177,19 +175,21 @@
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {
 
     // Return the number of rows in the section.
-    NSDictionary* dictionary = [_listofPortfolios objectAtIndex:section];
-    NSArray* array = [dictionary objectForKey:@"Projects"];
-    return [array count];
+    NSArray* keys = [_listofPortfolios allKeys];
+    id aKey = [keys objectAtIndex:section];
+    NSArray* projects = [_listofPortfolios objectForKey:aKey];
+    
+    return [projects count];
 
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     
-    if(section == 0) {
-        return @"Día a Día";
-    } else {
-        return @"Transforma";
-    }
+    
+    NSArray *keys = [_listofPortfolios allKeys];
+    id aKey = [keys objectAtIndex:section];
+    return aKey;
+
 }
 
 
@@ -205,9 +205,11 @@
     cell.accessoryType = UITableViewCellAccessoryNone;
     cell.textLabel.textColor = [UIColor blackColor];
     
-    NSDictionary* dictionary = [_listofPortfolios objectAtIndex:indexPath.section];
-    NSArray* array = [dictionary objectForKey:@"Projects"];
-    Project* project = (Project*) [array objectAtIndex:indexPath.row];
+    NSArray* keys = [_listofPortfolios allKeys];
+    id aKey = [keys objectAtIndex:indexPath.section];
+    NSArray* projects = [_listofPortfolios objectForKey:aKey];
+
+    Project* project = (Project*) [projects objectAtIndex:indexPath.row];
     
     switch (_segmentedControl.selectedSegmentIndex) {
         // By Portfolio
@@ -355,9 +357,11 @@
 
 - (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSDictionary* dictionary = [_listofPortfolios objectAtIndex:indexPath.section];
-    NSArray* array = [dictionary objectForKey:@"Projects"];
-    _selectedProject = [array objectAtIndex:indexPath.row];
+    NSArray* keys = [_listofPortfolios allKeys];
+    id aKey = [keys objectAtIndex:indexPath.section];
+    NSArray* projects = [_listofPortfolios objectForKey:aKey];
+    
+    _selectedProject = [projects objectAtIndex:indexPath.row];
     
     /*
      When a row is selected, set the detail view controller's detail item to the item associated with the selected row.

@@ -11,7 +11,6 @@
 @interface ProjectGroup : NSObject
 
 @property (strong, nonatomic) NSString* name;
-@property (strong, nonatomic) NSMutableArray* projects;
-
+@property (strong, nonatomic) NSArray* projects;
 
 @end

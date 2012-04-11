@@ -15,6 +15,7 @@
 
     Project* _selectedProject;
     NSMutableDictionary* _listofPortfolios;
+    NSMutableDictionary* _listofProjectGroups;
 
 }
 

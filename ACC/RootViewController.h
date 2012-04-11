@@ -11,15 +11,22 @@
 #import "Project.h"
 @class DetailViewController;
 
-@interface RootViewController : UITableViewController <RKObjectLoaderDelegate, UITableViewDelegate> {
+@interface RootViewController : UIViewController <RKObjectLoaderDelegate, UITableViewDelegate, UITableViewDataSource> {
+
     Project* _selectedProject;
     NSArray* _projects;
     NSMutableArray* _listofPortfolios;
-    UISegmentedControl* _segmentedControl;
+
 }
+
+@property (strong, nonatomic) SBIAppDelegate *appDelegate;
 
 @property (strong, nonatomic)  DetailViewController *detailViewController;
 
-@property (strong, nonatomic) SBIAppDelegate *appDelegate;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+
+-(IBAction)updateTableView:(id)sender;
 
 @end

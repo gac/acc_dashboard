@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4B300637152BA3CF0090CC9E /* SBILoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B300638152BA3CF0090CC9E /* SBILoginViewController.xib */; };
+		4B43E5E21534ABAA00D19AD3 /* RootView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B43E5E11534ABAA00D19AD3 /* RootView.xib */; };
 		4B53B26D151BBF15003620E0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B53B26C151BBF15003620E0 /* UIKit.framework */; };
 		4B53B26F151BBF15003620E0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B53B26E151BBF15003620E0 /* Foundation.framework */; };
 		4B53B271151BBF15003620E0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B53B270151BBF15003620E0 /* CoreGraphics.framework */; };
@@ -40,6 +41,7 @@
 		4B77F1C2152CF76800FAB9D6 /* Portfolio.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B77F1C0152CF76800FAB9D6 /* Portfolio.m */; };
 		4B81EAFB151D203600DFFEB0 /* sbi_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B81EAF9151D203600DFFEB0 /* sbi_icon.png */; };
 		4B81EAFC151D203600DFFEB0 /* scotiabank_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B81EAFA151D203600DFFEB0 /* scotiabank_logo.png */; };
+		4BB39AFE1534EC28007CDE55 /* ProjectGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB39AFD1534EC28007CDE55 /* ProjectGroup.m */; };
 		4BE8E43515221E5F0044D463 /* libRestKitCoreData.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE8E42915221D030044D463 /* libRestKitCoreData.a */; };
 		4BE8E43615221E5F0044D463 /* libRestKitJSONParserJSONKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE8E42515221D030044D463 /* libRestKitJSONParserJSONKit.a */; };
 		4BE8E43715221E5F0044D463 /* libRestKitNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE8E41915221D030044D463 /* libRestKitNetwork.a */; };
@@ -139,6 +141,7 @@
 
 /* Begin PBXFileReference section */
 		4B300638152BA3CF0090CC9E /* SBILoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SBILoginViewController.xib; sourceTree = "<group>"; };
+		4B43E5E11534ABAA00D19AD3 /* RootView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootView.xib; sourceTree = "<group>"; };
 		4B53B268151BBF15003620E0 /* ACC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ACC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B53B26C151BBF15003620E0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4B53B26E151BBF15003620E0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -189,6 +192,8 @@
 		4B77F1C0152CF76800FAB9D6 /* Portfolio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Portfolio.m; path = ACC/Portfolio.m; sourceTree = "<group>"; };
 		4B81EAF9151D203600DFFEB0 /* sbi_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sbi_icon.png; sourceTree = "<group>"; };
 		4B81EAFA151D203600DFFEB0 /* scotiabank_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scotiabank_logo.png; sourceTree = "<group>"; };
+		4BB39AFC1534EC28007CDE55 /* ProjectGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectGroup.h; path = ACC/ProjectGroup.h; sourceTree = "<group>"; };
+		4BB39AFD1534EC28007CDE55 /* ProjectGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectGroup.m; path = ACC/ProjectGroup.m; sourceTree = "<group>"; };
 		4BE8E40415221D030044D463 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = "RestKit-RestKit-991bd5c/RestKit.xcodeproj"; sourceTree = "<group>"; };
 		4BE8E43B15221EA50044D463 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		4BE8E43D15221EC60044D463 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -292,6 +297,8 @@
 				4B77F194152CA78800FAB9D6 /* ProjectType.m */,
 				4B77F196152CA7F700FAB9D6 /* ProjectSize.h */,
 				4B77F197152CA7F800FAB9D6 /* ProjectSize.m */,
+				4BB39AFC1534EC28007CDE55 /* ProjectGroup.h */,
+				4BB39AFD1534EC28007CDE55 /* ProjectGroup.m */,
 			);
 			name = Domain;
 			path = ..;
@@ -328,12 +335,13 @@
 				4B81EAF9151D203600DFFEB0 /* sbi_icon.png */,
 				4B81EAFA151D203600DFFEB0 /* scotiabank_logo.png */,
 				4B53B2BA151CDED2003620E0 /* MainWindow.xib */,
+				4B300638152BA3CF0090CC9E /* SBILoginViewController.xib */,
 				4B53B2BC151CEC9B003620E0 /* DetailView.xib */,
 				4B53B298151BCEDC003620E0 /* RootLevel1.xib */,
 				4B53B29D151BCF27003620E0 /* DetailLevel1.xib */,
 				4B53B2A6151BD11A003620E0 /* RootLevel2.xib */,
 				4B53B2AB151BD155003620E0 /* DetailLevel2.xib */,
-				4B300638152BA3CF0090CC9E /* SBILoginViewController.xib */,
+				4B43E5E11534ABAA00D19AD3 /* RootView.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -505,6 +513,7 @@
 				4B53B2BD151CEC9C003620E0 /* DetailView.xib in Resources */,
 				4B81EAFB151D203600DFFEB0 /* sbi_icon.png in Resources */,
 				4B81EAFC151D203600DFFEB0 /* scotiabank_logo.png in Resources */,
+				4B43E5E21534ABAA00D19AD3 /* RootView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,6 +539,7 @@
 				4B77F198152CA7F800FAB9D6 /* ProjectSize.m in Sources */,
 				4B77F1C1152CF76800FAB9D6 /* Project.m in Sources */,
 				4B77F1C2152CF76800FAB9D6 /* Portfolio.m in Sources */,
+				4BB39AFE1534EC28007CDE55 /* ProjectGroup.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -189,7 +189,7 @@
             [_activityIndicatorView setHidden:YES];
             [_activityIndicatorLabel setHidden:YES];
             
-            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error!" message:@"Your account has been disabled." delegate:nil cancelButtonTitle:@"OK!" otherButtonTitles:nil];
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Authentication Error!" message:@"Your account has been disabled." delegate:nil cancelButtonTitle:@"OK!" otherButtonTitles:nil];
             [alert show];
             
             [_usernameField becomeFirstResponder];
@@ -208,7 +208,7 @@
             [_activityIndicatorView setHidden:YES];
             [_activityIndicatorLabel setHidden:YES];
             
-            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error!" message:@"Your username and password were incorrect." delegate:nil cancelButtonTitle:@"OK!" otherButtonTitles:nil];
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Authentication Error!" message:@"Your username and password were incorrect." delegate:nil cancelButtonTitle:@"OK!" otherButtonTitles:nil];
             [alert show];
             
             [_usernameField becomeFirstResponder];

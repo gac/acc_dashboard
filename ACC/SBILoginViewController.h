@@ -6,11 +6,11 @@
 //  Copyright (c) 2012 Scotiabank. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <RestKit/RestKit.h>
 
 @class SBIAppDelegate;
 
-@interface SBILoginViewController : UIViewController<UITextFieldDelegate>
+@interface SBILoginViewController : UIViewController<UITextFieldDelegate, RKRequestDelegate>
 
 @property (strong, nonatomic) IBOutlet UIImageView *logoImageView;
 @property (strong, nonatomic) IBOutlet UILabel *usernameLabel;

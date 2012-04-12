@@ -6,11 +6,12 @@
 //  Copyright (c) 2012 Scotiabank. All rights reserved.
 //
 
+#import <RestKit/RestKit.h>
 #import "SBILoginViewController.h"
-
 #import "SBIAppDelegate.h"
 #import "RootViewController.h"
 #import "DetailViewController.h"
+#import "SBICatalog.h"
 
 #include <unistd.h>
 
@@ -37,6 +38,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
 }
 
 - (void)viewDidUnload
@@ -129,6 +131,14 @@
     
     if (_usernameField.text.length > 0 && _passwordField.text.length > 0) {
         
+        //RKClient *client = [RKClient clientWithBaseURLString:gSBICatalogBaseURL];
+        RKClient *client = [RKClient clientWithBaseURL:gSBICatalogBaseURL];
+        
+        //NSDictionary* params = [NSDictionary dictionaryWithObject:@"juanmanuel" forKey:@"username"];
+        NSDictionary *params = [NSDictionary dictionaryWithKeysAndObjects:@"username", _usernameField.text, @"password", _passwordField.text, nil];
+        [client post:@"projects/resources/auth/" params:params delegate:self];
+
+        
         [_usernameField setEnabled:NO];
         [_passwordField setEnabled:NO];
         
@@ -138,24 +148,82 @@
         [_activityIndicatorView startAnimating];        
         [textField resignFirstResponder];
         
-        SBIAppDelegate *appDelegate = (SBIAppDelegate *)[[UIApplication sharedApplication] delegate];
-        
-        // Override point for customization after app launch.
-        appDelegate.splitViewController =[[UISplitViewController alloc]init];
-        RootViewController *rootViewController = [[RootViewController alloc]init];
-        DetailViewController *detailViewController = [[DetailViewController alloc]init];
-        
-        UINavigationController *rootNav=[[UINavigationController alloc]initWithRootViewController:rootViewController];
-        UINavigationController *detailNav=[[UINavigationController alloc]initWithRootViewController:detailViewController];
-        
-        appDelegate.splitViewController.viewControllers=[NSArray arrayWithObjects:rootNav,detailNav,nil];
-        appDelegate.splitViewController.delegate= detailViewController;
-        
-        appDelegate.window.rootViewController = appDelegate.splitViewController;
-        
     }
     
     return YES;
+}
+
+- (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {  
+        
+    // Handling POST /other.json        
+    if ([response isJSON]) {
+        
+        NSLog(@"%@", response.bodyAsString);
+        
+        if ([response.bodyAsString isEqual:@"{\"result\": \"ok\"}"]) {
+        
+            SBIAppDelegate *appDelegate = (SBIAppDelegate *)[[UIApplication sharedApplication] delegate];
+        
+            // Override point for customization after app launch.
+            appDelegate.splitViewController =[[UISplitViewController alloc]init];
+            RootViewController *rootViewController = [[RootViewController alloc]init];
+            DetailViewController *detailViewController = [[DetailViewController alloc]init];
+        
+            UINavigationController *rootNav=[[UINavigationController alloc]initWithRootViewController:rootViewController];
+            UINavigationController *detailNav=[[UINavigationController alloc]initWithRootViewController:detailViewController];
+        
+            appDelegate.splitViewController.viewControllers=[NSArray arrayWithObjects:rootNav,detailNav,nil];
+            appDelegate.splitViewController.delegate= detailViewController;
+        
+            appDelegate.window.rootViewController = appDelegate.splitViewController;
+        } else if ([response.bodyAsString isEqual:@"{\"result\": \"Your account has been disabled!\"}"]) {
+            
+            _usernameField.text = @"";
+            _passwordField.text = @"";
+            
+            [_activityIndicatorView stopAnimating];
+            
+            [_usernameField setEnabled:YES];
+            [_passwordField setEnabled:YES];
+            
+            [_activityIndicatorView setHidden:YES];
+            [_activityIndicatorLabel setHidden:YES];
+            
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error!" message:@"Your account has been disabled." delegate:nil cancelButtonTitle:@"Cancel!" otherButtonTitles:nil];
+            [alert show];
+            
+            [_usernameField becomeFirstResponder];
+
+
+        } else {
+            
+            _usernameField.text = @"";
+            _passwordField.text = @"";
+            
+            [_activityIndicatorView stopAnimating];
+            
+            [_usernameField setEnabled:YES];
+            [_passwordField setEnabled:YES];
+            
+            [_activityIndicatorView setHidden:YES];
+            [_activityIndicatorLabel setHidden:YES];
+            
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error!" message:@"Your username and password were incorrect." delegate:nil cancelButtonTitle:@"Cancel!" otherButtonTitles:nil];
+            [alert show];
+            
+            [_usernameField becomeFirstResponder];
+            
+        }
+        
+    }
+
+}
+
+-(void)request:(RKRequest *)request didFailLoadWithError:(NSError *)error {
+    
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error!" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"Cancel!" otherButtonTitles:nil];
+    [alert show];
+    
 }
 
 @end

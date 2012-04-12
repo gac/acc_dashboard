@@ -31,6 +31,7 @@ NSString *gSBICatalogBaseURL = nil;
 {
 
     SBILoginViewController *viewController = [[SBILoginViewController alloc] initWithNibName:@"SBILoginViewController" bundle:nil];
+    
     self.window.rootViewController = viewController;
     [self.window makeKeyAndVisible];
 

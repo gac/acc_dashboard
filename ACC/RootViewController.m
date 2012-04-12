@@ -51,6 +51,7 @@
     [projectSizeMapping mapKeyPath:@"size" toAttribute:@"size"];
     
     RKObjectMapping* projectMapping = [RKObjectMapping mappingForClass:[Project class]];
+    [projectMapping mapKeyPath:@"id" toAttribute:@"projectID"];
     [projectMapping mapRelationship:@"portfolio" withMapping:portfolioMapping];     
     [projectMapping mapRelationship:@"project_type" withMapping:projectTypeMapping];
     [projectMapping mapRelationship:@"project_size" withMapping:projectSizeMapping];
@@ -58,7 +59,8 @@
     [projectMapping mapKeyPath:@"name" toAttribute:@"name"];
     [projectMapping mapKeyPath:@"description" toAttribute:@"description"];
     [projectMapping mapKeyPath:@"is_focus" toAttribute:@"is_focus"];
-    [projectMapping mapKeyPath:@"is_kpt" toAttribute:@"is_kpt"];  
+    [projectMapping mapKeyPath:@"is_kpt" toAttribute:@"is_kpt"];
+    [projectMapping mapKeyPath:@"url" toAttribute:@"url"];
     
     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"projects/resources/projects/" objectMapping:projectMapping delegate:self];
 
@@ -66,8 +68,11 @@
 
 
  - (void)viewWillAppear:(BOOL)animated {
+     
      [super viewWillAppear:animated];
+
  }
+
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
 
@@ -161,6 +166,8 @@
      [super viewDidAppear:animated];
 
      self.title = @"IT Projects";
+     
+
      
  }
  
@@ -301,6 +308,7 @@
     [projectSizeMapping mapKeyPath:@"size" toAttribute:@"size"];
     
     RKObjectMapping* projectMapping = [RKObjectMapping mappingForClass:[Project class]];
+    [projectMapping mapKeyPath:@"id" toAttribute:@"projectID"];
     [projectMapping mapRelationship:@"portfolio" withMapping:portfolioMapping];     
     [projectMapping mapRelationship:@"project_type" withMapping:projectTypeMapping];
     [projectMapping mapRelationship:@"project_size" withMapping:projectSizeMapping];
@@ -308,7 +316,8 @@
     [projectMapping mapKeyPath:@"name" toAttribute:@"name"];
     [projectMapping mapKeyPath:@"description" toAttribute:@"description"];
     [projectMapping mapKeyPath:@"is_focus" toAttribute:@"is_focus"];
-    [projectMapping mapKeyPath:@"is_kpt" toAttribute:@"is_kpt"];  
+    [projectMapping mapKeyPath:@"is_kpt" toAttribute:@"is_kpt"];
+    [projectMapping mapKeyPath:@"url" toAttribute:@"url"];
     
     RKObjectMapping* projectGroupMapping = [RKObjectMapping mappingForClass:[ProjectGroup class]];
     [projectGroupMapping mapKeyPath:@"id" toAttribute:@"projectGroupID"];
@@ -382,7 +391,7 @@
     
     NSArray* projects = nil;
     
-    if (_segmentedControl.selectedSegmentIndex == 0) {    
+    if (_segmentedControl.selectedSegmentIndex == 0) {
     
         NSArray* keys = [_listofPortfolios allKeys];
         id aKey = [keys objectAtIndex:indexPath.section];
@@ -402,9 +411,17 @@
      When a row is selected, set the detail view controller's detail item to the item associated with the selected row.
      */
 	self.detailViewController=(DetailViewController *)[[self.appDelegate.splitViewController.viewControllers objectAtIndex:1] visibleViewController];
-
-    self.detailViewController.name = [NSString stringWithFormat:@"%@", _selectedProject.name];
-    self.detailViewController.folio = [NSString stringWithFormat:@"%@", _selectedProject.folio];
+    
+    if (_segmentedControl.selectedSegmentIndex == 0) {    
+        
+        self.detailViewController.itemUrl = [NSString stringWithFormat:@"%@", _selectedProject.url];
+        
+    } else {
+        
+        self.detailViewController.itemID = [NSString stringWithFormat:@"%@", _selectedProject.projectID];
+        
+    }
+    
 }
 
 

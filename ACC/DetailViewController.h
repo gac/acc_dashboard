@@ -6,18 +6,34 @@
 //  Copyright 2011 Kshitiz Ghimire. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "SBICatalog.h"
 #import "SBIAppDelegate.h"
-@interface DetailViewController : UIViewController <UIPopoverControllerDelegate, UISplitViewControllerDelegate> 
+#import "Project.h"
 
-@property (strong, nonatomic) id folio;
-@property (strong, nonatomic) id name;
+@interface DetailViewController : UIViewController <UIPopoverControllerDelegate, UISplitViewControllerDelegate, RKObjectLoaderDelegate> {
+    
+    UIPopoverController *popoverController;
+    
+}
 
+@property (strong, nonatomic) SBIAppDelegate *appDelegate;
+
+@property (strong, nonatomic) id itemUrl;
+@property (strong, nonatomic) id itemID;
+
+@property (strong, nonatomic) IBOutlet UILabel *projectTypeTitleLabel;
+@property (strong, nonatomic) IBOutlet UILabel *projectSizeTitleLabel;
+@property (strong, nonatomic) IBOutlet UILabel *focusTitleLabel;
+@property (strong, nonatomic) IBOutlet UILabel *kptTitleLabel;
+@property (strong, nonatomic) IBOutlet UILabel *descriptionTitleLabel;
 
 @property (strong, nonatomic) IBOutlet UILabel *folioLabel;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
-
-@property (strong, nonatomic) SBIAppDelegate *appDelegate;
+@property (strong, nonatomic) IBOutlet UILabel *projectTypeLabel;
+@property (strong, nonatomic) IBOutlet UILabel *projectSizeLabel;
+@property (strong, nonatomic) IBOutlet UILabel *focusLabel;
+@property (strong, nonatomic) IBOutlet UILabel *kptLabel;
+@property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
 
 - (IBAction)pushViewController:(id)sender;
 

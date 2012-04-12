@@ -10,58 +10,198 @@
 #import "RootViewController.h"
 #import "RootLevel1.h"
 #import "DetailLevel1.h"
+#import "Project.h"
 
 @interface DetailViewController ()
-@property (strong, nonatomic) UIPopoverController *popoverController;
-- (void)configureView;
-@end
 
+@property (strong, nonatomic) UIPopoverController *popoverController;
+
+- (void)configureView;
+
+@end
 
 
 @implementation DetailViewController
 
-@synthesize  popoverController;
-@synthesize folio;
-@synthesize name;
-@synthesize folioLabel;
-@synthesize nameLabel;
+@synthesize popoverController;
 
 @synthesize appDelegate;
+
+@synthesize itemUrl;
+@synthesize itemID;
+
+@synthesize projectTypeTitleLabel;
+@synthesize projectSizeTitleLabel;
+@synthesize focusTitleLabel;
+@synthesize kptTitleLabel;
+@synthesize descriptionTitleLabel;
+
+@synthesize folioLabel;
+@synthesize nameLabel;
+@synthesize projectTypeLabel;
+@synthesize projectSizeLabel;
+@synthesize focusLabel;
+@synthesize kptLabel;
+@synthesize descriptionLabel;
+
 #pragma mark -
 #pragma mark Managing the detail item
 
 -(id) init {
+    
 	if (self=[super init]) {
+        
 		self.appDelegate = (SBIAppDelegate *)[[UIApplication sharedApplication] delegate];
+        
 	}
+    
 	return self;
 }
 
 /*
  When setting the detail item, update the view and dismiss the popover controller if it's showing.
  */
-- (void)setFolio:(id)newFolio {
-    if (folio != newFolio) {
+- (void)setItemUrl:(id)newUrl {
+    if (itemUrl != newUrl) {
 
-        folio = newFolio;
+        itemUrl = newUrl;
+        itemID = nil;
         
         // Update the view.
         [self configureView];
+        
     }
     
     if (popoverController != nil) {
         [popoverController dismissPopoverAnimated:YES];
-    }        
+    }
+    
+}
+
+- (void) setItemID:(id)newItemID {
+    
+    if (itemID != newItemID) {
+        
+        itemID = newItemID;
+        itemUrl = nil;
+        
+        // Update the view.
+        [self configureView];
+        
+    }
+    
+    if (popoverController != nil) {
+        [popoverController dismissPopoverAnimated:YES];
+    }
+    
 }
 
 
 - (void)configureView {
     
     // Update the user interface for the detail item.
-    folioLabel.text = [folio description];
-    nameLabel.text = [name description];
+    if (self) {
+        [RKObjectManager objectManagerWithBaseURL:gSBICatalogBaseURL];
+    }
+    
+    RKObjectMapping* portfolioMapping = [RKObjectMapping mappingForClass:[Portfolio class]];
+    [portfolioMapping mapKeyPath:@"id" toAttribute:@"portfolioID"];
+    [portfolioMapping mapKeyPath:@"name" toAttribute:@"name"];
+    
+    RKObjectMapping* projectTypeMapping = [RKObjectMapping mappingForClass:[ProjectType class]];     
+    [projectTypeMapping mapKeyPath:@"id" toAttribute:@"projectTypeID"];
+    [projectTypeMapping mapKeyPath:@"description" toAttribute:@"description"];
+    
+    RKObjectMapping* projectSizeMapping = [RKObjectMapping mappingForClass:[ProjectSize class]];
+    [projectSizeMapping mapKeyPath:@"id" toAttribute:@"projectSizeID"];
+    [projectSizeMapping mapKeyPath:@"size" toAttribute:@"size"];
+    
+    RKObjectMapping* projectMapping = [RKObjectMapping mappingForClass:[Project class]];
+    [projectMapping mapRelationship:@"portfolio" withMapping:portfolioMapping];     
+    [projectMapping mapRelationship:@"project_type" withMapping:projectTypeMapping];
+    [projectMapping mapRelationship:@"project_size" withMapping:projectSizeMapping];
+    [projectMapping mapKeyPath:@"folio" toAttribute:@"folio"];
+    [projectMapping mapKeyPath:@"name" toAttribute:@"name"];
+    [projectMapping mapKeyPath:@"description" toAttribute:@"description"];
+    [projectMapping mapKeyPath:@"is_focus" toAttribute:@"is_focus"];
+    [projectMapping mapKeyPath:@"is_kpt" toAttribute:@"is_kpt"];
+    [projectMapping mapKeyPath:@"url" toAttribute:@"url"];
+    
+    if (self.itemID) {
+
+        [[RKObjectManager sharedManager] loadObjectsAtResourcePath:[NSString stringWithFormat:@"projects/resources/projects/%@/", self.itemID] objectMapping:projectMapping delegate:self];
+
+    } else {
+        
+        RKObjectManager* objectManager = [RKObjectManager objectManagerWithBaseURL:self.itemUrl];
+        [objectManager loadObjectsAtResourcePath:@"" objectMapping:projectMapping delegate:self];
+
+    }
+
+}
+
+
+- (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
+        
+    for (id object in objects) {
+                
+        Project* project = (Project*) object;
+        
+        folioLabel.text = project.folio;
+        nameLabel.text = project.name;
+        
+        projectTypeTitleLabel.text = @"Type";
+        projectSizeTitleLabel.text = @"Size";
+        focusTitleLabel.text = @"Focus";
+        kptTitleLabel.text = @"KPT";
+        descriptionTitleLabel.text = @"Description";
+                
+        projectTypeLabel.text = project.project_type.description;
+        projectSizeLabel.text = project.project_size.size;
+        
+        if ([project.is_focus isEqualToNumber:[NSNumber numberWithInt:0]]) {
+            focusLabel.text = @"No";
+
+        } else {
+            focusLabel.text = @"Si";
+        }
+        
+        if ([project.is_kpt isEqualToNumber:[NSNumber numberWithInt:0]]) {
+            kptLabel.text = @"No";
+        } else {
+            kptLabel.text = @"Si";            
+        }
+        
+        descriptionLabel.text = project.description;
+        [descriptionLabel sizeToFit];
+
+    }
+
+}
+
+
+- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error {
+    
+    folioLabel.text = @"";
+    nameLabel.text = @"";
+    
+    projectTypeTitleLabel.text = @"";
+    projectSizeTitleLabel.text = @"";
+    focusTitleLabel.text = @"";
+    kptTitleLabel.text = @"";
+    descriptionTitleLabel.text = @"";
+    
+    projectTypeLabel.text = @"";
+    projectSizeLabel.text = @"";
+    focusLabel.text = @"";
+    kptLabel.text = @"";
+    descriptionLabel.text = @"";
+    
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error!" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+    [alert show];
     
 }
+
 
 
 #pragma mark -

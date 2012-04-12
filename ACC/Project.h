@@ -15,6 +15,7 @@
 
 @interface Project : NSObject
 
+@property (strong, nonatomic) NSNumber* projectID;
 @property (strong, nonatomic) Portfolio* portfolio;
 @property (strong, nonatomic) ProjectType* project_type;
 @property (strong, nonatomic) ProjectSize* project_size;
@@ -23,5 +24,7 @@
 @property (strong, nonatomic) NSString* description;
 @property (strong, nonatomic) NSNumber* is_focus;
 @property (strong, nonatomic) NSNumber* is_kpt;
+
+@property (strong, nonatomic) NSString* url;
 
 @end

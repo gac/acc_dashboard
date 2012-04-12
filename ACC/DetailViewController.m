@@ -27,7 +27,6 @@
 
 @synthesize appDelegate;
 
-@synthesize itemUrl;
 @synthesize itemID;
 
 @synthesize projectTypeTitleLabel;
@@ -61,29 +60,12 @@
 /*
  When setting the detail item, update the view and dismiss the popover controller if it's showing.
  */
-- (void)setItemUrl:(id)newUrl {
-    if (itemUrl != newUrl) {
-
-        itemUrl = newUrl;
-        itemID = nil;
-        
-        // Update the view.
-        [self configureView];
-        
-    }
-    
-    if (popoverController != nil) {
-        [popoverController dismissPopoverAnimated:YES];
-    }
-    
-}
 
 - (void) setItemID:(id)newItemID {
     
     if (itemID != newItemID) {
         
         itemID = newItemID;
-        itemUrl = nil;
         
         // Update the view.
         [self configureView];
@@ -125,18 +107,8 @@
     [projectMapping mapKeyPath:@"description" toAttribute:@"description"];
     [projectMapping mapKeyPath:@"is_focus" toAttribute:@"is_focus"];
     [projectMapping mapKeyPath:@"is_kpt" toAttribute:@"is_kpt"];
-    [projectMapping mapKeyPath:@"url" toAttribute:@"url"];
     
-    if (self.itemID) {
-
-        [[RKObjectManager sharedManager] loadObjectsAtResourcePath:[NSString stringWithFormat:@"projects/resources/projects/%@/", self.itemID] objectMapping:projectMapping delegate:self];
-
-    } else {
-        
-        RKObjectManager* objectManager = [RKObjectManager objectManagerWithBaseURL:self.itemUrl];
-        [objectManager loadObjectsAtResourcePath:@"" objectMapping:projectMapping delegate:self];
-
-    }
+    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:[NSString stringWithFormat:@"projects/resources/projects/%@/", self.itemID] objectMapping:projectMapping delegate:self];
 
 }
 

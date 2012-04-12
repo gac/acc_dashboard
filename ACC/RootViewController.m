@@ -42,25 +42,11 @@
     [portfolioMapping mapKeyPath:@"id" toAttribute:@"portfolioID"];
     [portfolioMapping mapKeyPath:@"name" toAttribute:@"name"];
     
-    RKObjectMapping* projectTypeMapping = [RKObjectMapping mappingForClass:[ProjectType class]];     
-    [projectTypeMapping mapKeyPath:@"id" toAttribute:@"projectTypeID"];
-    [projectTypeMapping mapKeyPath:@"description" toAttribute:@"description"];
-    
-    RKObjectMapping* projectSizeMapping = [RKObjectMapping mappingForClass:[ProjectSize class]];
-    [projectSizeMapping mapKeyPath:@"id" toAttribute:@"projectSizeID"];
-    [projectSizeMapping mapKeyPath:@"size" toAttribute:@"size"];
-    
     RKObjectMapping* projectMapping = [RKObjectMapping mappingForClass:[Project class]];
     [projectMapping mapKeyPath:@"id" toAttribute:@"projectID"];
     [projectMapping mapRelationship:@"portfolio" withMapping:portfolioMapping];     
-    [projectMapping mapRelationship:@"project_type" withMapping:projectTypeMapping];
-    [projectMapping mapRelationship:@"project_size" withMapping:projectSizeMapping];
     [projectMapping mapKeyPath:@"folio" toAttribute:@"folio"];
     [projectMapping mapKeyPath:@"name" toAttribute:@"name"];
-    [projectMapping mapKeyPath:@"description" toAttribute:@"description"];
-    [projectMapping mapKeyPath:@"is_focus" toAttribute:@"is_focus"];
-    [projectMapping mapKeyPath:@"is_kpt" toAttribute:@"is_kpt"];
-    [projectMapping mapKeyPath:@"url" toAttribute:@"url"];
     
     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"projects/resources/projects/" objectMapping:projectMapping delegate:self];
 
@@ -298,26 +284,12 @@
     RKObjectMapping* portfolioMapping = [RKObjectMapping mappingForClass:[Portfolio class]];
     [portfolioMapping mapKeyPath:@"id" toAttribute:@"portfolioID"];
     [portfolioMapping mapKeyPath:@"name" toAttribute:@"name"];
-    
-    RKObjectMapping* projectTypeMapping = [RKObjectMapping mappingForClass:[ProjectType class]];     
-    [projectTypeMapping mapKeyPath:@"id" toAttribute:@"projectTypeID"];
-    [projectTypeMapping mapKeyPath:@"description" toAttribute:@"description"];
-    
-    RKObjectMapping* projectSizeMapping = [RKObjectMapping mappingForClass:[ProjectSize class]];
-    [projectSizeMapping mapKeyPath:@"id" toAttribute:@"projectSizeID"];
-    [projectSizeMapping mapKeyPath:@"size" toAttribute:@"size"];
-    
+        
     RKObjectMapping* projectMapping = [RKObjectMapping mappingForClass:[Project class]];
     [projectMapping mapKeyPath:@"id" toAttribute:@"projectID"];
     [projectMapping mapRelationship:@"portfolio" withMapping:portfolioMapping];     
-    [projectMapping mapRelationship:@"project_type" withMapping:projectTypeMapping];
-    [projectMapping mapRelationship:@"project_size" withMapping:projectSizeMapping];
     [projectMapping mapKeyPath:@"folio" toAttribute:@"folio"];
     [projectMapping mapKeyPath:@"name" toAttribute:@"name"];
-    [projectMapping mapKeyPath:@"description" toAttribute:@"description"];
-    [projectMapping mapKeyPath:@"is_focus" toAttribute:@"is_focus"];
-    [projectMapping mapKeyPath:@"is_kpt" toAttribute:@"is_kpt"];
-    [projectMapping mapKeyPath:@"url" toAttribute:@"url"];
     
     RKObjectMapping* projectGroupMapping = [RKObjectMapping mappingForClass:[ProjectGroup class]];
     [projectGroupMapping mapKeyPath:@"id" toAttribute:@"projectGroupID"];
@@ -411,20 +383,9 @@
      When a row is selected, set the detail view controller's detail item to the item associated with the selected row.
      */
 	self.detailViewController=(DetailViewController *)[[self.appDelegate.splitViewController.viewControllers objectAtIndex:1] visibleViewController];
-    
-    if (_segmentedControl.selectedSegmentIndex == 0) {    
-        
-        self.detailViewController.itemUrl = [NSString stringWithFormat:@"%@", _selectedProject.url];
-        
-    } else {
-        
-        self.detailViewController.itemID = [NSString stringWithFormat:@"%@", _selectedProject.projectID];
-        
-    }
+    self.detailViewController.itemID = [NSString stringWithFormat:@"%@", _selectedProject.projectID];
     
 }
-
-
 
 
 #pragma mark -
@@ -450,4 +411,3 @@
 
 
 @end
-

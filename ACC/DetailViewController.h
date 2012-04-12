@@ -18,7 +18,6 @@
 
 @property (strong, nonatomic) SBIAppDelegate *appDelegate;
 
-@property (strong, nonatomic) id itemUrl;
 @property (strong, nonatomic) id itemID;
 
 @property (strong, nonatomic) IBOutlet UILabel *projectTypeTitleLabel;

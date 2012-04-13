@@ -221,6 +221,14 @@
 
 -(void)request:(RKRequest *)request didFailLoadWithError:(NSError *)error {
     
+    [_activityIndicatorView stopAnimating];
+    
+    [_usernameField setEnabled:YES];
+    [_passwordField setEnabled:YES];
+    
+    [_activityIndicatorView setHidden:YES];
+    [_activityIndicatorLabel setHidden:YES];
+    
     UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error!" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"Cancel!" otherButtonTitles:nil];
     [alert show];
     

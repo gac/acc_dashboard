@@ -111,6 +111,7 @@
             
             for (id object in objects) {
                 ProjectGroup* projectGroup = (ProjectGroup*) object;
+                NSLog(@"project Group: %@", projectGroup.name);
                 
                 NSMutableArray* projects = [[NSMutableArray alloc] init];
 
@@ -148,6 +149,8 @@
         }   
 
     } 
+    
+  	[self performSelector:@selector(doneLoadingTableViewData) withObject:nil afterDelay:1.0];
     
     [self.tableView reloadData];
 
@@ -245,9 +248,12 @@
         
         NSArray *keys = [_listofProjectGroups allKeys];
         aKey = [keys objectAtIndex:section];
+        
+        NSLog(@"section: %d", section);
+        NSLog(@"key: %@", aKey);
 
     }
-    
+
     return aKey;
 
 }
@@ -464,7 +470,38 @@
 - (void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView*)view{
 	
 	[self reloadTableViewDataSource];
-	[self performSelector:@selector(doneLoadingTableViewData) withObject:nil afterDelay:3.0];
+    
+    RKObjectMapping* portfolioMapping = [RKObjectMapping mappingForClass:[Portfolio class]];
+    [portfolioMapping mapKeyPath:@"id" toAttribute:@"portfolioID"];
+    [portfolioMapping mapKeyPath:@"name" toAttribute:@"name"];
+    
+    RKObjectMapping* projectMapping = [RKObjectMapping mappingForClass:[Project class]];
+    [projectMapping mapKeyPath:@"id" toAttribute:@"projectID"];
+    [projectMapping mapRelationship:@"portfolio" withMapping:portfolioMapping];     
+    [projectMapping mapKeyPath:@"folio" toAttribute:@"folio"];
+    [projectMapping mapKeyPath:@"name" toAttribute:@"name"];
+    
+    RKObjectMapping* projectGroupMapping = [RKObjectMapping mappingForClass:[ProjectGroup class]];
+    [projectGroupMapping mapKeyPath:@"id" toAttribute:@"projectGroupID"];
+    [projectGroupMapping mapKeyPath:@"name" toAttribute:@"name"];
+    [projectGroupMapping addRelationshipMapping:[RKObjectRelationshipMapping mappingFromKeyPath:@"projects" toKeyPath:@"projects" withMapping:projectMapping]];
+    
+    switch (_segmentedControl.selectedSegmentIndex) {
+            // By Portfolio
+        case 0:
+            
+            [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"projects/resources/projects/" objectMapping:projectMapping delegate:self];
+            break;
+            
+            // By Project Group
+        case 1:;
+            
+            [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"projects/resources/project/groups/" objectMapping:projectGroupMapping delegate:self];
+            break;
+            
+        default:            
+            break;
+    }
 	
 }
 

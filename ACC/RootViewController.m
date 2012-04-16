@@ -33,8 +33,8 @@
     self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
 	self.appDelegate = (SBIAppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    _listofPortfolios = [[NSMutableDictionary alloc] init];
-    _listofProjectGroups = [[NSMutableDictionary alloc] init];
+    _listofGroups = [[NSMutableArray alloc] init];
+    _listofItems = [[NSMutableArray alloc] init];    
     
     if (self) {
         [RKObjectManager objectManagerWithBaseURL:gSBICatalogBaseURL];
@@ -75,87 +75,87 @@
 
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
-
-    NSMutableDictionary* portfolios = [[NSMutableDictionary alloc] init];
     
-    switch (_segmentedControl.selectedSegmentIndex) {
-        // By Portfolio
-        case 0:
-            
-            for (id object in objects) {
-                
-                Project* project = (Project*) object;
-                NSMutableArray* projects = nil;
-            
-                if (![portfolios objectForKey:project.portfolio.name]) {
-                    
-                    projects = [[NSMutableArray alloc] init];
-
-                } else {
-                    
-                    projects = [portfolios objectForKey:project.portfolio.name];
-
-                }
-                
-                [projects addObject:project];
-                [portfolios setValue:projects forKey:project.portfolio.name];
-
-            }
-            
-            break;
-            
-        // By Project Group
-        case 1:
-            
-            [_listofProjectGroups removeAllObjects];
-            
-            for (id object in objects) {
-                ProjectGroup* projectGroup = (ProjectGroup*) object;
-                NSLog(@"project Group: %@", projectGroup.name);
-                
-                NSMutableArray* projects = [[NSMutableArray alloc] init];
-
-                for (id obj in projectGroup.projects) {
-                    
-                    Project* project = (Project*) obj;
-                    [projects addObject:project];
-
-                }
-                
-                NSArray* array = (NSArray*) projects;
-                [_listofProjectGroups setValue:array forKey:projectGroup.name];
-                
-            }
-
-            break;
-            
-        default:            
-            break;
-    }
+    [_listofGroups removeAllObjects];
+    [_listofItems removeAllObjects];
     
     if (_segmentedControl.selectedSegmentIndex == 0) {
-    
-        [_listofPortfolios removeAllObjects];
-    
+        
+        // By Portfolio
+        
+        NSMutableDictionary* portfolios = [[NSMutableDictionary alloc] init];
+        
+        for (id object in objects) {
+            
+            Project* project = (Project*) object;
+            NSMutableArray* projects = nil;
+            
+            if (![portfolios objectForKey:project.portfolio.name]) {
+                
+                projects = [[NSMutableArray alloc] init];
+                
+            } else {
+                
+                projects = [portfolios objectForKey:project.portfolio.name];
+                
+            }
+            
+            [projects addObject:project];
+            [portfolios setValue:projects forKey:project.portfolio.name];
+            
+        }
+
+        NSMutableArray* unorderPortfolioNames = [[NSMutableArray alloc] init];
+        
         NSEnumerator* enumerator = [portfolios keyEnumerator];
         id key;
         while ((key = [enumerator nextObject])) {
+            
+            [unorderPortfolioNames addObject:key];
+            
+        }
+
+        NSArray* orderPortfolioNames = [unorderPortfolioNames sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+                               
+        for (id portfolioName in orderPortfolioNames) {
+            
+            NSArray* array = (NSArray*) [portfolios objectForKey:portfolioName];
+          
+            [_listofGroups addObject:portfolioName];
+            [_listofItems addObject:array];
+            
+        }
+
+    } else {
         
-            NSMutableArray* projects = [portfolios objectForKey:key];
+        // By Project Group
+
+        for (id object in objects) {
+            
+            ProjectGroup* projectGroup = (ProjectGroup*) object;
+            
+            NSMutableArray* projects = [[NSMutableArray alloc] init];
+            
+            for (id obj in projectGroup.projects) {
+                
+                Project* project = (Project*) obj;
+                [projects addObject:project];
+                
+            }
+            
             NSArray* array = (NSArray*) projects;
-            NSString* str = (NSString*) key;
-            [_listofPortfolios setValue:array forKey:str];
-
-        }   
-
-    } 
+            [_listofGroups addObject:projectGroup.name];
+            [_listofItems addObject:array];
+            
+        }
+        
+    }
     
   	[self performSelector:@selector(doneLoadingTableViewData) withObject:nil afterDelay:1.0];
     
     [self.tableView reloadData];
 
 }
-
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error {
 
@@ -200,61 +200,24 @@
 #pragma mark Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)aTableView {
-    // Return the number of sections.
     
-    if (_segmentedControl.selectedSegmentIndex == 0) {
-            return [_listofPortfolios count];
-    } else {
-            return [_listofProjectGroups count];
-    }
+    // Return the number of sections.
+    return [_listofGroups count];
     
 }
 
 
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {
 
-    // Return the number of rows in the section.
-    NSArray* projects = nil;
-    
-    if (_segmentedControl.selectedSegmentIndex == 0) {
-        
-        NSArray* keys = [_listofPortfolios allKeys];
-        id aKey = [keys objectAtIndex:section];
-        projects = [_listofPortfolios objectForKey:aKey];
-        
-    } else {
-        
-        NSArray* keys = [_listofProjectGroups allKeys];
-        id aKey = [keys objectAtIndex:section];
-        projects = [_listofProjectGroups objectForKey:aKey];
-        
-    }
-    
-    return [projects count];
+    // Return the number of rows in the section.    
+    return [[_listofItems objectAtIndex:section] count];
 
 }
 
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    
-    id aKey = nil;
 
-    if (_segmentedControl.selectedSegmentIndex == 0) {
-    
-        NSArray *keys = [_listofPortfolios allKeys];
-        aKey = [keys objectAtIndex:section];
-        
-    } else {
-        
-        NSArray *keys = [_listofProjectGroups allKeys];
-        aKey = [keys objectAtIndex:section];
-        
-        NSLog(@"section: %d", section);
-        NSLog(@"key: %@", aKey);
-
-    }
-
-    return aKey;
+    return [_listofGroups objectAtIndex:section];
 
 }
 
@@ -262,7 +225,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *CellIdentifier = @"CellIdentifier";
-    
+    NSLog(@"index path: %@", indexPath);
     // Dequeue or create a cell of the appropriate type.
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
@@ -271,23 +234,7 @@
     cell.accessoryType = UITableViewCellAccessoryNone;
     cell.textLabel.textColor = [UIColor blackColor];
     
-    NSArray* projects = nil;
-    
-    if (_segmentedControl.selectedSegmentIndex == 0) {    
-    
-        NSArray* keys = [_listofPortfolios allKeys];
-        id aKey = [keys objectAtIndex:indexPath.section];
-        projects = [_listofPortfolios objectForKey:aKey];
-        
-    } else {
-        
-        NSArray* keys = [_listofProjectGroups allKeys];
-        id aKey = [keys objectAtIndex:indexPath.section];
-        projects = [_listofProjectGroups objectForKey:aKey];
-        
-    }
-
-    Project* project = (Project*) [projects objectAtIndex:indexPath.row];
+    Project* project = (Project*) [[_listofItems objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
 
     cell.textLabel.text = project.name;
     cell.textLabel.font = [UIFont systemFontOfSize:12];
@@ -380,23 +327,8 @@
 
 - (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSArray* projects = nil;
     
-    if (_segmentedControl.selectedSegmentIndex == 0) {
-    
-        NSArray* keys = [_listofPortfolios allKeys];
-        id aKey = [keys objectAtIndex:indexPath.section];
-        projects = [_listofPortfolios objectForKey:aKey];
-        
-    } else {
-        
-        NSArray* keys = [_listofProjectGroups allKeys];
-        id aKey = [keys objectAtIndex:indexPath.section];
-        projects = [_listofProjectGroups objectForKey:aKey];
-        
-    }
-    
-    _selectedProject = [projects objectAtIndex:indexPath.row];
+    _selectedProject = [[_listofItems objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     
     /*
      When a row is selected, set the detail view controller's detail item to the item associated with the selected row.

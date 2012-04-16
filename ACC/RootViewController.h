@@ -17,8 +17,9 @@
 @interface RootViewController : UIViewController <RKObjectLoaderDelegate, UITableViewDelegate, UITableViewDataSource, EGORefreshTableHeaderDelegate> {
 
     Project* _selectedProject;
-    NSMutableDictionary* _listofPortfolios;
-    NSMutableDictionary* _listofProjectGroups;
+    
+    NSMutableArray* _listofGroups;
+    NSMutableArray* _listofItems;
     
     EGORefreshTableHeaderView *_refreshHeaderView;
     
@@ -30,7 +31,7 @@
 
 @property (strong, nonatomic) SBIAppDelegate *appDelegate;
 
-@property (strong, nonatomic)  DetailViewController *detailViewController;
+@property (strong, nonatomic) DetailViewController *detailViewController;
 
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 

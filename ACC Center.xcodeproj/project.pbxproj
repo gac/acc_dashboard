@@ -161,14 +161,14 @@
 		4B342A9D153C7544000EDDDB /* blackArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blackArrow@2x.png"; path = "../../../../Downloads/enormego-EGOTableViewPullRefresh-743679f-1/EGOTableViewPullRefresh/Resources/blackArrow@2x.png"; sourceTree = "<group>"; };
 		4B342A9E153C7545000EDDDB /* blackArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blackArrow.png; path = "../../../../Downloads/enormego-EGOTableViewPullRefresh-743679f-1/EGOTableViewPullRefresh/Resources/blackArrow.png"; sourceTree = "<group>"; };
 		4B43E5E11534ABAA00D19AD3 /* RootView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootView.xib; sourceTree = "<group>"; };
-		4B53B268151BBF15003620E0 /* ACC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ACC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B53B268151BBF15003620E0 /* ACC Center.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ACC Center.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B53B26C151BBF15003620E0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4B53B26E151BBF15003620E0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4B53B270151BBF15003620E0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		4B53B274151BBF15003620E0 /* ACC-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ACC-Info.plist"; sourceTree = "<group>"; };
+		4B53B274151BBF15003620E0 /* ACC Center-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ACC Center-Info.plist"; sourceTree = "<group>"; };
 		4B53B276151BBF15003620E0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4B53B278151BBF15003620E0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4B53B27A151BBF15003620E0 /* ACC-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ACC-Prefix.pch"; sourceTree = "<group>"; };
+		4B53B27A151BBF15003620E0 /* ACC Center-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ACC Center-Prefix.pch"; sourceTree = "<group>"; };
 		4B53B27B151BBF15003620E0 /* SBIAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBIAppDelegate.h; sourceTree = "<group>"; };
 		4B53B27C151BBF15003620E0 /* SBIAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBIAppDelegate.m; sourceTree = "<group>"; };
 		4B53B27E151BBF15003620E0 /* SBILoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBILoginViewController.h; sourceTree = "<group>"; };
@@ -257,7 +257,7 @@
 		4B53B269151BBF15003620E0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4B53B268151BBF15003620E0 /* ACC.app */,
+				4B53B268151BBF15003620E0 /* ACC Center.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -293,10 +293,10 @@
 		4B53B273151BBF15003620E0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4B53B274151BBF15003620E0 /* ACC-Info.plist */,
+				4B53B274151BBF15003620E0 /* ACC Center-Info.plist */,
 				4B53B275151BBF15003620E0 /* InfoPlist.strings */,
 				4B53B278151BBF15003620E0 /* main.m */,
-				4B53B27A151BBF15003620E0 /* ACC-Prefix.pch */,
+				4B53B27A151BBF15003620E0 /* ACC Center-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -365,12 +365,12 @@
 				4B81EAFA151D203600DFFEB0 /* scotiabank_logo.png */,
 				4B53B2BA151CDED2003620E0 /* MainWindow.xib */,
 				4B300638152BA3CF0090CC9E /* SBILoginViewController.xib */,
+				4B43E5E11534ABAA00D19AD3 /* RootView.xib */,
 				4B53B2BC151CEC9B003620E0 /* DetailView.xib */,
 				4B53B298151BCEDC003620E0 /* RootLevel1.xib */,
 				4B53B29D151BCF27003620E0 /* DetailLevel1.xib */,
 				4B53B2A6151BD11A003620E0 /* RootLevel2.xib */,
 				4B53B2AB151BD155003620E0 /* DetailLevel2.xib */,
-				4B43E5E11534ABAA00D19AD3 /* RootView.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -396,9 +396,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4B53B267151BBF15003620E0 /* ACC */ = {
+		4B53B267151BBF15003620E0 /* ACC Center */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4B53B286151BBF15003620E0 /* Build configuration list for PBXNativeTarget "ACC" */;
+			buildConfigurationList = 4B53B286151BBF15003620E0 /* Build configuration list for PBXNativeTarget "ACC Center" */;
 			buildPhases = (
 				4B53B264151BBF15003620E0 /* Sources */,
 				4B53B265151BBF15003620E0 /* Frameworks */,
@@ -409,9 +409,9 @@
 			dependencies = (
 				4BE8E43415221D330044D463 /* PBXTargetDependency */,
 			);
-			name = ACC;
+			name = "ACC Center";
 			productName = ACC;
-			productReference = 4B53B268151BBF15003620E0 /* ACC.app */;
+			productReference = 4B53B268151BBF15003620E0 /* ACC Center.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -423,7 +423,7 @@
 				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = Scotiabank;
 			};
-			buildConfigurationList = 4B53B262151BBF15003620E0 /* Build configuration list for PBXProject "ACC" */;
+			buildConfigurationList = 4B53B262151BBF15003620E0 /* Build configuration list for PBXProject "ACC Center" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -441,7 +441,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				4B53B267151BBF15003620E0 /* ACC */,
+				4B53B267151BBF15003620E0 /* ACC Center */,
 			);
 		};
 /* End PBXProject section */
@@ -623,7 +623,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -642,7 +642,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -654,14 +654,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ACC/ACC-Prefix.pch";
+				GCC_PREFIX_HEADER = "ACC/ACC Center-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(SOURCE_ROOT)/RestKit-RestKit-991bd5c/Build";
-				INFOPLIST_FILE = "ACC/ACC-Info.plist";
+				INFOPLIST_FILE = "ACC/ACC Center-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "ACC Center";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -670,14 +671,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ACC/ACC-Prefix.pch";
+				GCC_PREFIX_HEADER = "ACC/ACC Center-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(SOURCE_ROOT)/RestKit-RestKit-991bd5c/Build";
-				INFOPLIST_FILE = "ACC/ACC-Info.plist";
+				INFOPLIST_FILE = "ACC/ACC Center-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "ACC Center";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -685,7 +687,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4B53B262151BBF15003620E0 /* Build configuration list for PBXProject "ACC" */ = {
+		4B53B262151BBF15003620E0 /* Build configuration list for PBXProject "ACC Center" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4B53B284151BBF15003620E0 /* Debug */,
@@ -694,7 +696,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4B53B286151BBF15003620E0 /* Build configuration list for PBXNativeTarget "ACC" */ = {
+		4B53B286151BBF15003620E0 /* Build configuration list for PBXNativeTarget "ACC Center" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4B53B287151BBF15003620E0 /* Debug */,

@@ -151,7 +151,7 @@
         
     }
     
-  	[self performSelector:@selector(doneLoadingTableViewData) withObject:nil afterDelay:1.0];
+  	[self performSelector:@selector(doneLoadingTableViewData) withObject:nil];
     
     [self.tableView reloadData];
 

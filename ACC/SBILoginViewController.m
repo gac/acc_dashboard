@@ -158,8 +158,6 @@
     // Handling POST /other.json        
     if ([response isJSON]) {
         
-        NSLog(@"%@", response.bodyAsString);
-        
         if ([response.bodyAsString isEqual:@"{\"result\": \"ok\"}"]) {
         
             SBIAppDelegate *appDelegate = (SBIAppDelegate *)[[UIApplication sharedApplication] delegate];

@@ -36,7 +36,7 @@ NSString *gSBICatalogBaseURL = nil;
     [self.window makeKeyAndVisible];
 
     //gSBICatalogBaseURL = @"http://127.0.0.1:8000";
-    gSBICatalogBaseURL = @"http://169.254.201.150:8000";
+    gSBICatalogBaseURL = @"http://169.254.157.158:8000";
     
     return YES;
 
@@ -63,6 +63,12 @@ NSString *gSBICatalogBaseURL = nil;
     /*
      Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
      */
+    
+    SBILoginViewController *viewController = [[SBILoginViewController alloc] initWithNibName:@"SBILoginViewController" bundle:nil];
+    
+    self.window.rootViewController = viewController;
+    [self.window makeKeyAndVisible];
+
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

@@ -35,8 +35,8 @@ NSString *gSBICatalogBaseURL = nil;
     self.window.rootViewController = viewController;
     [self.window makeKeyAndVisible];
 
-    //gSBICatalogBaseURL = @"http://127.0.0.1:8000";
-    gSBICatalogBaseURL = @"http://169.254.157.158:8000";
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    gSBICatalogBaseURL = [NSString stringWithFormat:@"http://%@", [defaults stringForKey:@"serverIP"]];
     
     return YES;
 

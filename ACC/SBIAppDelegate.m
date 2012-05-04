@@ -20,6 +20,7 @@ NSString *gSBICatalogBaseURL = nil;
 
 @synthesize window = _window;
 
+@synthesize tabBarController = _tabBarController;
 @synthesize splitViewController = _splitViewController;
 
 @synthesize rootPopoverButtonItem = _rootPopoverButtonItem;
@@ -36,7 +37,13 @@ NSString *gSBICatalogBaseURL = nil;
     [self.window makeKeyAndVisible];
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    gSBICatalogBaseURL = [NSString stringWithFormat:@"http://%@", [defaults stringForKey:@"serverIP"]];
+    NSString *serverIP = [defaults stringForKey:@"serverIP"];
+    
+    if (serverIP) {
+        gSBICatalogBaseURL = [NSString stringWithFormat:@"http://%@", serverIP];
+    } else {
+        gSBICatalogBaseURL = [NSString stringWithFormat:@"http://%@", @"127.0.0.1:8000"];
+    }
     
     return YES;
 

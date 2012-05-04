@@ -161,19 +161,28 @@
         if ([response.bodyAsString isEqual:@"{\"result\": \"ok\"}"]) {
         
             SBIAppDelegate *appDelegate = (SBIAppDelegate *)[[UIApplication sharedApplication] delegate];
-        
-            // Override point for customization after app launch.
+
+            appDelegate.tabBarController = [[UITabBarController alloc]init];
+            
             appDelegate.splitViewController =[[UISplitViewController alloc]init];
+            
+            
             RootViewController *rootViewController = [[RootViewController alloc]init];
             DetailViewController *detailViewController = [[DetailViewController alloc]init];
-        
+            
             UINavigationController *rootNav=[[UINavigationController alloc]initWithRootViewController:rootViewController];
             UINavigationController *detailNav=[[UINavigationController alloc]initWithRootViewController:detailViewController];
-        
+            
             appDelegate.splitViewController.viewControllers=[NSArray arrayWithObjects:rootNav,detailNav,nil];
             appDelegate.splitViewController.delegate= detailViewController;
-        
-            appDelegate.window.rootViewController = appDelegate.splitViewController;
+
+            appDelegate.splitViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Projects" image:[UIImage imageNamed:@"projects.png"] tag:0];          
+            
+            NSArray *controllers = [NSArray arrayWithObjects:appDelegate.splitViewController,  /* other controllers go here */ nil];
+            appDelegate.tabBarController.viewControllers = controllers;
+            appDelegate.window.rootViewController = appDelegate.tabBarController; // addSubview:appDelegate.tabBarController.view];
+            [appDelegate.window makeKeyAndVisible];
+
         } else if ([response.bodyAsString isEqual:@"{\"result\": \"Your account has been disabled!\"}"]) {
             
             _usernameField.text = @"";

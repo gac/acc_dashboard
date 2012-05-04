@@ -21,7 +21,7 @@ NSString *gSBICatalogBaseURL = nil;
 @synthesize window = _window;
 
 @synthesize tabBarController = _tabBarController;
-@synthesize splitViewController = _splitViewController;
+@synthesize splitProjectsViewController = _splitViewController;
 
 @synthesize rootPopoverButtonItem = _rootPopoverButtonItem;
 

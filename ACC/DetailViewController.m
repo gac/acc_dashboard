@@ -287,11 +287,11 @@
 								   target:self 
 								   action:@selector(popViewController)];
 	rootLevel1.navigationItem.leftBarButtonItem=backButton;
-	[self.appDelegate.splitViewController viewWillDisappear:YES];
-	[[self.appDelegate.splitViewController.viewControllers objectAtIndex:0] pushViewController:rootLevel1 animated:YES];
-	[[self.appDelegate.splitViewController.viewControllers objectAtIndex:1] pushViewController:detailLevel1 animated:YES];
-	self.appDelegate.splitViewController.delegate = detailLevel1;
-	[self.appDelegate.splitViewController viewWillAppear:YES];
+	[self.appDelegate.splitProjectsViewController viewWillDisappear:YES];
+	[[self.appDelegate.splitProjectsViewController.viewControllers objectAtIndex:0] pushViewController:rootLevel1 animated:YES];
+	[[self.appDelegate.splitProjectsViewController.viewControllers objectAtIndex:1] pushViewController:detailLevel1 animated:YES];
+	self.appDelegate.splitProjectsViewController.delegate = detailLevel1;
+	[self.appDelegate.splitProjectsViewController viewWillAppear:YES];
 	//[rootLevel1 release];
 	//[detailLevel1 release];
 	
@@ -299,9 +299,9 @@
 
 -(void)popViewController {
 	[self.splitViewController viewWillDisappear:YES];
-	[[self.appDelegate.splitViewController.viewControllers objectAtIndex:0]popViewControllerAnimated:YES];	
-	[[self.appDelegate.splitViewController.viewControllers objectAtIndex:1]popViewControllerAnimated:YES];	
-	UIViewController <UISplitViewControllerDelegate>*viewController=[[self.appDelegate.splitViewController.viewControllers objectAtIndex:1] visibleViewController];
+	[[self.appDelegate.splitProjectsViewController.viewControllers objectAtIndex:0]popViewControllerAnimated:YES];	
+	[[self.appDelegate.splitProjectsViewController.viewControllers objectAtIndex:1]popViewControllerAnimated:YES];	
+	UIViewController <UISplitViewControllerDelegate>*viewController=[[self.appDelegate.splitProjectsViewController.viewControllers objectAtIndex:1] visibleViewController];
 	self.splitViewController.delegate=viewController;	
 	[self.splitViewController viewWillAppear:YES];
 	

@@ -307,6 +307,41 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		4B62E9E715546ED4008351C8 /* Applications */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Applications;
+			sourceTree = "<group>";
+		};
+		4B62E9E815546EE9008351C8 /* Projects */ = {
+			isa = PBXGroup;
+			children = (
+				4B53B28D151BCCDA003620E0 /* RootViewController.h */,
+				4B53B28E151BCCDA003620E0 /* RootViewController.m */,
+				4B53B290151BCD75003620E0 /* DetailViewController.h */,
+				4B53B291151BCD75003620E0 /* DetailViewController.m */,
+				4B53B296151BCEDB003620E0 /* RootLevel1.h */,
+				4B53B297151BCEDB003620E0 /* RootLevel1.m */,
+				4B53B29B151BCF26003620E0 /* DetailLevel1.h */,
+				4B53B29C151BCF26003620E0 /* DetailLevel1.m */,
+				4B53B2A4151BD119003620E0 /* RootLevel2.h */,
+				4B53B2A5151BD119003620E0 /* RootLevel2.m */,
+				4B53B2A9151BD153003620E0 /* DetailLevel2.h */,
+				4B53B2AA151BD154003620E0 /* DetailLevel2.m */,
+			);
+			name = Projects;
+			sourceTree = "<group>";
+		};
+		4B62E9E915546F1C008351C8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				4B342A94153C6A13000EDDDB /* EGORefreshTableHeaderView.h */,
+				4B342A95153C6A13000EDDDB /* EGORefreshTableHeaderView.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		4B768AF415212AC900A53B98 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
@@ -332,26 +367,15 @@
 		4B81EAF2151D1C9200DFFEB0 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				4B62E9E915546F1C008351C8 /* Utils */,
+				4B62E9E815546EE9008351C8 /* Projects */,
+				4B62E9E715546ED4008351C8 /* Applications */,
 				4B768AF415212AC900A53B98 /* Domain */,
 				4B768AF31521297300A53B98 /* SBICatalog.h */,
 				4B53B27B151BBF15003620E0 /* SBIAppDelegate.h */,
 				4B53B27C151BBF15003620E0 /* SBIAppDelegate.m */,
 				4B53B27E151BBF15003620E0 /* SBILoginViewController.h */,
 				4B53B27F151BBF15003620E0 /* SBILoginViewController.m */,
-				4B53B28D151BCCDA003620E0 /* RootViewController.h */,
-				4B53B28E151BCCDA003620E0 /* RootViewController.m */,
-				4B53B290151BCD75003620E0 /* DetailViewController.h */,
-				4B53B291151BCD75003620E0 /* DetailViewController.m */,
-				4B53B296151BCEDB003620E0 /* RootLevel1.h */,
-				4B53B297151BCEDB003620E0 /* RootLevel1.m */,
-				4B53B29B151BCF26003620E0 /* DetailLevel1.h */,
-				4B53B29C151BCF26003620E0 /* DetailLevel1.m */,
-				4B53B2A4151BD119003620E0 /* RootLevel2.h */,
-				4B53B2A5151BD119003620E0 /* RootLevel2.m */,
-				4B53B2A9151BD153003620E0 /* DetailLevel2.h */,
-				4B53B2AA151BD154003620E0 /* DetailLevel2.m */,
-				4B342A94153C6A13000EDDDB /* EGORefreshTableHeaderView.h */,
-				4B342A95153C6A13000EDDDB /* EGORefreshTableHeaderView.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";

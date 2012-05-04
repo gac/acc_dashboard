@@ -84,7 +84,7 @@
 }
 
 - (IBAction)pushViewController:(id)sender{
-	NSLog(@"%@",self.appDelegate.splitViewController.viewControllers);
+	NSLog(@"%@",self.appDelegate.splitProjectsViewController.viewControllers);
 	RootLevel2 *rootLevel2 =[[RootLevel2 alloc]init];
 	DetailLevel2 <UISplitViewControllerDelegate>*detailLevel2=[[DetailLevel2 alloc]init];
 	
@@ -94,19 +94,19 @@
 								   target:self 
 								   action:@selector(popViewController)];
 	rootLevel2.navigationItem.leftBarButtonItem=backButton;
-	[self.appDelegate.splitViewController viewWillDisappear:YES];
-	[[self.appDelegate.splitViewController.viewControllers objectAtIndex:0] pushViewController:rootLevel2 animated:YES];
-	[[self.appDelegate.splitViewController.viewControllers objectAtIndex:1] pushViewController:detailLevel2 animated:YES];
-	self.appDelegate.splitViewController.delegate = detailLevel2;
-	[self.appDelegate.splitViewController viewWillAppear:YES];
+	[self.appDelegate.splitProjectsViewController viewWillDisappear:YES];
+	[[self.appDelegate.splitProjectsViewController.viewControllers objectAtIndex:0] pushViewController:rootLevel2 animated:YES];
+	[[self.appDelegate.splitProjectsViewController.viewControllers objectAtIndex:1] pushViewController:detailLevel2 animated:YES];
+	self.appDelegate.splitProjectsViewController.delegate = detailLevel2;
+	[self.appDelegate.splitProjectsViewController viewWillAppear:YES];
 	
 }
 
 -(void)popViewController {
 	[self.splitViewController viewWillDisappear:YES];
-	[[self.appDelegate.splitViewController.viewControllers objectAtIndex:0]popViewControllerAnimated:YES];	
-	[[self.appDelegate.splitViewController.viewControllers objectAtIndex:1]popViewControllerAnimated:YES];	
-	UIViewController <UISplitViewControllerDelegate>*viewController=[[self.appDelegate.splitViewController.viewControllers objectAtIndex:1] visibleViewController];
+	[[self.appDelegate.splitProjectsViewController.viewControllers objectAtIndex:0]popViewControllerAnimated:YES];	
+	[[self.appDelegate.splitProjectsViewController.viewControllers objectAtIndex:1]popViewControllerAnimated:YES];	
+	UIViewController <UISplitViewControllerDelegate>*viewController=[[self.appDelegate.splitProjectsViewController.viewControllers objectAtIndex:1] visibleViewController];
 	self.splitViewController.delegate=viewController;	
 	[self.splitViewController viewWillAppear:YES];
 	

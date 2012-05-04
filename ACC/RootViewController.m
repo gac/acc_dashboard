@@ -333,7 +333,7 @@
     /*
      When a row is selected, set the detail view controller's detail item to the item associated with the selected row.
      */
-	self.detailViewController=(DetailViewController *)[[self.appDelegate.splitViewController.viewControllers objectAtIndex:1] visibleViewController];
+	self.detailViewController=(DetailViewController *)[[self.appDelegate.splitProjectsViewController.viewControllers objectAtIndex:1] visibleViewController];
     self.detailViewController.itemID = [NSString stringWithFormat:@"%@", _selectedProject.projectID];
     
 }

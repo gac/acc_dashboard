@@ -164,7 +164,7 @@
 
             appDelegate.tabBarController = [[UITabBarController alloc]init];
             
-            appDelegate.splitViewController =[[UISplitViewController alloc]init];
+            appDelegate.splitProjectsViewController =[[UISplitViewController alloc]init];
             
             
             RootViewController *rootViewController = [[RootViewController alloc]init];
@@ -173,12 +173,12 @@
             UINavigationController *rootNav=[[UINavigationController alloc]initWithRootViewController:rootViewController];
             UINavigationController *detailNav=[[UINavigationController alloc]initWithRootViewController:detailViewController];
             
-            appDelegate.splitViewController.viewControllers=[NSArray arrayWithObjects:rootNav,detailNav,nil];
-            appDelegate.splitViewController.delegate= detailViewController;
+            appDelegate.splitProjectsViewController.viewControllers=[NSArray arrayWithObjects:rootNav,detailNav,nil];
+            appDelegate.splitProjectsViewController.delegate= detailViewController;
 
-            appDelegate.splitViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Projects" image:[UIImage imageNamed:@"projects.png"] tag:0];          
+            appDelegate.splitProjectsViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Projects" image:[UIImage imageNamed:@"projects.png"] tag:0];          
             
-            NSArray *controllers = [NSArray arrayWithObjects:appDelegate.splitViewController,  /* other controllers go here */ nil];
+            NSArray *controllers = [NSArray arrayWithObjects:appDelegate.splitProjectsViewController,  /* other controllers go here */ nil];
             appDelegate.tabBarController.viewControllers = controllers;
             appDelegate.window.rootViewController = appDelegate.tabBarController; // addSubview:appDelegate.tabBarController.view];
             [appDelegate.window makeKeyAndVisible];

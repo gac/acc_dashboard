@@ -169,7 +169,7 @@
      
      [super viewDidAppear:animated];
 
-     self.title = @"IT Projects";
+     self.title = @"Projects";
 
  }
  

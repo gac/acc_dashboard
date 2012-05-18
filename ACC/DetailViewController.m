@@ -234,7 +234,7 @@
 
  - (void)viewDidAppear:(BOOL)animated {
  [super viewDidAppear:animated];
-     self.title = @"Project";
+     self.title = @"General Information";
  }
 
 

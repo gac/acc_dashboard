@@ -19,6 +19,7 @@
 @property (strong, nonatomic) UITabBarController *tabBarController;
 
 @property (strong, nonatomic) UISplitViewController *splitProjectsViewController;
+@property (strong, nonatomic) UISplitViewController *splitApplicationsViewController;
 
 @property (strong, nonatomic) UIBarButtonItem *rootPopoverButtonItem;
 

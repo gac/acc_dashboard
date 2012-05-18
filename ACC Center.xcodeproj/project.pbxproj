@@ -32,6 +32,10 @@
 		4B62E9A3155319F8008351C8 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4B62E9A2155319F8008351C8 /* Settings.bundle */; };
 		4B62E9E015543774008351C8 /* projects.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B62E9DE15543771008351C8 /* projects.png */; };
 		4B62E9E115543774008351C8 /* applications.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B62E9DF15543773008351C8 /* applications.png */; };
+		4B62EA071554724F008351C8 /* ApplicationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B62EA051554724F008351C8 /* ApplicationsViewController.m */; };
+		4B62EA081554724F008351C8 /* ApplicationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B62EA061554724F008351C8 /* ApplicationsViewController.xib */; };
+		4B62EA0C1554726F008351C8 /* ApplicationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B62EA0A1554726F008351C8 /* ApplicationDetailViewController.m */; };
+		4B62EA0D1554726F008351C8 /* ApplicationDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B62EA0B1554726F008351C8 /* ApplicationDetailViewController.xib */; };
 		4B768AFD15212B8F00A53B98 /* Application.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B768AFC15212B8F00A53B98 /* Application.m */; };
 		4B768B00152130A200A53B98 /* ApplicationType.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B768AFF152130A200A53B98 /* ApplicationType.m */; };
 		4B768B0615220C8300A53B98 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B768B0515220C8300A53B98 /* MobileCoreServices.framework */; };
@@ -189,6 +193,12 @@
 		4B62E9A2155319F8008351C8 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		4B62E9DE15543771008351C8 /* projects.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = projects.png; sourceTree = "<group>"; };
 		4B62E9DF15543773008351C8 /* applications.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = applications.png; sourceTree = "<group>"; };
+		4B62EA041554724F008351C8 /* ApplicationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationsViewController.h; sourceTree = "<group>"; };
+		4B62EA051554724F008351C8 /* ApplicationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationsViewController.m; sourceTree = "<group>"; };
+		4B62EA061554724F008351C8 /* ApplicationsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ApplicationsViewController.xib; sourceTree = "<group>"; };
+		4B62EA091554726F008351C8 /* ApplicationDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationDetailViewController.h; sourceTree = "<group>"; };
+		4B62EA0A1554726F008351C8 /* ApplicationDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationDetailViewController.m; sourceTree = "<group>"; };
+		4B62EA0B1554726F008351C8 /* ApplicationDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ApplicationDetailViewController.xib; sourceTree = "<group>"; };
 		4B768AF31521297300A53B98 /* SBICatalog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBICatalog.h; sourceTree = "<group>"; };
 		4B768AFB15212B8F00A53B98 /* Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Application.h; path = ACC/Application.h; sourceTree = "<group>"; };
 		4B768AFC15212B8F00A53B98 /* Application.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Application.m; path = ACC/Application.m; sourceTree = "<group>"; };
@@ -310,6 +320,10 @@
 		4B62E9E715546ED4008351C8 /* Applications */ = {
 			isa = PBXGroup;
 			children = (
+				4B62EA041554724F008351C8 /* ApplicationsViewController.h */,
+				4B62EA051554724F008351C8 /* ApplicationsViewController.m */,
+				4B62EA091554726F008351C8 /* ApplicationDetailViewController.h */,
+				4B62EA0A1554726F008351C8 /* ApplicationDetailViewController.m */,
 			);
 			name = Applications;
 			sourceTree = "<group>";
@@ -338,6 +352,45 @@
 			children = (
 				4B342A94153C6A13000EDDDB /* EGORefreshTableHeaderView.h */,
 				4B342A95153C6A13000EDDDB /* EGORefreshTableHeaderView.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		4B62EA0E15547285008351C8 /* Projects */ = {
+			isa = PBXGroup;
+			children = (
+				4B62E9DE15543771008351C8 /* projects.png */,
+				4B43E5E11534ABAA00D19AD3 /* RootView.xib */,
+				4B53B2BC151CEC9B003620E0 /* DetailView.xib */,
+				4B53B298151BCEDC003620E0 /* RootLevel1.xib */,
+				4B53B29D151BCF27003620E0 /* DetailLevel1.xib */,
+				4B53B2A6151BD11A003620E0 /* RootLevel2.xib */,
+				4B53B2AB151BD155003620E0 /* DetailLevel2.xib */,
+			);
+			name = Projects;
+			sourceTree = "<group>";
+		};
+		4B62EA0F1554728E008351C8 /* Applications */ = {
+			isa = PBXGroup;
+			children = (
+				4B62E9DF15543773008351C8 /* applications.png */,
+				4B62EA061554724F008351C8 /* ApplicationsViewController.xib */,
+				4B62EA0B1554726F008351C8 /* ApplicationDetailViewController.xib */,
+			);
+			name = Applications;
+			sourceTree = "<group>";
+		};
+		4B62EA10155472F7008351C8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				4BD834F9153EFDD400F2D58A /* blackArrow.png */,
+				4BD834FA153EFDD400F2D58A /* blackArrow@2x.png */,
+				4BD834FB153EFDD400F2D58A /* blueArrow.png */,
+				4BD834FC153EFDD400F2D58A /* blueArrow@2x.png */,
+				4BD834FD153EFDD400F2D58A /* grayArrow.png */,
+				4BD834FE153EFDD400F2D58A /* grayArrow@2x.png */,
+				4BD834FF153EFDD400F2D58A /* whiteArrow.png */,
+				4BD83500153EFDD400F2D58A /* whiteArrow@2x.png */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -383,26 +436,13 @@
 		4B81EAF4151D1C9E00DFFEB0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4B62E9DE15543771008351C8 /* projects.png */,
-				4B62E9DF15543773008351C8 /* applications.png */,
-				4BD834F9153EFDD400F2D58A /* blackArrow.png */,
-				4BD834FA153EFDD400F2D58A /* blackArrow@2x.png */,
-				4BD834FB153EFDD400F2D58A /* blueArrow.png */,
-				4BD834FC153EFDD400F2D58A /* blueArrow@2x.png */,
-				4BD834FD153EFDD400F2D58A /* grayArrow.png */,
-				4BD834FE153EFDD400F2D58A /* grayArrow@2x.png */,
-				4BD834FF153EFDD400F2D58A /* whiteArrow.png */,
-				4BD83500153EFDD400F2D58A /* whiteArrow@2x.png */,
+				4B62EA10155472F7008351C8 /* Utils */,
+				4B62EA0F1554728E008351C8 /* Applications */,
+				4B62EA0E15547285008351C8 /* Projects */,
 				4B81EAF9151D203600DFFEB0 /* sbi_icon.png */,
 				4B81EAFA151D203600DFFEB0 /* scotiabank_logo.png */,
 				4B53B2BA151CDED2003620E0 /* MainWindow.xib */,
 				4B300638152BA3CF0090CC9E /* SBILoginViewController.xib */,
-				4B43E5E11534ABAA00D19AD3 /* RootView.xib */,
-				4B53B2BC151CEC9B003620E0 /* DetailView.xib */,
-				4B53B298151BCEDC003620E0 /* RootLevel1.xib */,
-				4B53B29D151BCF27003620E0 /* DetailLevel1.xib */,
-				4B53B2A6151BD11A003620E0 /* RootLevel2.xib */,
-				4B53B2AB151BD155003620E0 /* DetailLevel2.xib */,
 				4B62E9A2155319F8008351C8 /* Settings.bundle */,
 			);
 			name = Resources;
@@ -587,6 +627,8 @@
 				4B62E9A3155319F8008351C8 /* Settings.bundle in Resources */,
 				4B62E9E015543774008351C8 /* projects.png in Resources */,
 				4B62E9E115543774008351C8 /* applications.png in Resources */,
+				4B62EA081554724F008351C8 /* ApplicationsViewController.xib in Resources */,
+				4B62EA0D1554726F008351C8 /* ApplicationDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -614,6 +656,8 @@
 				4B77F1C2152CF76800FAB9D6 /* Portfolio.m in Sources */,
 				4BB39AFE1534EC28007CDE55 /* ProjectGroup.m in Sources */,
 				4B342A96153C6A13000EDDDB /* EGORefreshTableHeaderView.m in Sources */,
+				4B62EA071554724F008351C8 /* ApplicationsViewController.m in Sources */,
+				4B62EA0C1554726F008351C8 /* ApplicationDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

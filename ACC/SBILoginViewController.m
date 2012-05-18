@@ -11,6 +11,8 @@
 #import "SBIAppDelegate.h"
 #import "RootViewController.h"
 #import "DetailViewController.h"
+#import "ApplicationsViewController.h"
+#import "ApplicationDetailViewController.h"
 #import "SBICatalog.h"
 
 #include <unistd.h>
@@ -164,8 +166,8 @@
 
             appDelegate.tabBarController = [[UITabBarController alloc]init];
             
+            // Projects
             appDelegate.splitProjectsViewController =[[UISplitViewController alloc]init];
-            
             
             RootViewController *rootViewController = [[RootViewController alloc]init];
             DetailViewController *detailViewController = [[DetailViewController alloc]init];
@@ -178,9 +180,25 @@
 
             appDelegate.splitProjectsViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Projects" image:[UIImage imageNamed:@"projects.png"] tag:0];          
             
-            NSArray *controllers = [NSArray arrayWithObjects:appDelegate.splitProjectsViewController,  /* other controllers go here */ nil];
+            // Applications
+            appDelegate.splitApplicationsViewController =[[UISplitViewController alloc]init];
+            
+            ApplicationsViewController *applicationsViewController = [[ApplicationsViewController alloc]init];
+            ApplicationDetailViewController *applicationDetailViewController = [[ApplicationDetailViewController alloc]init];
+            
+            UINavigationController *applicationsNav = [[UINavigationController alloc]initWithRootViewController:applicationsViewController];
+            UINavigationController *applicationDetailNav = [[UINavigationController alloc]initWithRootViewController:applicationDetailViewController];
+            
+            appDelegate.splitApplicationsViewController.viewControllers=[NSArray arrayWithObjects:applicationsNav, applicationDetailNav, nil];
+            appDelegate.splitApplicationsViewController.delegate= applicationDetailViewController;
+            
+            appDelegate.splitProjectsViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Projects" image:[UIImage imageNamed:@"projects.png"] tag:0];
+            appDelegate.splitApplicationsViewController.tabBarItem  = [[UITabBarItem alloc] initWithTitle:@"Applications" image:[UIImage imageNamed:@"applications.png"] tag:1];
+            
+            //Tabbar
+            NSArray *controllers = [NSArray arrayWithObjects:appDelegate.splitProjectsViewController, appDelegate.splitApplicationsViewController, nil];
             appDelegate.tabBarController.viewControllers = controllers;
-            appDelegate.window.rootViewController = appDelegate.tabBarController; // addSubview:appDelegate.tabBarController.view];
+            appDelegate.window.rootViewController = appDelegate.tabBarController;
             [appDelegate.window makeKeyAndVisible];
 
         } else if ([response.bodyAsString isEqual:@"{\"result\": \"Your account has been disabled!\"}"]) {

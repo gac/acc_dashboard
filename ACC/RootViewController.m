@@ -154,6 +154,10 @@
   	[self performSelector:@selector(doneLoadingTableViewData) withObject:nil];
     
     [self.tableView reloadData];
+    
+    NSIndexPath *indexPath=[NSIndexPath indexPathForRow:0 inSection:0];
+    [self.tableView selectRowAtIndexPath:indexPath animated:YES  scrollPosition:UITableViewScrollPositionBottom];
+    [self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
 
 }
 

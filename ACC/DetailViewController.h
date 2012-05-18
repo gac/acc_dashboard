@@ -10,7 +10,7 @@
 #import "SBIAppDelegate.h"
 #import "Project.h"
 
-@interface DetailViewController : UIViewController <UIPopoverControllerDelegate, UISplitViewControllerDelegate, RKObjectLoaderDelegate> {
+@interface DetailViewController : UIViewController <UIPopoverControllerDelegate, UISplitViewControllerDelegate, RKObjectLoaderDelegate, UITableViewDelegate, UITableViewDataSource> {
     
     UIPopoverController *popoverController;
     
@@ -33,6 +33,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *focusLabel;
 @property (strong, nonatomic) IBOutlet UILabel *kptLabel;
 @property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
+
+@property (strong, nonatomic) IBOutlet UITableView *table;
 
 - (IBAction)pushViewController:(id)sender;
 

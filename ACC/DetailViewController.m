@@ -43,6 +43,8 @@
 @synthesize kptLabel;
 @synthesize descriptionLabel;
 
+@synthesize table;
+
 #pragma mark -
 #pragma mark Managing the detail item
 
@@ -221,6 +223,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	//self.title=@"Detail VC";
+    //tableView
+    [self.table setBackgroundView:nil];
 }
 
 
@@ -306,5 +310,162 @@
 	[self.splitViewController viewWillAppear:YES];
 	
 }
+
+
+#pragma mark -
+#pragma mark Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)aTableView {
+    
+    // Return the number of sections.
+    return 3;
+    
+}
+
+
+- (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {
+    
+    // Return the number of rows in the section.    
+    return 2;// [[_listofItems objectAtIndex:section] count];
+    
+}
+
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    
+    if (section == 0 ) {
+        return @"Stakeholders";        
+    } else if (section == 1) {
+        return @"Responsibles";
+    } else {
+        return @"Processes";
+    }
+
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    static NSString *CellIdentifier = @"CellIdentifier";
+    
+    // Dequeue or create a cell of the appropriate type.
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    }
+    
+    /*
+    cell.accessoryType = UITableViewCellAccessoryNone;
+    cell.textLabel.textColor = [UIColor blackColor];
+    
+    Project* project = (Project*) [[_listofItems objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+     */
+    cell.textLabel.text = @"stakeholder";
+    /*
+    cell.textLabel.font = [UIFont systemFontOfSize:12];
+    cell.detailTextLabel.text = project.folio;
+     */
+    
+    return cell;    
+    
+}
+
+/*
+- (IBAction)updateTableView:(id)sender {
+    
+    RKObjectMapping* portfolioMapping = [RKObjectMapping mappingForClass:[Portfolio class]];
+    [portfolioMapping mapKeyPath:@"id" toAttribute:@"portfolioID"];
+    [portfolioMapping mapKeyPath:@"name" toAttribute:@"name"];
+    
+    RKObjectMapping* projectMapping = [RKObjectMapping mappingForClass:[Project class]];
+    [projectMapping mapKeyPath:@"id" toAttribute:@"projectID"];
+    [projectMapping mapRelationship:@"portfolio" withMapping:portfolioMapping];     
+    [projectMapping mapKeyPath:@"folio" toAttribute:@"folio"];
+    [projectMapping mapKeyPath:@"name" toAttribute:@"name"];
+    
+    RKObjectMapping* projectGroupMapping = [RKObjectMapping mappingForClass:[ProjectGroup class]];
+    [projectGroupMapping mapKeyPath:@"id" toAttribute:@"projectGroupID"];
+    [projectGroupMapping mapKeyPath:@"name" toAttribute:@"name"];
+    [projectGroupMapping addRelationshipMapping:[RKObjectRelationshipMapping mappingFromKeyPath:@"projects" toKeyPath:@"projects" withMapping:projectMapping]];
+    
+    switch (_segmentedControl.selectedSegmentIndex) {
+            // By Portfolio
+        case 0:
+            
+            [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"projects/resources/projects/" objectMapping:projectMapping delegate:self];
+            break;
+            
+            // By Project Group
+        case 1:;
+            
+            [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"projects/resources/project/groups/" objectMapping:projectGroupMapping delegate:self];
+            break;
+            
+        default:            
+            break;
+    }
+    
+}
+ */
+
+
+/*
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
+
+
+/*
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+ 
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source
+ [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
+ }   
+ else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+ }   
+ }
+ */
+
+
+/*
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+ }
+ */
+
+
+/*
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
+
+
+#pragma mark -
+#pragma mark Table view delegate
+
+- (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    
+    ///_selectedProject = [[_listofItems objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    
+    /*
+     When a row is selected, set the detail view controller's detail item to the item associated with the selected row.
+     */
+	///self.detailViewController=(DetailViewController *)[[self.appDelegate.splitProjectsViewController.viewControllers objectAtIndex:1] visibleViewController];
+    ///self.detailViewController.itemID = [NSString stringWithFormat:@"%@", _selectedProject.projectID];
+    
+}
+
+
+
 
 @end

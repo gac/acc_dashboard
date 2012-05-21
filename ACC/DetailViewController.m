@@ -29,21 +29,7 @@
 
 @synthesize itemID;
 
-@synthesize projectTypeTitleLabel;
-@synthesize projectSizeTitleLabel;
-@synthesize focusTitleLabel;
-@synthesize kptTitleLabel;
-@synthesize descriptionTitleLabel;
-
-@synthesize folioLabel;
-@synthesize nameLabel;
-@synthesize projectTypeLabel;
-@synthesize projectSizeLabel;
-@synthesize focusLabel;
-@synthesize kptLabel;
-@synthesize descriptionLabel;
-
-@synthesize table;
+@synthesize scrollView = _scrollView;
 
 #pragma mark -
 #pragma mark Managing the detail item
@@ -120,62 +106,116 @@
     for (id object in objects) {
                 
         Project* project = (Project*) object;
-        
-        folioLabel.text = project.folio;
-        nameLabel.text = project.name;
-        
-        projectTypeTitleLabel.text = @"Type";
-        projectSizeTitleLabel.text = @"Size";
-        focusTitleLabel.text = @"Focus";
-        kptTitleLabel.text = @"KPT";
-        descriptionTitleLabel.text = @"Description";
-                
-        projectTypeLabel.text = project.project_type.description;
-        projectSizeLabel.text = project.project_size.size;
-        
-        if ([project.is_focus isEqualToNumber:[NSNumber numberWithInt:0]]) {
-            focusLabel.text = @"No";
 
-        } else {
-            focusLabel.text = @"Si";
-        }
+        //Folio
+        UILabel *label1 = [[UILabel alloc] init];
+        [label1 setFrame:CGRectMake(20, 5, 650, 30)];
+        [label1 setText:project.folio];
+        label1.font = [UIFont systemFontOfSize:27];
+        [self.view addSubview:label1];
         
+        //Name
+        UILabel *label2 = [[UILabel alloc] init];
+        [label2 setFrame:CGRectMake(20, 30, 650, 30)];
+        [label2 setText:project.name];
+        label2.textColor = [UIColor grayColor];
+        [self.view addSubview:label2];
+        
+        //Type
+        UILabel *label3 = [[UILabel alloc] init];
+        [label3 setFrame:CGRectMake(100, 0, 140, 30)];
+        [label3 setText:@"Type"];
+        label3.textColor = [UIColor grayColor];
+        label3.textAlignment = UITextAlignmentRight;
+        [self.scrollView addSubview:label3];
+        
+        UILabel *label4 = [[UILabel alloc] init];
+        [label4 setFrame:CGRectMake(250, 0, 300, 30)];
+        [label4 setText:project.project_type.description];
+        [self.scrollView addSubview:label4];
+        
+        //Size
+        UILabel *label5 = [[UILabel alloc] init];
+        [label5 setFrame:CGRectMake(100, 30, 140, 30)];
+        [label5 setText:@"Size"];
+        label5.textColor = [UIColor grayColor];
+        label5.textAlignment = UITextAlignmentRight;
+        [self.scrollView addSubview:label5];
+        
+        UILabel *label6 = [[UILabel alloc] init];
+        [label6 setFrame:CGRectMake(250, 30, 300, 30)];
+        [label6 setText:project.project_size.size];
+        [self.scrollView addSubview:label6];
+
+        //Focus
+        UILabel *label7 = [[UILabel alloc] init];
+        [label7 setFrame:CGRectMake(100, 60, 140, 30)];
+        [label7 setText:@"Focus"];
+        label7.textColor = [UIColor grayColor];
+        label7.textAlignment = UITextAlignmentRight;
+        [self.scrollView addSubview:label7];
+        
+        UILabel *label8 = [[UILabel alloc] init];
+        [label8 setFrame:CGRectMake(250, 60, 300, 30)];
+        if ([project.is_focus isEqualToNumber:[NSNumber numberWithInt:0]]) {
+            [label8 setText:@"No"];            
+        } else {
+            [label8 setText:@"Si"];
+        }
+        [self.scrollView addSubview:label8];
+        
+        //KPT
+        UILabel *label9 = [[UILabel alloc] init];
+        [label9 setFrame:CGRectMake(100, 90, 140, 30)];
+        [label9 setText:@"KPT"];
+        label9.textColor = [UIColor grayColor];
+        label9.textAlignment = UITextAlignmentRight;
+        [self.scrollView addSubview:label9];
+        
+        UILabel *label10 = [[UILabel alloc] init];
+        [label10 setFrame:CGRectMake(250, 90, 300, 30)];
         if ([project.is_kpt isEqualToNumber:[NSNumber numberWithInt:0]]) {
-            kptLabel.text = @"No";
+            [label10 setText:@"No"];            
         } else {
-            kptLabel.text = @"Si";            
+            [label10 setText:@"Si"];
         }
+        [self.scrollView addSubview:label10];
+
+        //Description
+        UILabel *label11 = [[UILabel alloc] init];
+        [label11 setFrame:CGRectMake(100, 120, 140, 30)];
+        [label11 setText:@"Description"];
+        label11.textColor = [UIColor grayColor];
+        label11.textAlignment = UITextAlignmentRight;
+        [self.scrollView addSubview:label11];
         
-        descriptionLabel.text = project.description;
-        [descriptionLabel sizeToFit];
+        UILabel *label12 = [[UILabel alloc] init];
+        [label12 setFrame:CGRectMake(250, 120, 400, 100)];
+        [label12 setText:project.description];
+        label12.numberOfLines = 5;
+        //[label12 sizeToFit];
+        [self.scrollView addSubview:label12];
+        
+        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(100, 230, 490, 1000) style:UITableViewStyleGrouped];
+        tableView.delegate = self;
+        tableView.dataSource = self;
+        [tableView setBackgroundView:nil];
+        [self.scrollView addSubview:tableView];
+        
 
     }
+    
+    [self.scrollView setContentSize:CGSizeMake(240, 1200)];
 
 }
 
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error {
-    
-    folioLabel.text = @"";
-    nameLabel.text = @"";
-    
-    projectTypeTitleLabel.text = @"";
-    projectSizeTitleLabel.text = @"";
-    focusTitleLabel.text = @"";
-    kptTitleLabel.text = @"";
-    descriptionTitleLabel.text = @"";
-    
-    projectTypeLabel.text = @"";
-    projectSizeLabel.text = @"";
-    focusLabel.text = @"";
-    kptLabel.text = @"";
-    descriptionLabel.text = @"";
-    
+
     UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error!" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
     [alert show];
     
 }
-
 
 
 #pragma mark -
@@ -221,15 +261,21 @@
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-	//self.title=@"Detail VC";
-    //tableView
-    [self.table setBackgroundView:nil];
+    
+	self.title=@"General Information";
+    
+    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(10, 60, 667, 1)];
+    lineView.backgroundColor = [UIColor blackColor];
+    [self.view addSubview:lineView];
+
 }
 
 
-
+/*
 - (void)viewWillAppear:(BOOL)animated {
+    
     [super viewWillAppear:animated];
 	
     
@@ -237,9 +283,12 @@
 
 
  - (void)viewDidAppear:(BOOL)animated {
- [super viewDidAppear:animated];
+     
+     [super viewDidAppear:animated];
      self.title = @"General Information";
+
  }
+ */
 
 
 /*

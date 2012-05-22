@@ -86,6 +86,24 @@
     [projectSizeMapping mapKeyPath:@"id" toAttribute:@"projectSizeID"];
     [projectSizeMapping mapKeyPath:@"size" toAttribute:@"size"];
     
+    RKObjectMapping* userMapping = [RKObjectMapping mappingForClass:[User class]];
+    [userMapping mapKeyPath:@"first_name" toAttribute:@"first_name"];
+    [userMapping mapKeyPath:@"last_name" toAttribute:@"last_name"];
+    
+    RKObjectMapping* roleMapping = [RKObjectMapping mappingForClass:[Role class]];
+    [roleMapping mapKeyPath:@"name" toAttribute:@"name"];
+    
+    RKObjectMapping* subareaMapping = [RKObjectMapping mappingForClass:[SubArea class]];
+    [subareaMapping mapKeyPath:@"name" toAttribute:@"name"];
+    
+    RKObjectMapping* employeeMapping = [RKObjectMapping mappingForClass:[Employee class]];
+    [employeeMapping mapRelationship:@"user" withMapping:userMapping];
+    [employeeMapping mapRelationship:@"subarea" withMapping:subareaMapping];
+    
+    RKObjectMapping* employeeRolesMapping = [RKObjectMapping mappingForClass:[EmployeeRoles class]];
+    [employeeRolesMapping mapRelationship:@"employee" withMapping:employeeMapping];
+    [employeeRolesMapping mapRelationship:@"role" withMapping:roleMapping];
+    
     RKObjectMapping* projectMapping = [RKObjectMapping mappingForClass:[Project class]];
     [projectMapping mapRelationship:@"portfolio" withMapping:portfolioMapping];     
     [projectMapping mapRelationship:@"project_type" withMapping:projectTypeMapping];
@@ -95,6 +113,19 @@
     [projectMapping mapKeyPath:@"description" toAttribute:@"description"];
     [projectMapping mapKeyPath:@"is_focus" toAttribute:@"is_focus"];
     [projectMapping mapKeyPath:@"is_kpt" toAttribute:@"is_kpt"];
+    
+    [projectMapping mapRelationship:@"relationship_manager" withMapping:employeeRolesMapping];
+    [projectMapping mapRelationship:@"delivery_manager" withMapping:employeeRolesMapping];
+    [projectMapping mapRelationship:@"portfolio_manager" withMapping:employeeRolesMapping];
+    [projectMapping mapRelationship:@"sponsor" withMapping:employeeRolesMapping];
+    
+    [projectMapping mapRelationship:@"dps_resp" withMapping:employeeMapping];
+    [projectMapping mapRelationship:@"is_resp" withMapping:employeeMapping];
+    
+    [projectMapping mapRelationship:@"qc_resp" withMapping:employeeMapping];
+    [projectMapping mapRelationship:@"qa_resp" withMapping:employeeMapping];
+    [projectMapping mapRelationship:@"nft_resp" withMapping:employeeMapping];
+    [projectMapping mapRelationship:@"env_resp" withMapping:employeeMapping];
     
     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:[NSString stringWithFormat:@"projects/resources/projects/%@/", self.itemID] objectMapping:projectMapping delegate:self];
 
@@ -107,7 +138,6 @@
     [_listofResponsibles removeAllObjects];
     [_listofProcesses removeAllObjects];
 
-        
     for (id object in objects) {
                 
         Project* project = (Project*) object;
@@ -216,9 +246,19 @@
         tableView.dataSource = self;
         [tableView setBackgroundView:nil];
         [self.scrollView addSubview:tableView];
+
+        [_listofStakeholders addObject:project.relationship_manager];
+        [_listofStakeholders addObject:project.delivery_manager];
+        [_listofStakeholders addObject:project.portfolio_manager];
+        [_listofStakeholders addObject:project.sponsor];
         
+        [_listofResponsibles addObject:project.dps_resp];
+        [_listofResponsibles addObject:project.is_resp];
         
-        
+        [_listofResponsibles addObject:project.qc_resp];
+        [_listofResponsibles addObject:project.qa_resp];
+        [_listofResponsibles addObject:project.nft_resp];
+        [_listofResponsibles addObject:project.env_resp];
 
     }
     
@@ -430,17 +470,29 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
-    /*
-    cell.accessoryType = UITableViewCellAccessoryNone;
-    cell.textLabel.textColor = [UIColor blackColor];
     
-    Project* project = (Project*) [[_listofItems objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-     */
-    cell.textLabel.text = @"stakeholder";
-    /*
-    cell.textLabel.font = [UIFont systemFontOfSize:12];
-    cell.detailTextLabel.text = project.folio;
-     */
+    if (indexPath.section == 0) {
+        
+        EmployeeRoles* employeeRoles = (EmployeeRoles*) [_listofStakeholders objectAtIndex:indexPath.row];
+
+        cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", employeeRoles.employee.user.last_name, employeeRoles.employee.user.first_name];
+        cell.detailTextLabel.text = employeeRoles.role.name;
+        
+    } else if (indexPath.section == 1) {
+        
+        Employee* employee = (Employee*) [_listofResponsibles objectAtIndex:indexPath.row];
+        
+        cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", employee.user.last_name, employee.user.first_name];
+        cell.detailTextLabel.text = employee.subarea.name;
+        
+    } else {
+        
+        cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+        cell.textLabel.text = @"Pruebas No Funcionales";
+
+    }
+    
+    cell.backgroundColor = [UIColor clearColor];
     
     return cell;    
     

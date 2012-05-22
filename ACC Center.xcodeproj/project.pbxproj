@@ -29,6 +29,7 @@
 		4B53B2AD151BD155003620E0 /* DetailLevel2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B53B2AB151BD155003620E0 /* DetailLevel2.xib */; };
 		4B53B2BB151CDED4003620E0 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B53B2BA151CDED2003620E0 /* MainWindow.xib */; };
 		4B53B2BD151CEC9C003620E0 /* DetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B53B2BC151CEC9B003620E0 /* DetailView.xib */; };
+		4B574895156BFDBD006FC548 /* Role.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B574894156BFDBD006FC548 /* Role.m */; };
 		4B62E9A3155319F8008351C8 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4B62E9A2155319F8008351C8 /* Settings.bundle */; };
 		4B62E9E015543774008351C8 /* projects.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B62E9DE15543771008351C8 /* projects.png */; };
 		4B62E9E115543774008351C8 /* applications.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B62E9DF15543773008351C8 /* applications.png */; };
@@ -49,6 +50,10 @@
 		4B77F1C2152CF76800FAB9D6 /* Portfolio.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B77F1C0152CF76800FAB9D6 /* Portfolio.m */; };
 		4B81EAFB151D203600DFFEB0 /* sbi_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B81EAF9151D203600DFFEB0 /* sbi_icon.png */; };
 		4B81EAFC151D203600DFFEB0 /* scotiabank_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B81EAFA151D203600DFFEB0 /* scotiabank_logo.png */; };
+		4BACF069156BD9580083C5AC /* Employee.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BACF068156BD9580083C5AC /* Employee.m */; };
+		4BACF06C156BD9C10083C5AC /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BACF06B156BD9C00083C5AC /* User.m */; };
+		4BACF06F156BDAFF0083C5AC /* EmployeeRoles.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BACF06E156BDAFD0083C5AC /* EmployeeRoles.m */; };
+		4BACF072156BF11D0083C5AC /* SubArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BACF071156BF11C0083C5AC /* SubArea.m */; };
 		4BB39AFE1534EC28007CDE55 /* ProjectGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB39AFD1534EC28007CDE55 /* ProjectGroup.m */; };
 		4BD83501153EFDD400F2D58A /* blackArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BD834F9153EFDD400F2D58A /* blackArrow.png */; };
 		4BD83502153EFDD400F2D58A /* blackArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BD834FA153EFDD400F2D58A /* blackArrow@2x.png */; };
@@ -190,6 +195,8 @@
 		4B53B2AB151BD155003620E0 /* DetailLevel2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailLevel2.xib; sourceTree = "<group>"; };
 		4B53B2BA151CDED2003620E0 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		4B53B2BC151CEC9B003620E0 /* DetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailView.xib; sourceTree = "<group>"; };
+		4B574893156BFDBD006FC548 /* Role.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Role.h; path = ACC/Role.h; sourceTree = "<group>"; };
+		4B574894156BFDBD006FC548 /* Role.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Role.m; path = ACC/Role.m; sourceTree = "<group>"; };
 		4B62E9A2155319F8008351C8 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		4B62E9DE15543771008351C8 /* projects.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = projects.png; sourceTree = "<group>"; };
 		4B62E9DF15543773008351C8 /* applications.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = applications.png; sourceTree = "<group>"; };
@@ -219,6 +226,14 @@
 		4B77F1C0152CF76800FAB9D6 /* Portfolio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Portfolio.m; path = ACC/Portfolio.m; sourceTree = "<group>"; };
 		4B81EAF9151D203600DFFEB0 /* sbi_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sbi_icon.png; sourceTree = "<group>"; };
 		4B81EAFA151D203600DFFEB0 /* scotiabank_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scotiabank_logo.png; sourceTree = "<group>"; };
+		4BACF067156BD9580083C5AC /* Employee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Employee.h; path = ACC/Employee.h; sourceTree = "<group>"; };
+		4BACF068156BD9580083C5AC /* Employee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Employee.m; path = ACC/Employee.m; sourceTree = "<group>"; };
+		4BACF06A156BD9BF0083C5AC /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = ACC/User.h; sourceTree = "<group>"; };
+		4BACF06B156BD9C00083C5AC /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = ACC/User.m; sourceTree = "<group>"; };
+		4BACF06D156BDAFC0083C5AC /* EmployeeRoles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EmployeeRoles.h; path = ACC/EmployeeRoles.h; sourceTree = "<group>"; };
+		4BACF06E156BDAFD0083C5AC /* EmployeeRoles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EmployeeRoles.m; path = ACC/EmployeeRoles.m; sourceTree = "<group>"; };
+		4BACF070156BF11B0083C5AC /* SubArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubArea.h; path = ACC/SubArea.h; sourceTree = "<group>"; };
+		4BACF071156BF11C0083C5AC /* SubArea.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubArea.m; path = ACC/SubArea.m; sourceTree = "<group>"; };
 		4BB39AFC1534EC28007CDE55 /* ProjectGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectGroup.h; path = ACC/ProjectGroup.h; sourceTree = "<group>"; };
 		4BB39AFD1534EC28007CDE55 /* ProjectGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectGroup.m; path = ACC/ProjectGroup.m; sourceTree = "<group>"; };
 		4BD834F9153EFDD400F2D58A /* blackArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackArrow.png; sourceTree = "<group>"; };
@@ -398,6 +413,8 @@
 		4B768AF415212AC900A53B98 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				4B574893156BFDBD006FC548 /* Role.h */,
+				4B574894156BFDBD006FC548 /* Role.m */,
 				4B77F1BD152CF76700FAB9D6 /* Project.h */,
 				4B77F1BE152CF76700FAB9D6 /* Project.m */,
 				4B77F1BF152CF76800FAB9D6 /* Portfolio.h */,
@@ -412,6 +429,14 @@
 				4B77F197152CA7F800FAB9D6 /* ProjectSize.m */,
 				4BB39AFC1534EC28007CDE55 /* ProjectGroup.h */,
 				4BB39AFD1534EC28007CDE55 /* ProjectGroup.m */,
+				4BACF067156BD9580083C5AC /* Employee.h */,
+				4BACF068156BD9580083C5AC /* Employee.m */,
+				4BACF06A156BD9BF0083C5AC /* User.h */,
+				4BACF06B156BD9C00083C5AC /* User.m */,
+				4BACF06D156BDAFC0083C5AC /* EmployeeRoles.h */,
+				4BACF06E156BDAFD0083C5AC /* EmployeeRoles.m */,
+				4BACF070156BF11B0083C5AC /* SubArea.h */,
+				4BACF071156BF11C0083C5AC /* SubArea.m */,
 			);
 			name = Domain;
 			path = ..;
@@ -658,6 +683,11 @@
 				4B342A96153C6A13000EDDDB /* EGORefreshTableHeaderView.m in Sources */,
 				4B62EA071554724F008351C8 /* ApplicationsViewController.m in Sources */,
 				4B62EA0C1554726F008351C8 /* ApplicationDetailViewController.m in Sources */,
+				4BACF069156BD9580083C5AC /* Employee.m in Sources */,
+				4BACF06C156BD9C10083C5AC /* User.m in Sources */,
+				4BACF06F156BDAFF0083C5AC /* EmployeeRoles.m in Sources */,
+				4BACF072156BF11D0083C5AC /* SubArea.m in Sources */,
+				4B574895156BFDBD006FC548 /* Role.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -703,7 +733,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -722,7 +752,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -737,7 +767,7 @@
 				GCC_PREFIX_HEADER = "ACC/ACC Center-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(SOURCE_ROOT)/RestKit-RestKit-991bd5c/Build";
 				INFOPLIST_FILE = "ACC/ACC Center-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
@@ -754,7 +784,7 @@
 				GCC_PREFIX_HEADER = "ACC/ACC Center-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(SOURCE_ROOT)/RestKit-RestKit-991bd5c/Build";
 				INFOPLIST_FILE = "ACC/ACC Center-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",

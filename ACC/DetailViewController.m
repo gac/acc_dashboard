@@ -102,10 +102,21 @@
 
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
+    
+    [_listofStakeholders removeAllObjects];
+    [_listofResponsibles removeAllObjects];
+    [_listofProcesses removeAllObjects];
+
         
     for (id object in objects) {
                 
         Project* project = (Project*) object;
+        
+        for (UIView *subView in self.view.subviews) {
+            if([subView isKindOfClass:[UILabel class]]) {
+                [subView removeFromSuperview];
+            }
+        }
 
         //Folio
         UILabel *label1 = [[UILabel alloc] init];
@@ -120,6 +131,10 @@
         [label2 setText:project.name];
         label2.textColor = [UIColor grayColor];
         [self.view addSubview:label2];
+        
+        for (UIView *subView in self.scrollView.subviews) {
+            [subView removeFromSuperview];
+        }
         
         //Type
         UILabel *label3 = [[UILabel alloc] init];
@@ -196,16 +211,18 @@
         //[label12 sizeToFit];
         [self.scrollView addSubview:label12];
         
-        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(100, 230, 490, 1000) style:UITableViewStyleGrouped];
+        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(100, 220, 490, 700) style:UITableViewStyleGrouped];
         tableView.delegate = self;
         tableView.dataSource = self;
         [tableView setBackgroundView:nil];
         [self.scrollView addSubview:tableView];
         
+        
+        
 
     }
     
-    [self.scrollView setContentSize:CGSizeMake(240, 1200)];
+    [self.scrollView setContentSize:CGSizeMake(240, 1000)];
 
 }
 
@@ -269,6 +286,10 @@
     UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(10, 60, 667, 1)];
     lineView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:lineView];
+    
+    _listofStakeholders = [[NSMutableArray alloc] init];
+    _listofResponsibles = [[NSMutableArray alloc] init];    
+    _listofProcesses = [[NSMutableArray alloc] init];
 
 }
 
@@ -374,8 +395,14 @@
 
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {
     
-    // Return the number of rows in the section.    
-    return 2;// [[_listofItems objectAtIndex:section] count];
+    // Return the number of rows in the section.
+    if (section == 0) {
+        return 4;
+    } else if (section == 1) {
+        return 6;
+    } else {
+        return 1;
+    }
     
 }
 

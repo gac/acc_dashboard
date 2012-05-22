@@ -40,6 +40,7 @@
 -(IBAction)updateTableView:(id)sender;
 
 - (void)reloadTableViewDataSource;
+
 - (void)doneLoadingTableViewData;
 
 @end

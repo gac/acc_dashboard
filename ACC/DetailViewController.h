@@ -14,6 +14,10 @@
     
     UIPopoverController *popoverController;
     
+    NSMutableArray* _listofStakeholders;
+    NSMutableArray* _listofResponsibles;
+    NSMutableArray* _listofProcesses;
+    
 }
 
 @property (strong, nonatomic) SBIAppDelegate *appDelegate;

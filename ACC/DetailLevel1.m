@@ -84,7 +84,7 @@
 }
 
 - (IBAction)pushViewController:(id)sender{
-	NSLog(@"%@",self.appDelegate.splitProjectsViewController.viewControllers);
+
 	RootLevel2 *rootLevel2 =[[RootLevel2 alloc]init];
 	DetailLevel2 <UISplitViewControllerDelegate>*detailLevel2=[[DetailLevel2 alloc]init];
 	

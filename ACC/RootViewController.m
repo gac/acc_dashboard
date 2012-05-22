@@ -241,7 +241,7 @@
     Project* project = (Project*) [[_listofItems objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
 
     cell.textLabel.text = project.name;
-    cell.textLabel.font = [UIFont systemFontOfSize:12];
+    cell.textLabel.font = [UIFont systemFontOfSize:16];
     cell.detailTextLabel.text = project.folio;
     
     return cell;    

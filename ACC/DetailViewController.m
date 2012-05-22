@@ -476,6 +476,7 @@
         EmployeeRoles* employeeRoles = (EmployeeRoles*) [_listofStakeholders objectAtIndex:indexPath.row];
 
         cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", employeeRoles.employee.user.last_name, employeeRoles.employee.user.first_name];
+        cell.textLabel.font = [UIFont systemFontOfSize:17];
         cell.detailTextLabel.text = employeeRoles.role.name;
         
     } else if (indexPath.section == 1) {
@@ -483,12 +484,14 @@
         Employee* employee = (Employee*) [_listofResponsibles objectAtIndex:indexPath.row];
         
         cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", employee.user.last_name, employee.user.first_name];
+        cell.textLabel.font = [UIFont systemFontOfSize:17];
         cell.detailTextLabel.text = employee.subarea.name;
         
     } else {
         
         cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
         cell.textLabel.text = @"Pruebas No Funcionales";
+        cell.textLabel.font = [UIFont systemFontOfSize:17];
 
     }
     

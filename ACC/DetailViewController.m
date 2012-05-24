@@ -392,30 +392,22 @@
 }
 - (IBAction)pushViewController:(id)sender{
 	
-	RootLevel1 *rootLevel1 =[[RootLevel1 alloc]init];
 	DetailLevel1 <UISplitViewControllerDelegate>*detailLevel1=[[DetailLevel1 alloc]init];
-	
-	UIBarButtonItem *backButton = [[UIBarButtonItem alloc] 
-								   initWithTitle: @"Home" 
-								   style:UIBarButtonItemStylePlain 
-								   target:self 
-								   action:@selector(popViewController)];
-	rootLevel1.navigationItem.leftBarButtonItem=backButton;
+	    
 	[self.appDelegate.splitProjectsViewController viewWillDisappear:YES];
-	[[self.appDelegate.splitProjectsViewController.viewControllers objectAtIndex:0] pushViewController:rootLevel1 animated:YES];
 	[[self.appDelegate.splitProjectsViewController.viewControllers objectAtIndex:1] pushViewController:detailLevel1 animated:YES];
-	self.appDelegate.splitProjectsViewController.delegate = detailLevel1;
+	
+    self.appDelegate.splitProjectsViewController.delegate = detailLevel1;
 	[self.appDelegate.splitProjectsViewController viewWillAppear:YES];
-	//[rootLevel1 release];
-	//[detailLevel1 release];
 	
 }
 
 -(void)popViewController {
+    
 	[self.splitViewController viewWillDisappear:YES];
 	[[self.appDelegate.splitProjectsViewController.viewControllers objectAtIndex:0]popViewControllerAnimated:YES];	
 	[[self.appDelegate.splitProjectsViewController.viewControllers objectAtIndex:1]popViewControllerAnimated:YES];	
-	UIViewController <UISplitViewControllerDelegate>*viewController=[[self.appDelegate.splitProjectsViewController.viewControllers objectAtIndex:1] visibleViewController];
+	UIViewController <UISplitViewControllerDelegate>* viewController= [[self.appDelegate.splitProjectsViewController.viewControllers objectAtIndex:1] visibleViewController];
 	self.splitViewController.delegate=viewController;	
 	[self.splitViewController viewWillAppear:YES];
 	

@@ -262,7 +262,7 @@
 
     }
     
-    [self.scrollView setContentSize:CGSizeMake(240, 1000)];
+    [self.scrollView setContentSize:CGSizeMake(240, 870)];
 
 }
 

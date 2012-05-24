@@ -28,7 +28,6 @@
 		4B53B2AC151BD155003620E0 /* DetailLevel2.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B53B2AA151BD154003620E0 /* DetailLevel2.m */; };
 		4B53B2AD151BD155003620E0 /* DetailLevel2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B53B2AB151BD155003620E0 /* DetailLevel2.xib */; };
 		4B53B2BB151CDED4003620E0 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B53B2BA151CDED2003620E0 /* MainWindow.xib */; };
-		4B53B2BD151CEC9C003620E0 /* DetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B53B2BC151CEC9B003620E0 /* DetailView.xib */; };
 		4B574895156BFDBD006FC548 /* Role.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B574894156BFDBD006FC548 /* Role.m */; };
 		4B62E9A3155319F8008351C8 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4B62E9A2155319F8008351C8 /* Settings.bundle */; };
 		4B62E9E015543774008351C8 /* projects.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B62E9DE15543771008351C8 /* projects.png */; };
@@ -37,6 +36,7 @@
 		4B62EA081554724F008351C8 /* ApplicationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B62EA061554724F008351C8 /* ApplicationsViewController.xib */; };
 		4B62EA0C1554726F008351C8 /* ApplicationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B62EA0A1554726F008351C8 /* ApplicationDetailViewController.m */; };
 		4B62EA0D1554726F008351C8 /* ApplicationDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B62EA0B1554726F008351C8 /* ApplicationDetailViewController.xib */; };
+		4B63D8B8156E78F700B3BA01 /* DetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B63D8B7156E78F700B3BA01 /* DetailView.xib */; };
 		4B768AFD15212B8F00A53B98 /* Application.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B768AFC15212B8F00A53B98 /* Application.m */; };
 		4B768B00152130A200A53B98 /* ApplicationType.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B768AFF152130A200A53B98 /* ApplicationType.m */; };
 		4B768B0615220C8300A53B98 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B768B0515220C8300A53B98 /* MobileCoreServices.framework */; };
@@ -194,7 +194,6 @@
 		4B53B2AA151BD154003620E0 /* DetailLevel2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailLevel2.m; sourceTree = "<group>"; };
 		4B53B2AB151BD155003620E0 /* DetailLevel2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailLevel2.xib; sourceTree = "<group>"; };
 		4B53B2BA151CDED2003620E0 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
-		4B53B2BC151CEC9B003620E0 /* DetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailView.xib; sourceTree = "<group>"; };
 		4B574893156BFDBD006FC548 /* Role.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Role.h; path = ACC/Role.h; sourceTree = "<group>"; };
 		4B574894156BFDBD006FC548 /* Role.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Role.m; path = ACC/Role.m; sourceTree = "<group>"; };
 		4B62E9A2155319F8008351C8 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -206,6 +205,7 @@
 		4B62EA091554726F008351C8 /* ApplicationDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationDetailViewController.h; sourceTree = "<group>"; };
 		4B62EA0A1554726F008351C8 /* ApplicationDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationDetailViewController.m; sourceTree = "<group>"; };
 		4B62EA0B1554726F008351C8 /* ApplicationDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ApplicationDetailViewController.xib; sourceTree = "<group>"; };
+		4B63D8B7156E78F700B3BA01 /* DetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailView.xib; sourceTree = "<group>"; };
 		4B768AF31521297300A53B98 /* SBICatalog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBICatalog.h; sourceTree = "<group>"; };
 		4B768AFB15212B8F00A53B98 /* Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Application.h; path = ACC/Application.h; sourceTree = "<group>"; };
 		4B768AFC15212B8F00A53B98 /* Application.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Application.m; path = ACC/Application.m; sourceTree = "<group>"; };
@@ -376,7 +376,7 @@
 			children = (
 				4B62E9DE15543771008351C8 /* projects.png */,
 				4B43E5E11534ABAA00D19AD3 /* RootView.xib */,
-				4B53B2BC151CEC9B003620E0 /* DetailView.xib */,
+				4B63D8B7156E78F700B3BA01 /* DetailView.xib */,
 				4B53B298151BCEDC003620E0 /* RootLevel1.xib */,
 				4B53B29D151BCF27003620E0 /* DetailLevel1.xib */,
 				4B53B2A6151BD11A003620E0 /* RootLevel2.xib */,
@@ -637,7 +637,6 @@
 				4B53B2A8151BD11A003620E0 /* RootLevel2.xib in Resources */,
 				4B53B2AD151BD155003620E0 /* DetailLevel2.xib in Resources */,
 				4B53B2BB151CDED4003620E0 /* MainWindow.xib in Resources */,
-				4B53B2BD151CEC9C003620E0 /* DetailView.xib in Resources */,
 				4B81EAFB151D203600DFFEB0 /* sbi_icon.png in Resources */,
 				4B81EAFC151D203600DFFEB0 /* scotiabank_logo.png in Resources */,
 				4B43E5E21534ABAA00D19AD3 /* RootView.xib in Resources */,
@@ -654,6 +653,7 @@
 				4B62E9E115543774008351C8 /* applications.png in Resources */,
 				4B62EA081554724F008351C8 /* ApplicationsViewController.xib in Resources */,
 				4B62EA0D1554726F008351C8 /* ApplicationDetailViewController.xib in Resources */,
+				4B63D8B8156E78F700B3BA01 /* DetailView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

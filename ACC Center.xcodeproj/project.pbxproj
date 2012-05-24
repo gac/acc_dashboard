@@ -19,8 +19,6 @@
 		4B53B280151BBF15003620E0 /* SBILoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B53B27F151BBF15003620E0 /* SBILoginViewController.m */; };
 		4B53B28F151BCCDA003620E0 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B53B28E151BCCDA003620E0 /* RootViewController.m */; };
 		4B53B292151BCD75003620E0 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B53B291151BCD75003620E0 /* DetailViewController.m */; };
-		4B53B299151BCEDC003620E0 /* RootLevel1.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B53B297151BCEDB003620E0 /* RootLevel1.m */; };
-		4B53B29A151BCEDC003620E0 /* RootLevel1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B53B298151BCEDC003620E0 /* RootLevel1.xib */; };
 		4B53B29E151BCF27003620E0 /* DetailLevel1.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B53B29C151BCF26003620E0 /* DetailLevel1.m */; };
 		4B53B29F151BCF27003620E0 /* DetailLevel1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B53B29D151BCF27003620E0 /* DetailLevel1.xib */; };
 		4B53B2A7151BD11A003620E0 /* RootLevel2.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B53B2A5151BD119003620E0 /* RootLevel2.m */; };
@@ -181,9 +179,6 @@
 		4B53B28E151BCCDA003620E0 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		4B53B290151BCD75003620E0 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		4B53B291151BCD75003620E0 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		4B53B296151BCEDB003620E0 /* RootLevel1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootLevel1.h; sourceTree = "<group>"; };
-		4B53B297151BCEDB003620E0 /* RootLevel1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootLevel1.m; sourceTree = "<group>"; };
-		4B53B298151BCEDC003620E0 /* RootLevel1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootLevel1.xib; sourceTree = "<group>"; };
 		4B53B29B151BCF26003620E0 /* DetailLevel1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailLevel1.h; sourceTree = "<group>"; };
 		4B53B29C151BCF26003620E0 /* DetailLevel1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailLevel1.m; sourceTree = "<group>"; };
 		4B53B29D151BCF27003620E0 /* DetailLevel1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailLevel1.xib; sourceTree = "<group>"; };
@@ -350,8 +345,6 @@
 				4B53B28E151BCCDA003620E0 /* RootViewController.m */,
 				4B53B290151BCD75003620E0 /* DetailViewController.h */,
 				4B53B291151BCD75003620E0 /* DetailViewController.m */,
-				4B53B296151BCEDB003620E0 /* RootLevel1.h */,
-				4B53B297151BCEDB003620E0 /* RootLevel1.m */,
 				4B53B29B151BCF26003620E0 /* DetailLevel1.h */,
 				4B53B29C151BCF26003620E0 /* DetailLevel1.m */,
 				4B53B2A4151BD119003620E0 /* RootLevel2.h */,
@@ -377,7 +370,6 @@
 				4B62E9DE15543771008351C8 /* projects.png */,
 				4B43E5E11534ABAA00D19AD3 /* RootView.xib */,
 				4B63D8B7156E78F700B3BA01 /* DetailView.xib */,
-				4B53B298151BCEDC003620E0 /* RootLevel1.xib */,
 				4B53B29D151BCF27003620E0 /* DetailLevel1.xib */,
 				4B53B2A6151BD11A003620E0 /* RootLevel2.xib */,
 				4B53B2AB151BD155003620E0 /* DetailLevel2.xib */,
@@ -632,7 +624,6 @@
 			files = (
 				4B53B277151BBF15003620E0 /* InfoPlist.strings in Resources */,
 				4B300637152BA3CF0090CC9E /* SBILoginViewController.xib in Resources */,
-				4B53B29A151BCEDC003620E0 /* RootLevel1.xib in Resources */,
 				4B53B29F151BCF27003620E0 /* DetailLevel1.xib in Resources */,
 				4B53B2A8151BD11A003620E0 /* RootLevel2.xib in Resources */,
 				4B53B2AD151BD155003620E0 /* DetailLevel2.xib in Resources */,
@@ -669,7 +660,6 @@
 				4B53B280151BBF15003620E0 /* SBILoginViewController.m in Sources */,
 				4B53B28F151BCCDA003620E0 /* RootViewController.m in Sources */,
 				4B53B292151BCD75003620E0 /* DetailViewController.m in Sources */,
-				4B53B299151BCEDC003620E0 /* RootLevel1.m in Sources */,
 				4B53B29E151BCF27003620E0 /* DetailLevel1.m in Sources */,
 				4B53B2A7151BD11A003620E0 /* RootLevel2.m in Sources */,
 				4B53B2AC151BD155003620E0 /* DetailLevel2.m in Sources */,

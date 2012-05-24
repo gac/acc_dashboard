@@ -8,7 +8,6 @@
 
 #import "DetailViewController.h"
 #import "RootViewController.h"
-#import "RootLevel1.h"
 #import "DetailLevel1.h"
 #import "Project.h"
 
@@ -20,15 +19,11 @@
 
 @end
 
-
 @implementation DetailViewController
 
 @synthesize popoverController;
-
 @synthesize appDelegate;
-
 @synthesize itemID;
-
 @synthesize scrollView = _scrollView;
 
 #pragma mark -
@@ -65,7 +60,6 @@
     }
     
 }
-
 
 - (void)configureView {
     
@@ -130,7 +124,6 @@
     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:[NSString stringWithFormat:@"projects/resources/projects/%@/", self.itemID] objectMapping:projectMapping delegate:self];
 
 }
-
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
     
@@ -266,14 +259,12 @@
 
 }
 
-
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error {
 
     UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error!" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
     [alert show];
     
 }
-
 
 #pragma mark -
 #pragma mark Split view support
@@ -286,14 +277,12 @@
 	self.appDelegate.rootPopoverButtonItem = barButtonItem;
 }
 
-
 // Called when the view is shown again in the split view, invalidating the button and popover controller.
 - (void)splitViewController: (UISplitViewController*)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem {
 	[[self navigationItem] setLeftBarButtonItem:nil];
 	[self setPopoverController:nil];
 	self.appDelegate.rootPopoverButtonItem = barButtonItem;
 }
-
 
 #pragma mark -
 #pragma mark Rotation support
@@ -311,10 +300,8 @@
 	return YES;
 }
 
-
 #pragma mark -
 #pragma mark View lifecycle
-
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
@@ -333,63 +320,15 @@
 
 }
 
-
-/*
-- (void)viewWillAppear:(BOOL)animated {
-    
-    [super viewWillAppear:animated];
-	
-    
-}
-
-
- - (void)viewDidAppear:(BOOL)animated {
-     
-     [super viewDidAppear:animated];
-     self.title = @"General Information";
-
- }
- */
-
-
-/*
- - (void)viewWillDisappear:(BOOL)animated {
- [super viewWillDisappear:animated];
- }
- */
-/*
- - (void)viewDidDisappear:(BOOL)animated {
- [super viewDidDisappear:animated];
- }
- */
-
 - (void)viewDidUnload {
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
     self.popoverController = nil;
 }
 
-
 #pragma mark -
 #pragma mark Memory management
 
-/*
- - (void)didReceiveMemoryWarning {
- // Releases the view if it doesn't have a superview.
- [super didReceiveMemoryWarning];
- 
- // Release any cached data, images, etc that aren't in use.
- }
- */
-
-- (void)dealloc {
-    //[popoverController release];
-    
-    
-    //[detailItem release];
-    //[detailDescriptionLabel release];
-    //[super dealloc];
-}
 - (IBAction)pushViewController:(id)sender{
 	
 	DetailLevel1 <UISplitViewControllerDelegate>*detailLevel1=[[DetailLevel1 alloc]init];
@@ -413,7 +352,6 @@
 	
 }
 
-
 #pragma mark -
 #pragma mark Table view data source
 
@@ -423,7 +361,6 @@
     return 3;
     
 }
-
 
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {
     
@@ -438,7 +375,6 @@
     
 }
 
-
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     
     if (section == 0 ) {
@@ -450,7 +386,6 @@
     }
 
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -498,85 +433,6 @@
     
 }
 
-/*
-- (IBAction)updateTableView:(id)sender {
-    
-    RKObjectMapping* portfolioMapping = [RKObjectMapping mappingForClass:[Portfolio class]];
-    [portfolioMapping mapKeyPath:@"id" toAttribute:@"portfolioID"];
-    [portfolioMapping mapKeyPath:@"name" toAttribute:@"name"];
-    
-    RKObjectMapping* projectMapping = [RKObjectMapping mappingForClass:[Project class]];
-    [projectMapping mapKeyPath:@"id" toAttribute:@"projectID"];
-    [projectMapping mapRelationship:@"portfolio" withMapping:portfolioMapping];     
-    [projectMapping mapKeyPath:@"folio" toAttribute:@"folio"];
-    [projectMapping mapKeyPath:@"name" toAttribute:@"name"];
-    
-    RKObjectMapping* projectGroupMapping = [RKObjectMapping mappingForClass:[ProjectGroup class]];
-    [projectGroupMapping mapKeyPath:@"id" toAttribute:@"projectGroupID"];
-    [projectGroupMapping mapKeyPath:@"name" toAttribute:@"name"];
-    [projectGroupMapping addRelationshipMapping:[RKObjectRelationshipMapping mappingFromKeyPath:@"projects" toKeyPath:@"projects" withMapping:projectMapping]];
-    
-    switch (_segmentedControl.selectedSegmentIndex) {
-            // By Portfolio
-        case 0:
-            
-            [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"projects/resources/projects/" objectMapping:projectMapping delegate:self];
-            break;
-            
-            // By Project Group
-        case 1:;
-            
-            [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"projects/resources/project/groups/" objectMapping:projectGroupMapping delegate:self];
-            break;
-            
-        default:            
-            break;
-    }
-    
-}
- */
-
-
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
-
-
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
- 
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
- }   
- else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }   
- }
- */
-
-
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
- }
- */
-
-
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
-
-
 #pragma mark -
 #pragma mark Table view delegate
 
@@ -587,19 +443,7 @@
         [self pushViewController:nil];
         
     }
-    
-    
-    ///_selectedProject = [[_listofItems objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-    
-    /*
-     When a row is selected, set the detail view controller's detail item to the item associated with the selected row.
-     */
-	///self.detailViewController=(DetailViewController *)[[self.appDelegate.splitProjectsViewController.viewControllers objectAtIndex:1] visibleViewController];
-    ///self.detailViewController.itemID = [NSString stringWithFormat:@"%@", _selectedProject.projectID];
-    
+
 }
-
-
-
 
 @end

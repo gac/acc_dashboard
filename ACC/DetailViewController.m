@@ -485,6 +485,11 @@
         cell.textLabel.text = @"Pruebas No Funcionales";
         cell.textLabel.font = [UIFont systemFontOfSize:17];
 
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        button.backgroundColor = [UIColor clearColor];
+        [button addTarget:self action:@selector(pushViewController:) forControlEvents:UIControlEventTouchUpInside];
+        cell.accessoryView = button;
+
     }
     
     cell.backgroundColor = [UIColor clearColor];
@@ -576,6 +581,12 @@
 #pragma mark Table view delegate
 
 - (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (indexPath.section == 2) {
+        
+        [self pushViewController:nil];
+        
+    }
     
     
     ///_selectedProject = [[_listofItems objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
